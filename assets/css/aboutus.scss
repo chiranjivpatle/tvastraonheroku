@@ -1,0 +1,287 @@
+:root{
+    --heading:rgba(255, 255, 255,0.9);
+    --header-p:rgba(255, 255, 255,0.6);
+    --video-box:black;
+    --button-background:#4e6ca3;
+    --button-font:white;
+    --box-border:rgba(255, 255, 255,0.5);
+}
+
+
+// ..............heading.............
+.heading{
+    height: 16rem;
+    background-image:linear-gradient(rgba(0, 0, 0,0.3),rgba(0, 0, 0,0.3)),url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/aboutUs_hero.jpeg");
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content{
+        h1{
+            color: var(--heading);
+        }
+        p{
+            margin:0;
+            color: var(--header-p);
+        }
+    }
+}
+
+// ..............introduction.............
+.introduction{
+    .parase{
+        h2{
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        p{
+
+        }
+        .signiture{
+            text-align: center;
+            img{
+                width: fit-content;
+                width: 12rem;
+            }
+        }
+    }
+    .doctor-photo{
+        margin-top: 1rem;
+        width: 100%;
+        height: 100%;
+        
+        img{
+
+        }
+    }
+}
+
+/* ...................video box.................... */
+.video-box{
+    background-color: var(--video-box);
+    #myvideo{
+        display: none;
+    }
+    .video-info{
+        .video-content{
+            text-align: center;
+            h2{
+                color:  var(--heading);
+                margin-bottom: 1rem;
+            }
+            p{
+                color: var(--header-p);
+            }
+            button{
+                border: none;
+                border-radius: 0.3rem;
+                background-color: var(--blue_sky);
+                margin-bottom: 1rem;
+                color:var(--button-font);
+            }
+        }
+        .member-box{
+            .member{
+                height: 6rem;
+                border: 2px solid var(--box-border);
+                border-radius: 0.2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-bottom: 0.5rem;
+                h2{
+                    color:  var(--heading);
+                }
+                p{
+                    color: var(--header-p);
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+/*help*/
+.helps {
+     
+        background-color: var(--skyblue);
+    .help {
+        align-items: center;
+    }
+    .content h2 {
+        color: var(--white);
+    }
+    .content p {
+        color: var(--black);
+    }
+    button {
+        align-items: center;
+    }
+}
+
+
+/* ...................................................................... */
+/* ...................................................................... */
+/* .........................tablet....................................... */
+/* ...................................................................... */
+/* ...................................................................... */
+
+
+@media only screen and (min-width:768px) {
+
+// ........heading...............
+.heading{
+    height: 21rem;
+}
+// ..............introduction.............
+.introduction{
+    display: flex;
+    .parase{
+        h2{
+            text-align: start;
+        }
+        p{
+            text-align: start;
+        }
+        .signiture{
+            text-align: start;
+            img{
+            }
+        }
+    }
+    .doctor-photo {
+        text-align: end;
+    }
+}
+
+/* ...................video box.................... */
+.video-box{
+    .video-info{
+        .video-content{
+            text-align: start;
+            h2{
+                margin-bottom: 1rem;
+            }
+            p{
+                margin-bottom: 0;
+                text-align: start;
+            }
+            button{
+                margin: 3rem 0;
+            }
+        }
+        .member-box{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .member{
+                width: 32%;
+            }
+        }
+    }
+}
+
+
+}
+
+
+/* ...................................................................... */
+/* ...................................................................... */
+/* .........................decstop...................................... */
+/* ...................................................................... */
+/* ...................................................................... */
+
+
+@media only screen and (min-width:1023px) {
+
+
+      
+ /* .................nav............ */
+ p{
+    font-size: 1.2rem;
+}
+
+
+// ......heading ...............
+.heading {
+    .content{
+        h1{
+            text-align: center;
+        }
+    }
+}
+// ..............introduction.............
+.introduction{
+    .parase{
+        width: 100%;
+    }
+    .doctor-photo{
+        img{
+            width: 45%;
+            margin-left: 10rem;
+        }
+    }
+}
+
+/* ...................video box.................... */
+.video-box{
+    display: flex;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    .video{
+        width: 100%;
+        #myvideo{
+            display: block;
+            width: 100%;
+            object-fit: cover;
+            width: 100%;
+            height: 32rem;
+            source{
+                
+            }
+        }
+    }
+    .video-info{
+        margin: 5rem 5rem;
+        display: flex;
+        position: absolute;
+        // display: none;
+        .video-content{
+            width: 100%;
+            margin-right: 2rem;
+            h2{
+                margin-bottom: 2rem;
+            }
+            p{
+
+            }
+            button{
+                margin: 4.5rem 0;
+                padding: 0.7rem 1rem;
+            }
+        }
+        .member-box{
+            .member{
+                width: 10rem;
+                height: 10rem;
+                h2{
+
+                }
+                p{
+
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+}

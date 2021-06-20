@@ -1,0 +1,165 @@
+:root {
+  --input-border:  rgba(0,0,0,0.2);
+  --heading:rgb(81, 81, 175);
+  --placeholder: rgba(0,0,0,0.2);
+  --background:rgb(171, 171, 221);
+  --form-background:white;
+  --i:rgba(223, 215, 215, 0.87);
+  --button-font:white;
+}
+
+nav {
+  position: absolute;
+  z-index: 1;
+  background: var(--white);
+  width: -webkit-fill-available;
+}
+
+nav #navbar_buttons .tvastraplus {
+  display: none;
+}
+
+nav #navbar_buttons .login-button {
+  display: none;
+}
+
+.main {
+  background: var(--skyblue);
+  position: relative;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0rem 1rem;
+}
+
+.main .login-box {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.main .login-box .login {
+  text-align: center;
+  background: var(--form-background);
+  border-bottom: 0.1rem solid var(--blackish);
+  padding: 1rem 0rem;
+}
+
+.main .login-box .login h2 {
+  color: var(--blue_sky);
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.main .login-box .form {
+  background: var(--form-background);
+  padding: 1rem;
+  text-align: center;
+}
+
+.main .login-box .form form .location {
+  -ms-flex-pack: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  border: 0.1rem solid var(--blackish);
+}
+
+.main .login-box .form form .location input {
+  border: none;
+}
+
+.main .login-box .form form .location span {
+  font-size: 0.8rem;
+  margin-right: 0.6rem;
+}
+
+.main .login-box .form form .location span i {
+  color: var(--i);
+  font-size: 1rem;
+}
+
+.main .login-box .form form .a {
+  margin-bottom: 0.5rem;
+}
+
+.main .login-box .form form button {
+  width: 100%;
+  height: 2.5rem;
+  position: relative;
+  color: var(--button-font);
+  letter-spacing: 0.2rem;
+  font-size: 0.7rem;
+}
+
+.main .login-box .form form button span {
+  position: absolute;
+  right: 1.2rem;
+}
+
+.main .login-box .form form button span i {
+  color: var(--button-font);
+}
+
+.main .login-box .signup {
+  background: var(--form-background);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: 'Nexa Light';
+}
+
+.main .login-box .signup a {
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.main .login-box .signup span {
+  color: var(--blue_sky);
+}
+
+.main .reserved {
+  text-align: center;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0.5rem;
+}
+
+.main .reserved h6 {
+  font-size: 0.6rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .main .login-box {
+    width: 60%;
+    margin-top: 4rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .main .login-box {
+    width: 40%;
+  }
+  .main .login-box .login h2 {
+    text-align: center;
+  }
+  .main .login-box .form form button {
+    padding: 0rem;
+  }
+}
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/otp.css">
+
+    <title>otpnew</title>
+</head>
+<body>
+
+
+<!-- include nav-->
+<!-- /include nav -->
+
+<% if(data.err) { %>
+  <div class="alert" id="err">
+    <i class="fa fa-times-circle" aria-hidden="true"></i>
+
+      <div class="alert_content">
+          <h4>Failuar</h4>
+          <p> <strong> <%= data.err %> </strong> </p>
+      </div>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  </div>
+<% } %>
+  
+<% if(data.succ) { %>
+  <div class="alert" id="succ" >
+      <i class="fa fa-check-circle" aria-hidden="true"></i>
+      <div class="alert_content">
+          <h4>Info</h4>
+          <p> <strong> <%= data.succ %> </strong> </p>
+      </div>
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  </div>
+<% } %>
+
+<div class="main">
+
+    <div class="login-box">
+
+        <div class="login">
+            <h2>OTP</h2>
+        </div>
+
+        <div class="form">
+            <p> new we have sent one time password (OTP) to your registered Phone Number</p>
+            <form action="otp_send_new" method="POST">
+              <div class="codebox">
+
+                <input name="input1" id="codeBox1" type="number" maxlength="1" onkeyup="onKeyUpEvent(1, event)" onfocus="onFocusEvent(1)" required/>
+                <input name="input2" id="codeBox2" type="number" maxlength="1" onkeyup="onKeyUpEvent(2, event)" onfocus="onFocusEvent(2)" required/>
+                <input name="input3" id="codeBox3" type="number" maxlength="1" onkeyup="onKeyUpEvent(3, event)" onfocus="onFocusEvent(3)" required/>
+                <input name="input4" id="codeBox4" type="number" maxlength="1" onkeyup="onKeyUpEvent(4, event)" onfocus="onFocusEvent(4)" required/>             
+
+              </div>
+              <a href="/resend_otp"><h5>resend  <span id="timeleft"></span></h5></a>  
+              <button type="submit"> SUBMIT <span> <i class="fa fa-arrow-right" aria-hidden="true"></i> </span></button>
+            </form>
+        </div>
+ 
+    </div>
+
+    <div class="reserved">
+        <h6> All right reserved Tvastra 2020 </h6>
+    </div>
+
+</div>
+
+
+  <script>
+      function getCodeBoxElement(index) {
+        return document.getElementById('codeBox' + index);
+      }
+      function onKeyUpEvent(index, event) {
+        const eventCode = event.which || event.keyCode;
+        if (getCodeBoxElement(index).value.length === 1) {
+          if (index !== 4) {
+            getCodeBoxElement(index+ 1).focus();
+          } else {
+            getCodeBoxElement(index).blur();
+            // Submit code
+            console.log('submit code ');
+          }
+        }
+        if (eventCode === 8 && index !== 1) {
+          getCodeBoxElement(index - 1).focus();
+        }
+      }
+      function onFocusEvent(index) {
+        for (item = 1; item < index; item++) {
+          const currentElement = getCodeBoxElement(item);
+          if (!currentElement.value) {
+              currentElement.focus();
+              break;
+          }
+        }
+      }
+
+
+
+      var timeleft = 5;
+      var downloadTimer = setInterval(function(){
+        if(timeleft <= 0){
+          clearInterval(downloadTimer);
+          document.getElementById("timeleft").style.display = "none";
+        }
+        document.getElementById("timeleft").innerHTML = `${timeleft}`;
+        timeleft -= 1;
+
+      }, 1000);
+
+      var timer = 3;
+      var downloadTimer = setInterval(function(){
+        if(timer <= 0){
+          clearInterval(downloadTimer);
+          document.getElementById("succ").style.display = "none";
+        }
+        timer -= 1;
+      }, 1000);
+
+      var timerr = 3;
+      var downloadTimer = setInterval(function(){
+        if(timerr <= 0){
+          clearInterval(downloadTimer);
+          document.getElementById("err").style.display = "none";
+        }
+        timerr -= 1;
+      }, 1000);
+
+  </script>
+
+    
+    
+</body>
+</html>

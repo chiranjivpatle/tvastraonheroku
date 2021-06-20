@@ -1,0 +1,303 @@
+@import url(theme.css);
+
+/*nav*/ 
+.image1 {
+    width: 8rem;
+    height: 1.4rem;
+}
+.navbar_menu, .navbar_buttons {
+    display: none;
+}
+
+/*contact*/
+.contact {
+    background-image: linear-gradient(to right, rgba(45, 165, 212,0.9), rgba(133, 178, 196,0)),url("https://www.medicalplusbali.com/wp-content/uploads/2019/08/health_care.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 35vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+h2, p {
+    color: var(--white);
+}
+}
+
+/*vaccination*/
+.vaccination {
+.about-department h3 {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+.about-department p{
+    text-align: left;
+}
+.about-department ul li::before {
+  content: "\2022";
+  color: var(--blue_sky);
+  font-weight: bold;
+  display:inline-block;
+  font-size: 1rem;
+  width: 1rem;
+}
+.about-department ul li {
+    font-size: 0.9rem;
+}
+.icon-injury-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.inside-icon-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inside-icon-box h4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.fa-icon-one {
+    background-color:var(--faint_blue);
+    width: 2rem;
+    padding: 1rem;
+    border-radius: 5rem;
+}
+.service-details-box {
+    border: 0.2rem solid var(--select_grey);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.main-details-box {
+    padding: 0.5rem 1.5rem;
+}
+.box-in-details-box {
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 0.5rem 0rem;
+    border-bottom: 0.1rem solid var(--select_grey);
+    
+}
+.box-in-details-box h5, .box-in-details-box h6 {
+    font-size: 0.8rem;
+}
+.box-in-details-box h5 {
+    color: var(--dark);
+}
+.box-in-details-box h6 {
+    color: var(--greyish);
+}
+.service-details-box h4 {
+    position: relative;
+    margin-left: 1.5rem;
+}
+.service-details-box h4::before {
+    content: " ";
+    position: absolute;
+    width: 1rem;
+    border-bottom: 2px solid var(--blackish_blue);
+    top :0.5rem;
+    left:-1.5rem;
+}
+}
+
+/*services*/
+.services{
+    background-color: var(--skyblue);
+    .arrow-box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+        h2{
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .arrow-button{
+            display: flex;
+            .arrow{
+                padding: 0.5rem;
+                background-color: var(--white);
+                border-radius: 50%;
+                margin-right: 0.5rem;
+                i{
+                    font-size: 0.7rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .desices{
+        display:flex;
+        flex-wrap: wrap;
+        .desices-box{
+            width: 100%;
+            position: relative;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 17rem;
+            &::before {
+                position: absolute;
+                content: "";
+                border-top: 3px solid var(--blackish_blue);
+                width: 1rem;
+                bottom: 2rem;
+                z-index: 1;
+            }
+            .paitiont-img{
+                position: absolute;
+                height: 100%;
+                img{
+                    border-radius: 0.5rem;
+                }
+            }
+            .h3{
+                position: absolute;
+                bottom: 0;
+                padding: 1.5rem 0rem;
+                background-color:  var(--white);
+                width: 100%;
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+                h3{
+                    margin-left: 1.5rem;
+                }
+            }
+        }
+    }
+    .fade {
+    
+        animation: fade 1s forwards;
+        position: relative;
+        transform: translateX(100%);
+        
+        
+      }
+      
+      
+      
+      @keyframes fade {
+        
+    
+      from {opacity: .4}
+      to {opacity: 1}
+    
+      100%{ transform: translateX(0%)}
+      }
+}
+
+
+
+@media only screen and (min-width:768px) {
+    /*vaccination*/
+    .vaccination {
+    .one-box-vaccn {
+        display: grid;
+        grid-template-columns: 40% 50%;
+        grid-column-gap: 2rem;
+    }
+    .inside-one-box h2 {
+        text-align: left;
+    }
+    .inside-one-box img {
+        height: 17rem;
+    }
+    
+    .about-department {
+        margin-top: 2.5rem;
+    }
+    .about-department ul li {
+        font-weight: bold;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .icon-injury-box {
+        display: flex;
+        flex-direction: row;
+        margin-top: 4rem;
+    }
+    .service-details-box {
+        height:fit-content;
+    }
+    .main-service-box {
+        display: flex;
+        column-gap: 1rem;
+    }
+    .service-details-box {
+        width: 50%;
+    }
+    }
+    /*more services*/
+    .services{
+        .arrow-box{
+            justify-content: space-between;
+            flex-direction: row;
+            h2{
+                margin-bottom: 0;
+            }
+        }
+        .desices{
+            display: flex;
+            justify-content: space-between;
+            .desices-box{
+                width: 32.5%;
+                &::before{
+                    bottom: 2rem;
+                }
+            }
+        }
+    }
+    
+    
+    
+}
+
+
+
+@media only screen and (min-width:1024px)
+{
+    
+
+    
+    /*vaccination*/
+    .vaccination {
+    .vaccination-section {
+        display: grid;
+        grid-template-columns: 70% 30%;
+    }
+    .service-details-box {
+        width: auto;
+    }
+    .main-service-box {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .icon-injury-box {
+        margin-top: 6rem;
+        margin-bottom: 0;
+        .inside-icon-box {
+            p {
+                margin-bottom: 0;
+                text-align: center;
+            }
+        }
+    }
+}
+    
+   
+} 

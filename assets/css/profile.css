@@ -1,0 +1,851 @@
+body {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #eee;
+}
+
+.alert {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  position: absolute;
+  right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 6rem;
+  z-index: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: 0.2rem solid green;
+}
+
+.alert i {
+  font-size: 1.5rem;
+  color: green;
+}
+
+.alert .alert_content {
+  margin-left: 1rem;
+}
+
+.alert .alert_content h4 {
+  color: green;
+}
+
+.alert .alert_content p {
+  color: green;
+  margin-bottom: 0;
+}
+
+.alert .closebtn {
+  margin-left: 15px;
+  font-weight: bold;
+  float: right;
+  color: green;
+  font-size: 2rem;
+  line-height: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.alert:hover {
+  color: black;
+}
+
+.mystyle {
+  border-left: 0.3rem solid #0a7abb;
+  border-radius: 0.2rem;
+  background-color: #e2dcdc;
+  color: #0a7abb;
+}
+
+.mystyle p {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #0a7abb;
+}
+
+.profile .dashbord h2 {
+  margin-bottom: 1rem;
+}
+
+.profile .dashbord .dashbord_button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.profile .dashbord .dashbord_button .dash_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem 0.8rem;
+}
+
+.profile .dashbord .dashbord_button .dash_btn i {
+  color: #0a7abb;
+  margin-right: 1rem;
+}
+
+.profile .dashbord .dashbord_button .dash_btn p {
+  margin-bottom: 0rem;
+}
+
+.profile .dashbord .dashbord_button .dash_btn:hover {
+  border-left: 0.3rem solid #0a7abb;
+  border-radius: 0.2rem;
+  background-color: #e2dcdc;
+}
+
+.profile .dashbord_content1 {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.2rem;
+}
+
+.profile .dashbord_content1 .save_change {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 0.0001rem solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.profile .dashbord_content1 .save_change h2 {
+  margin-bottom: 1rem;
+}
+
+.profile .dashbord_content1 .save_change .save_btn {
+  width: 100%;
+  border-radius: 0.3rem;
+  background: #0a7abb;
+  margin-bottom: 1rem;
+}
+
+.profile .dashbord_content1 .border_div {
+  border-bottom: 0.0001rem solid rgba(0, 0, 0, 0.2);
+  padding: 1rem 0.5rem;
+  width: 100%;
+}
+
+.profile .dashbord_content1 .border_div .photo-con h4 {
+  margin-bottom: 1rem;
+}
+
+.profile .dashbord_content1 .border_div .photo-con .profile_photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.profile .dashbord_content1 .border_div .photo-con .profile_photo .img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.profile .dashbord_content1 .border_div .photo-con .profile_photo .img img {
+  border-radius: 5rem;
+}
+
+.profile .dashbord_content1 .border_div .photo-con .profile_photo .select_photo p {
+  text-align: start;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile .dashbord_content1 .border_div .photo-con .profile_photo .select_photo .custom-file-upload {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.profile .dashbord_content1 .border_div .photo-con .profile_photo .select_photo .custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.profile .dashbord_content1 .border_div .photo-con .profile_photo .select_photo .custom-file-upload h5 {
+  margin-left: 1rem;
+  color: #0a7abb;
+}
+
+.profile .dashbord_content1 .border_div .inputs {
+  margin-top: 0.5rem;
+}
+
+.profile .dashbord_content1 .border_div .inputs label h4 {
+  padding: 0.5rem 0;
+}
+
+.profile .dashbord_content1 .border_div .inputs .tagify {
+  padding: 0.3rem 0.7rem;
+}
+
+.profile .dashbord_content1 .border_div .inputs input {
+  padding: 01rem 01rem;
+}
+
+.profile .dashbord_content1 .border_div .inputs select {
+  padding: 0.85rem 1rem;
+}
+
+.profile .dashbord_content1 .border_div .inputs input [type="date"] {
+  padding: 0.85rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.profile .dashbord_content1 .border_div .inputs .num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #eee;
+}
+
+.profile .dashbord_content1 .border_div .inputs .num input {
+  border: none;
+  background: #eee;
+}
+
+.profile .dashbord_content1 .border_div .inputs .num i {
+  color: #0a7abb;
+  margin-right: 1rem;
+}
+
+.profile .dashbord_content1 .border_div .last_class {
+  width: 100%;
+}
+
+.profile .dashbord_content1 .border_div .last_class .yourself {
+  margin: 0.5rem 0;
+}
+
+.profile .dashbord_content2 {
+  background: white;
+  display: block;
+  padding: 1rem;
+  border-radius: 0.3rem;
+}
+
+.profile .dashbord_content2 .compleatedAppointments {
+  margin: 1rem 0;
+}
+
+.profile .dashbord_content2 .no_appointment {
+  padding: 2rem 0;
+  text-align: center;
+  display: none;
+}
+
+.profile .dashbord_content2 h2 {
+  margin: 1rem 0;
+}
+
+.profile .dashbord_content2 .appointment {
+  padding: 0.5rem;
+  background: #eee;
+  border: 1px solid gray;
+  border-radius: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.profile .dashbord_content2 .appointment .date_time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.profile .dashbord_content2 .appointment .date_time .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+}
+
+.profile .dashbord_content2 .appointment .date_time .date h4 {
+  text-align: center;
+}
+
+.profile .dashbord_content2 .appointment .date_time form {
+  height: 100%;
+}
+
+.profile .dashbord_content2 .appointment .date_time form input {
+  display: none;
+}
+
+.profile .dashbord_content2 .appointment .date_time form .date {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 6rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+  height: 100%;
+}
+
+.profile .dashbord_content2 .appointment .date_time .time .name {
+  color: #0a7abb;
+}
+
+.profile .dashbord_content2 .appointment .date_time .time h4 {
+  text-align: center;
+  margin-bottom: 0.2rem;
+  color: #8d8888;
+}
+
+.profile .dashbord_content2 .appointment .date_time .time .confirmed {
+  text-align: center;
+  background: #8cc4e9;
+  border-radius: 01rem;
+  color: white;
+  font-family: nexa-bold;
+  padding: 0.3rem 0.6rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.5rem auto;
+  margin-bottom: 0;
+}
+
+.profile .dashbord_content2 .appointment .cancel_appointment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.profile .dashbord_content2 .appointment .cancel_appointment button {
+  background: #0a7abb;
+  width: 48%;
+  border-radius: 0.4rem;
+}
+
+.profile .medical_record .head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile .medical_record .head button {
+  width: 100%;
+  border-radius: 0.4rem;
+  background: #0a7abb;
+  margin-bottom: 1rem;
+}
+
+.profile .medical_record .appointment .cancel_appointment button {
+  width: 100%;
+}
+
+.profile .medical_record .appointment form #uid {
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.profile .medical_record .records {
+  width: auto;
+  margin: 1rem;
+  display: inline-block;
+}
+
+.profile .medical_record .records .record_delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.3rem;
+  background: #ccc;
+}
+
+.profile .medical_record .records .record_delete form input {
+  display: none;
+}
+
+.profile .medical_record .records .record_delete form button {
+  background: none;
+}
+
+.profile .medical_record .records .photos {
+  border-bottom: 1.4rem solid #ccc;
+  height: 8rem;
+}
+
+#number_change {
+  background: #0009;
+  z-index: 10;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: auto;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#number_change .edit_number {
+  max-width: 90%;
+  width: 30rem;
+  background: #eee;
+  padding: 0.5rem;
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  -webkit-animation: grow 0.3s ease-out;
+          animation: grow 0.3s ease-out;
+}
+
+#number_change .edit_number h2 {
+  margin: 1rem 0;
+}
+
+#number_change .edit_number .inputs {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+#number_change .edit_number .inputs .number {
+  background-color: #eee;
+}
+
+#number_change .edit_number .inputs label h4 {
+  margin: 0.5rem 0;
+}
+
+#number_change .edit_number .send_otp {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  text-align: right;
+  width: 100%;
+}
+
+#number_change .edit_number .send_otp button {
+  margin: 0.5rem 0;
+}
+
+#number_change .edit_number .send_otp .cancel_btn {
+  margin-left: auto;
+  background: #fa8072;
+  margin-right: 0.5rem;
+}
+
+#number_change .edit_number .send_otp .otp_btn {
+  background: #8fbc8f;
+}
+
+#cancel_appointment {
+  background: #0009;
+  z-index: 10;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+#cancel_appointment .edit_number {
+  max-width: 90%;
+  width: 30rem;
+  background: #eee;
+  padding: 0.5rem;
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+  transition: transform 0.2s ease-in, -webkit-transform 0.2s ease-in;
+  -webkit-animation: grow 0.3s ease-out;
+          animation: grow 0.3s ease-out;
+}
+
+#cancel_appointment .edit_number p {
+  text-align: start;
+}
+
+#cancel_appointment .edit_number h2 {
+  margin: 1rem 0;
+}
+
+#cancel_appointment .edit_number .send_otp {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  text-align: right;
+  width: 100%;
+}
+
+#cancel_appointment .edit_number .send_otp button {
+  margin: 0.5rem 0;
+  margin-left: auto;
+}
+
+#cancel_appointment .edit_number .send_otp .yes {
+  background: #fa8072;
+  margin-right: 0.5rem;
+}
+
+#cancel_appointment .edit_number .send_otp .no {
+  background: #8fbc8f;
+}
+
+.add_record {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.add_record .edit_number form .add_photo {
+  background-color: #cccccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: -webkit-fill-available;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.add_record .edit_number form .add_photo #previeww {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.add_record .edit_number form .add_photo #previeww img {
+  width: 6.5rem;
+  height: 5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.add_record .edit_number form .add_photo .add_photo_div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #333333;
+  color: white;
+  padding: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.add_record .edit_number form .add_photo .add_photo_div i {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.add_record .edit_number form .add_photo .add_photo_div h3 {
+  color: white;
+  margin: 0rem;
+}
+
+.add_record .edit_number form .add_photo .add_photo_div input[type="file"] {
+  display: none;
+}
+
+.add_record .edit_number form .report {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.add_record .edit_number form .report h2 {
+  margin: 0.5rem 0;
+  margin-bottom: 1rem;
+  width: 100%;
+  color: #0a7abb;
+}
+
+.add_record .edit_number form .report input {
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.add_record .edit_number form .report .report_type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add_record .edit_number form .report .report_type:hover {
+  background-color: #cccccc;
+}
+
+.add_record .edit_number form .report .report_type i {
+  margin-right: 0.5rem;
+}
+
+.add_record .edit_number form .inputs {
+  width: 100%;
+}
+
+.add_record .edit_number form .inputs input {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.add_record .edit_number form .inputs .number {
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.add_record .edit_number form .send_otp {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add_record .edit_number form .send_otp button {
+  margin-left: 0;
+}
+
+.add_record .edit_number form .send_otp .done {
+  background: #8fbc8f;
+  margin-left: 0;
+}
+
+.add_record .edit_number form .send_otp .cancel_btn {
+  background: #fa8072;
+  margin-right: 0.5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: 'nexa-light';
+  margin-left: auto;
+}
+
+/* ....................................................*/
+/* ................................................... */
+/* ............tablet................................... */
+/* .................................................... */
+/* .................................................. */
+@media only screen and (min-width: 768px) {
+  .profile .dashbord h2 {
+    margin-bottom: 1rem;
+  }
+  .profile .dashbord .dashbord_button {
+    margin-bottom: 1.5rem;
+  }
+  .profile .dashbord_content1 {
+    width: -webkit-fill-available;
+  }
+  .profile .dashbord_content1 .border_div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .profile .dashbord_content1 .border_div .inputs {
+    width: 49%;
+  }
+  .profile .dashbord_content1 .save_change {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-bottom: 1rem;
+  }
+  .profile .dashbord_content1 .save_change h2 {
+    margin-bottom: 0;
+  }
+  .profile .dashbord_content1 .save_change .save_btn {
+    width: auto;
+    margin-bottom: 0;
+  }
+  .profile .dashbord_content2 .appointment {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .profile .dashbord_content2 .appointment .date_time {
+    width: 50%;
+  }
+  .profile .dashbord_content2 .appointment .date_time .time {
+    margin: 0 auto;
+  }
+  .profile .dashbord_content2 .appointment .cancel_appointment {
+    margin-top: 0;
+    margin-left: auto;
+  }
+  .profile .dashbord_content2 .appointment .cancel_appointment button {
+    height: 3.5rem;
+    margin: auto;
+  }
+  .profile .medical_record .head {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .profile .medical_record .head button {
+    width: auto;
+    margin-bottom: 1rem;
+  }
+  .profile .medical_record .appointment {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .profile .medical_record .appointment .date_time {
+    margin: 0;
+  }
+  .profile .medical_record .appointment .cancel_appointment button {
+    height: auto;
+  }
+  .profile .medical_record .records {
+    width: 18.5rem;
+  }
+}
+
+/* ....................................................*/
+/* ................................................... */
+/* ............dekstop................................... */
+/* .................................................... */
+/* .................................................. */
+@media only screen and (min-width: 1024px) {
+  .profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .profile .dashbord {
+    width: 25%;
+    margin-right: 1rem;
+  }
+  .profile .dashbord .dashbord_button {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .profile .dashbord_content1 .border_div {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .profile .dashbord_content1 .border_div .photo-con {
+    width: 33.4%;
+  }
+  .profile .dashbord_content1 .border_div .inputs {
+    width: 31.4%;
+    margin-right: 1rem;
+  }
+  .profile .dashbord_content2 {
+    width: -webkit-fill-available;
+  }
+  .profile .dashbord_content2 .appointment .date_time .date {
+    width: 7rem;
+  }
+}
+/*# sourceMappingURL=profile.css.map */

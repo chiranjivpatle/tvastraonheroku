@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show_record</title>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <% if(!(data.admin)){ %>
+            
+                <a href="/profile">
+                    <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>profile</p></div>
+                </a>
+                <a href="/appointment">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>appointments</p></div>
+                </a>
+                <% if(data.user.doctor == "doctor"){ %>
+                    <a href="/schedule">
+                        <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>schedules</p></div>
+                    </a>
+                <% } %>            
+                <a href="/medical_report">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>medical reports </p></div>
+                </a>
+                <a href="/setting">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+                </a>
+
+            <% }else{  %> 
+                <a href="/admin">
+                    <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>dashbord</p></div>
+                </a>
+                <a href="/useradmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>user</p></div>
+                </a>
+                <a href="/doctoradmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>doctor</p></div>
+                </a>           
+                <a href="/hospitaladmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>hospital reports </p></div>
+                </a>
+                <a href="/settingadmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+                </a>
+            <%   } %> 
+        </div>
+    </div>
+
+    <div class="dashbord_content2 mySlides medical_record">
+        <div class="head">
+            <h2>Records</h2>
+            <button onclick="add_record()"  >add record </button>
+        </div>
+
+        <%  for(var i=0 ; i < record_photos.length ; i++){ %>   
+            <div class="records">
+                <div class="record_delete">
+                    <span><h4>gal</h4></span>
+                    <form action="/delete_record_photo" method="POST">
+                        <input type="text" name="delete_record_photo" value = "<%= record_photos[i].filename  %>">
+                        <button class="date" type="submit">  <i class="fa fa-trash" aria-hidden="true"></i> </button>
+                    </form>
+                </div>
+                <div class="photos">
+                    <img src="./uploads/<%=  record_photos[i].filename %> "  > 
+                </div>
+            </div>
+        <%  } %>                              
+
+    </div>
+
+</section>
+<div id="number_change" class="add_record" >
+    <div class="edit_number">
+
+        <form action="/add_record_photo" method="POST" enctype="multipart/form-data">
+            <div class="add_photo">
+                <div id="previeww" >
+                </div>
+                <label class="add_photo_div">
+                    <input type="file" name="record_photos" id="file-input" multiple>   
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <h3>add photo</h3>
+                </label>
+            </div>
+            <div class="send_otp">
+                <div class="cancel_btn" onclick="not_add_record()"  >cancel</div>
+                <button class="done" onclick="not_add_record()" type="submit" >Done</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+<script>
+
+
+function add_record(){
+  var number_change = document.getElementsByClassName("add_record");
+    number_change[0].style.display = "flex";
+}
+function not_add_record(){
+  var number_change = document.getElementsByClassName("add_record");
+    number_change[0].style.display = "none";
+}
+    
+    
+function previewImages() {
+    var preview = document.querySelector('#previeww');
+    if (this.files) {
+      [].forEach.call(this.files, readAndPreview);
+    }
+    function readAndPreview(file) {
+      if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+        return alert(file.name + " is not an image");
+      } // else...
+      var reader = new FileReader();
+      reader.addEventListener("load", function() {
+        var image = new Image();
+        image.height = 100;
+        image.title  = file.name;
+        image.src    = this.result;
+        preview.appendChild(image);
+      });
+      reader.readAsDataURL(file);
+    }
+  }
+  
+  document.querySelector('#file-input').addEventListener("change", previewImages);
+
+
+</script>
+
+
+
+</body>
+</html>

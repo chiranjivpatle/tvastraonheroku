@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    
+     
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <a href="/admin">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>dashbord</p></div>
+            </a>
+            <a href="/useradmin">
+                <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>user</p></div>
+            </a>
+            <a href="/doctoradmin">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>doctor</p></div>
+            </a>
+           
+            <a href="/hospitaladmin">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>hospital </p></div>
+            </a>
+            <a href="/setting">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="dashbord_content1 mySlides">
+        <div class="allHospitalsContainer">
+            <h2>All Users</h2>
+            <div class="cards">
+                <% for(var i =0; i < data.userlist.length ; i++) { %>
+                <div class="card card<%= i %>">
+                    <div class="picContainer hospitalPicContainer">
+                        <% if(data.userlist[i].file){  %>
+                            <img src="./uploads/<%= data.userlist[i].file %>"  alt=" Doctor Pic">
+                        <% }else{  %>
+                            <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png"  alt=" Doctor Pic">
+                        <%   } %>
+                        <div class="controls userControls">
+                            <a onclick="showMenu('<%= i %>')">
+                                <div>
+                                    <i class="fa fa-address-card" aria-hidden="true" ></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem<%= i %>">
+                                <li><a  onclick="window.location.href='/admineditprofile?userid=<%= data.userlist[i].id  %>'">
+                                        Edit Profile</a></li>
+                                <li><a  onclick="window.location.href='/adminallappointment?userid=<%= data.userlist[i].id  %>'">
+                                        Appointments</a></li>
+                                <li><a  onclick="window.location.href='/medical_report?number=<%= data.userlist[i].number %>&i=<%= i %>'">
+                                        Medical Reports</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                <%= data.userlist[i].name %>
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span><%= data.userlist[i].mobileNo %> </span>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span> <%= data.userlist[i].email %> </span>
+                        </li>
+                        <li>
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span> <%= data.userlist[i].gender %></span>
+                        </li>
+                        <li>
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <span><%= data.userlist[i].birthdate %>  </span>
+                        </li>
+                        <li>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span> <%= data.userlist[i].city %> <%= data.userlist[i].state %> </span>
+                        </li>
+                    </ul>
+                </div>
+                <% } %>               
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script>
+
+    var medical_report = document.getElementsByClassName("profile_page");
+    medical_report[0].style.background = "rgb(226, 220, 220)"; 
+    medical_report[0].classList.add("mystyle");
+
+    async function showMenu(menuId) {
+        var menuItem = document.querySelector("#menuItem" + menuId);
+        if (menuItem.style.height === "unset")
+            menuItem.style.height = 0;
+        else
+            menuItem.style.height = "unset";
+    }
+</script>
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.css" />
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <% if(!(data.admin)){ %>
+            
+                <a href="/profile">
+                    <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>profile</p></div>
+                </a>
+                <a href="/appointment">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>appointments</p></div>
+                </a>
+                <% if(data.user.doctor == "doctor"){ %>
+                    <a href="/schedule">
+                        <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>schedules</p></div>
+                    </a>
+                <% } %>            
+                <a href="/medical_report">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>medical reports </p></div>
+                </a>
+                <a href="/setting">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+                </a>
+
+            <% }else{  %> 
+                <a href="/admin">
+                    <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>dashbord</p></div>
+                </a>
+                <a href="/useradmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>user</p></div>
+                </a>
+                <a href="/doctoradmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>doctor</p></div>
+                </a>           
+                <a href="/hospitaladmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>hospital reports </p></div>
+                </a>
+                <a href="/settingadmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+                </a>
+            <%   } %>            
+
+        </div>
+    </div>
+
+    <div class="dashbord_content1 mySlides">
+        <form action="/update_profile" method="POST" enctype="multipart/form-data" > 
+            <div class="save_change" >
+                <h2>Account</h2>
+                <button type="submit" class="save_btn">save change</button>
+            </div>
+            <div class="border_div">
+                <div class="photo-con">
+                    <h4>profile photo</h4>
+                    <div class="profile_photo">
+                        <div class="img">     
+                            <% if(!data.admin && data.user != false){ %>
+                                <img src="./uploads/<%= data.user.file %>"  id="preview">
+                            <% }else{ %>
+                                <img src="./uploads/<%= data.admin.file %>" id="preview">
+                            <% } %>                       
+                        </div>
+                        <div class="select_photo">
+                            <p> pick a photo from your system</p>
+                            <label class="custom-file-upload">
+                                <input type="file" id="filetag" name="file"   >                              
+                                <h5>select photo</h5>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputs">
+                    <label for="name"><h4>name</h4></label>
+                    <% if(!data.admin  || data.user != false){ %>
+                        <input type="text" name="name" id="name" value= '<%= data.user.name %>' >
+                    <% }else{ %>
+                        <input type="text" name="name" id="name" value= '<%= data.admin.name %>' >
+
+                    <% } %>  
+                </div>
+            </div>
+            <div class="border_div">
+                <div class="inputs">
+                    <label for="number"><h4>number</h4></label>
+                    <div class="num">
+                        <% if(!data.admin || data.user != false){ %>
+                            <input type="text" name="mobileNo" id="number" value= '<%= data.user.mobileNo %>' readonly>
+                            <% }else{ %>
+                            <input type="text" name="mobileNo" id="number" value= '<%= data.admin.mobileNo %>' readonly>
+                            
+                            <% } %>  
+                        <i class="fa fa-pencil" aria-hidden="true" class="pencil" onclick = "editnumber()" ></i>
+                    </div>
+                </div>
+                <div class="inputs">
+                    <label for="email"><h4>email</h4></label>
+                    <% if(!data.admin || data.user != false){ %>
+                        <input type="email" name="email" id="email" value= '<%= data.user.email %> '>
+
+                        <% }else{ %>
+                        <input type="email" name="email" id="email" value= '<%= data.admin.email %> '>
+                            
+                        <% } %>  
+                </div>
+                <div class="inputs">
+                    <label for="gender"><h4>gender</h4></label>
+                    <select id="gender" name="gender" >
+                        <% if(!data.admin || data.user != false){ %>
+                            <option value = '<%= data.user.gender %>' > <%= data.user.gender %> </option>
+                            <% }else{ %>
+                            <option value = '<%= data.admin.gender %>' > <%= data.admin.gender %> </option>
+                                
+                            <% } %>  
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+                <div class="inputs">
+                    <label for="date"><h4>date</h4></label>
+                    <% if(!data.admin || data.user != false){ %>
+                        <input type="date" name="birthdate" id="date" value= '<%= data.user.birthdate %>' >
+
+                        <% }else{ %>
+                        <input type="date" name="birthdate" id="date" value= '<%= data.admin.birthdate %>' >
+                            
+                        <% } %>  
+                </div>
+                <div class="inputs">
+                    <label for="timezon"><h4>timezon</h4></label>
+                    <% if(!data.admin || data.user != false){ %>
+                        <input type="text" name="timezon" id="timezon" value= '<%= data.user.timezon %>' >
+
+                        <% }else{ %>
+                        <input type="text" name="timezon" id="timezon" value= '<%= data.admin.timezon %>' >
+                            
+                        <% } %>  
+                </div>
+            </div>
+            <div class="border_div">
+                <div class="inputs">
+                    <label for="house no"><h4>house no</h4></label>
+                    <% if(!data.admin || data.user != false){ %>
+                        <input type="text" name="house_no" id="house no" value= '<%= data.user.house_no %>' >
+
+                        <% }else{ %>
+                        <input type="text" name="house_no" id="house no" value= '<%= data.admin.house_no %>' >
+
+                            
+                        <% } %>  
+                </div>
+                <div class="inputs">
+                    <label for="colony"><h4>colony</h4></label>
+                    <% if(!data.admin || data.user != false){ %>
+                        <input type="text" name="colony" id="colony" value = '<%= data.user.colony %>' >
+
+                        <% }else{ %>
+                        <input type="text" name="colony" id="colony" value = '<%= data.admin.colony %>' >
+                            
+                        <% } %>  
+                </div>
+                <div class="inputs">
+                    <label for="city"><h4>city</h4></label>
+                    <% if(!data.admin || data.user != false){ %>
+                        <input type="text" name="city" id="city" value= '<%= data.user.city %>' >
+
+                        <% }else{ %>
+                        <input type="text" name="city" id="city" value= '<%= data.admin.city %>' >
+                            
+                        <% } %>  
+                </div>
+                <div class="inputs">
+                    <label for="state"><h4>state</h4></label>
+                    <% if(!data.admin || data.user != false){ %>
+                        <input type="text" name="state" id="state" value= '<%= data.user.state %>' >
+
+                        <% }else{ %>
+                        <input type="text" name="state" id="state" value= '<%= data.admin.state %>' >
+                            
+                        <% } %>  
+                </div>
+                <div class="inputs">
+                    <label for="country"><h4>country</h4></label>
+                    <% if(!data.admin || data.user != false){ %>
+                        <select id="country" name="country" value= '<%= data.user.country %>' >
+                            <option value = '<%= data.user.country %>' ><%= data.user.country %></option>
+
+                    <% }else{ %>
+                        <select id="country" name="country" value= '<%= data.admin.country %>' >
+                            <option value = '<%= data.admin.country %>' ><%= data.admin.country %></option>
+                    <% } %>  
+                        <option value="india">india</option>
+                        <option value="usa">usa</option>
+                        <option value="newyork">newyork</option>
+                    </select>
+                </div>
+            </div>
+            
+        <% if(data.user.doctor == "doctor"){ %>
+            <div class="border_div">
+                <div class="inputs">
+                    <label for="hospital"><h4>hospital</h4></label>
+                 
+                    <input name='hospital' value='<%= data.user.hospital %>' placeholder="your hospital" id="hospital">
+                </div>
+                <div class="inputs">
+                    <label for="qualification"><h4>qualification</h4></label>
+                
+                    <input name='qualification' value='<%= data.user.qualification %>' placeholder="your qualification" id="qualification">
+                </div>
+                <div class="inputs">
+                    <label for="achivement"><h4>achivement</h4></label>
+                  
+                    <input name='achivement' value='<%= data.user.achivement %>' placeholder="your achivement" id="achivement">
+                </div>
+
+                <div class="inputs">
+                    <label for="experience"><h4>experience</h4></label>
+                    
+                    <input type="number" name="experience" id="experience" value='<%= data.user.experience %>' placeholder="your experience in year" >
+                </div>
+
+                <div class="inputs">
+                    <label for="awards"><h4>awards</h4></label>
+                  
+                    <input name='awards' value='<%= data.user.awards %>' placeholder="your awards" id="awards">
+                </div>
+                <div class="inputs">
+                    <label for="specification"><h4>specification</h4></label>
+                  
+                    <input name='specification' value='<%= data.user.specification %>' placeholder="your specification" id="specification">
+                </div>
+
+                <div class="inputs">
+                    <label for="fees"><h4>fees</h4></label>
+                   
+                    <input type="number" name="fees" value='<%= data.user.fees %>' id="fees" placeholder="your average fees (in rupees)" >
+                </div>
+
+                <div class="last_class">
+                    <div class="yourself"><h4>yourself</h4></div>
+                  
+                    <textarea name="yourself" id="yourself"  cols="30" rows="6"> <%= data.user.yourself %>  </textarea>
+                </div>
+                
+            </div>
+        <% } %>    
+        </form>
+    </div>
+
+</section>
+
+<div class="number_change" id="number_change">
+    <div class="edit_number">
+        <h2>change phone number</h2>
+        <form action="updatenumber" method="POST" >
+            <div class="inputs">
+                <label for="number"><h4>Current phone number</h4></label>
+                <% if(!data.admin || data.user != false){ %>
+                    <input type="text" name="currentnumber" class="number" value= <%= data.user.mobileNo %>  readonly>
+                    <label for="number"><h4>Enter new phone number</h4></label>
+                    <input type="text" name="newnumber" class="new_number">
+                    <% }else{ %>
+                        <input type="text" name="currentnumber" class="number" value= <%= data.admin.mobileNo %>  readonly>
+                        <label for="number"><h4>Enter new phone number</h4></label>
+                        <input type="text" name="newnumber" class="new_number">
+                    <% } %>
+            </div>
+            <div class="send_otp">
+                <button type="button" class="cancel_btn" onclick="noteditnumber()">cancel</button>
+                <button  class="otp_btn">send otp</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.min.js"></script>
+<script>
+    var achivement = document.querySelector('input[name=achivement]');
+    new Tagify(achivement)
+
+    var hospital = document.querySelector('input[name=hospital]');
+    new Tagify(hospital)
+
+    var qualification = document.querySelector('input[name=qualification]');
+    new Tagify(qualification)
+
+    var awards = document.querySelector('input[name=awards]');
+    new Tagify(awards)
+
+    var specification = document.querySelector('input[name=specification]');
+    new Tagify(specification)
+
+</script>
+<script>
+
+    function popupremove() {
+        var h = document.querySelector(".alert");
+        setTimeout(function(){ h.style.display = "none" }, 700);
+    }
+    popupremove();   
+
+    var medical_report = document.getElementsByClassName("profile_page");
+    medical_report[0].style.background = "rgb(226, 220, 220)"; 
+    medical_report[0].classList.add("mystyle");
+  
+
+    
+    //............................................
+    function editnumber(){
+      var number_change = document.getElementsByClassName("number_change");
+        number_change[0].style.display = "flex";
+    }
+    function noteditnumber(){
+      var number_change = document.getElementsByClassName("number_change");
+        number_change[0].style.display = "none";
+    }
+    
+    //...............................................
+    function cancel_appointment_btn(){
+        var cancel_appointment_btn = document.getElementsByClassName("cancel_appointment_btn");
+        cancel_appointment_btn[0].style.display = "flex";
+    }
+    
+    function cancel_appointment_btn_no(){
+        var cancel_appointment_btn = document.getElementsByClassName("cancel_appointment_btn");
+        cancel_appointment_btn[0].style.display = "none";
+    }
+    //............................................
+    
+    function add_record(){
+      var number_change = document.getElementsByClassName("add_record");
+        number_change[0].style.display = "flex";
+    }
+    function not_add_record(){
+      var number_change = document.getElementsByClassName("add_record");
+        number_change[0].style.display = "none";
+    }
+    
+    
+
+///.................................................................. 2 min me aaya 
+var fileTag = document.getElementById("filetag"),
+    preview = document.getElementById("preview");
+    
+fileTag.addEventListener("change", function() {
+  changeImage(this);
+});
+
+function changeImage(input) {
+  var reader;
+  if (input.files && input.files[0]) {
+    reader = new FileReader();
+    reader.onload = function(e) {
+      preview.setAttribute('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+
+function previewImages() {
+    var preview = document.querySelector('#previeww');
+    if (this.files) {
+      [].forEach.call(this.files, readAndPreview);
+    }
+    function readAndPreview(file) {
+      if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+        return alert(file.name + " is not an image");
+      } // else...
+      var reader = new FileReader();
+      reader.addEventListener("load", function() {
+        var image = new Image();
+        image.height = 100;
+        image.title  = file.name;
+        image.src    = this.result;
+        preview.appendChild(image);
+      });
+      reader.readAsDataURL(file);
+    }
+  }
+  
+  document.querySelector('#file-input').addEventListener("change", previewImages);
+
+
+</script>
+
+
+</body>
+</html>

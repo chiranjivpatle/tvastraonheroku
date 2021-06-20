@@ -1,0 +1,206 @@
+:root{
+    --input-border:  rgba(0,0,0,0.2);
+    --heading:rgb(81, 81, 175);
+    --placeholder: rgba(0,0,0,0.2);
+    --background:rgb(171, 171, 221);
+    --form-background:white;
+    --i:rgba(223, 215, 215, 0.87);
+    --button-font:white;
+}
+
+nav {
+    position: absolute;
+    z-index: 1;
+    background: var(--white);
+    width: -webkit-fill-available;
+    
+        #navbar_buttons {
+            .tvastraplus {
+                display: none;
+            }
+            .login-button {
+                display: none;
+            }
+        }
+}
+
+// ........main.................................
+.main{
+    background: var(--skyblue);
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0rem 1rem;
+    .login-box{
+        width: 100%;
+        margin-top: 3rem;
+        
+        .login{
+            text-align: center;
+            background: var(--form-background);
+            border-bottom: 0.1rem solid var(--blackish);
+            padding: 1rem 0rem;
+            h2{
+                color: var(--blue_sky);
+                margin-bottom: 0;
+                font-size: 1.2rem;
+            }
+        }
+        .form{
+            background:  var(--form-background);
+            padding: 1rem;
+            text-align: center;
+            form{
+                .location{
+                    -ms-flex-pack: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    display: flex;
+                    margin-bottom: 0.5rem;
+                    width: 100%;
+                    border: 0.1rem solid var(--blackish);
+                    input{
+                        // height: 2rem;
+                        // box-sizing: border-box;
+                        // padding: 0rem;
+                        // outline: none;
+                        border: none;
+                    }
+                    span{
+                        font-size: 0.8rem;
+                        margin-right: 0.6rem;
+                        i{
+                            color: var(--i);
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .a{
+                    // border: 1px solid  var(--input-border);
+                    margin-bottom: 0.5rem;
+                    // padding: 0rem;
+                    // outline: none;
+                    // height: 2rem;
+                }
+                button{
+                    width: 100%;
+                    height: 2.5rem;
+                    position: relative;
+                    color: var(--button-font);
+                    letter-spacing: 0.2rem;
+                    font-size: 0.7rem;
+                    span{
+                        position: absolute;
+                        right: 1.2rem;
+                        i{
+                            color: var(--button-font);
+                        }
+                    }
+                }
+            }
+        }
+        .signup{
+            background: var(--form-background);
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            font-family: 'Nexa Light';
+            a{
+                text-decoration: none;
+                font-weight: 900;
+                
+            }
+            span {
+                color: var(--blue_sky);
+            }
+        }
+    }
+    .reserved{
+        text-align: center;
+        font-size: 0.8rem;
+        position: absolute;
+        bottom: 0.5rem;
+        h6{
+            font-size: 0.6rem;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+.nav{
+    // width: 91.7%;
+}
+// ........main.................................
+.main{
+    
+    .login-box{
+        width: 60%;
+        margin-top: 4rem;
+    }
+}
+
+
+}
+
+@media only screen and (min-width: 1024px){
+  
+// ........main.................................
+.main{
+    .login-box{
+        width: 40%;
+        .login h2 {
+        
+            text-align: center;
+        }
+        .form{
+            form{
+                button{
+                    padding: 0rem;
+                }
+            }
+        }
+    }
+}
+
+// // ........main.................................
+// .main{
+//     .login-box{
+//         .login{
+//             h2{
+
+//             }
+//         }
+//         .form{
+//             form{
+//                 .location{
+//                     input{
+
+//                     }
+//                     span{
+//                         i{
+
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//         .signup{
+//             a{
+
+//             }
+//         }
+//     }
+//     .reserved{
+//         h6{
+
+//         }
+//     }
+// }
+
+
+
+}

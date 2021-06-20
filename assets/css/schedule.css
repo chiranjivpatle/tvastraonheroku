@@ -1,0 +1,167 @@
+.profile .medical_record .appointment {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile .medical_record .appointment .date_time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .medical_record .appointment .date_time h3 {
+  color: #5151af;
+}
+
+.profile .medical_record .appointment .date_time .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile .medical_record .appointment .date_time .time .hospital {
+  color: black;
+}
+
+.profile .medical_record .appointment .btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .medical_record .appointment .btns button {
+  margin-right: 0.5rem;
+}
+
+.profile .medical_record .appointment .btns input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.profile .medical_record .appointment .schedule-times {
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0.6rem;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  overflow: hidden;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.profile .medical_record .appointment .schedule-times time {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: var(--white);
+  padding: 0.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.profile .medical_record .appointment .schedule-times time input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.profile .medical_record .appointment .schedule-times .disable {
+  opacity: 0.5;
+}
+
+.profile .medical_record .disable {
+  opacity: 0.6;
+}
+
+#number_change .edit_number form label {
+  width: 100%;
+  text-align: start;
+}
+
+#number_change .edit_number form label h4 {
+  margin: 0.5rem 0;
+}
+
+#number_change .edit_number form select {
+  width: 100%;
+}
+
+#number_change .edit_number form select option {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#number_change .edit_number form .half-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+}
+
+#number_change .edit_number form .half-inputs .time {
+  width: 49%;
+}
+
+#number_change .edit_number form .half-inputs .time h4 {
+  margin: 0.5rem 0;
+}
+
+#number_change .edit_number form .half-inputs small {
+  width: 100%;
+}
+
+#number_change .edit_number form .half-inputs small p {
+  color: red;
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .profile .medical_record .appointment .schedule-times {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .profile .medical_record .appointment .schedule-times {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+/*# sourceMappingURL=schedule.css.map */

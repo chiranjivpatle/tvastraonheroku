@@ -1,0 +1,311 @@
+@import url(theme.css);
+$fil-button-border:rgba(0,0,0,.2);
+$doctor-box-border:rgba(0,0,0,.2);
+$show-more:blue;
+
+$delhi_gra:rgba(133,178,196,0.9);
+$filter_bar:rgb(217, 221, 223);
+$i:rgb(12 ,113 ,167);
+$show_more_bor:rgba(0, 0, 0,0.2);
+
+$red :red;
+
+section {
+    background-color: var(--secondary);
+#doctor-box {
+    background-color: var(--white);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    h1 {
+        
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--gray);
+        
+        color: var(--blue_sky);
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        margin-bottom: 1rem;
+        li {
+           font-size: 0.9rem;
+           i {
+               margin-right: 1rem;
+               color: var(--blue_sky);
+           }
+           a {
+               color: var(--blue_sky);
+               font-weight: bold;
+           }
+        }
+    }
+    #doctor-info{
+        figure {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+            .docimage {
+                width: 7rem;
+                height: 7rem;
+                
+                padding-bottom: 0.5rem;
+            }
+        }
+    }
+    #hospital-info {
+        figure {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+            .hospimage {
+                width: 7rem;
+                height: 7rem;
+                padding-top: 0.5rem;
+                border-top: 0.1rem solid var(--gray) ;
+            }
+        }
+    }
+}
+
+.form {
+    
+    background-color: var(--white);
+    padding: 1rem; 
+    h2 {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--gray);
+        color: var(--blue_sky);
+    }
+    form {
+        h5 {
+            width: 100%;
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            color: var(--blackish_blue);
+        }
+    .radbut {
+        width: 100%;
+        input {
+            width: auto;
+        }
+        label {
+            font-weight: bold;
+        }
+    }
+    label {
+        width: 100%;
+        color: var(--blue_sky);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-weight: bold;
+    }
+    button {
+        width: -webkit-fill-available;
+        margin-top: 1rem;
+    }
+    }
+}
+.col2 {
+    i{
+        margin-right: 1rem;
+        color: var(--blue_sky);
+    }
+    .patientDetails {
+        form {
+            .row1 {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                width: 100%;
+            }
+            .row2 {
+                width: 100%;
+                .itemContainer {
+                    label {
+                        color : var(--blue_sky);
+                        font-weight: bold;
+                    }
+                }
+                .buttons {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 0.5rem;
+                    padding-bottom: 0.5rem;
+                    padding-top: 0.5rem;
+                    .buttonContainer {
+                        button {
+                            background-color: var(--blue_sky);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+    
+}
+.date-container{
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    // margin: 0.5rem;
+    grid-area: 2 / 1 / span 1 / span 2;
+    .date-groups{
+        display: flex;
+        .dates{
+            width: 17rem;
+            text-align: center;
+            transition: 0.3s;
+            height: 2rem;
+            cursor: pointer;
+            &:hover{
+               border-bottom: 3px solid $i;
+            }
+            h4 {
+                margin: 0;
+            }
+        }
+        .active{
+            h5{
+                border-bottom: 3px solid $i;
+                padding-bottom: 0.5rem;  
+                margin-bottom: 0.5rem;                          
+            }
+        }
+    }
+    .back-button{
+        position: absolute;
+        cursor: pointer;
+        z-index: 10;
+        left: 0;
+        background: grey;
+        border-radius: 50%;
+        padding: 0.5rem 0.8rem;
+        h4{
+            color: white;
+        }
+    }
+    .frountbutton{
+        cursor: pointer;
+        position: absolute;
+        z-index: 10;
+        background: grey;
+        border-radius: 50%;
+        padding: 0.5rem 0.8rem;
+        right: 0;
+        h4{
+            color: white;
+        }
+    }
+
+}
+.slots{
+    grid-area: 3 / 1 / span 1 / span 2;
+    .bookingtimegroup {
+        display:none;
+        // margin-top: 3rem;
+        .booking-time{            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            .daytime {
+                margin-right: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                width: 6rem;
+                margin-bottom: 0.5rem;
+            }
+            ul {
+                flex-wrap: wrap;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                li {
+                    cursor: pointer;
+                    border: 1px solid rgba(0,0,0,0.5);
+                    padding: 0.7rem 1rem;
+                    margin: 0.2rem;
+                    z-index: 1;
+                }
+            }
+        }
+        .booking-hospital-name {
+            text-align: center;
+            color: rgb(61, 77, 37);   
+        }
+    }
+    .active{
+        display: block;
+    }
+}
+
+@media only screen and (min-width:768px)
+{
+    section {
+        display: flex;
+        column-gap: 1rem;
+        align-items: center;
+        #doctor-box {
+            overflow: hidden;
+            ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        #doctor-info {
+            figure {
+                figcaption {
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+        }
+    }
+}
+// .date-container{
+//     .date-groups{
+//         .dates{
+//             width: 16rem;
+//             height: 2.7rem;
+//         }
+      
+//     }
+// }
+// .slots{
+//     .bookingtimegroup {
+//         .booking-time{            
+//             flex-direction: row;
+//         }
+//     }
+// }
+@media only screen and (min-width:1024px) {
+    section {
+        justify-content: space-evenly;
+        #doctor-box {
+            ul {
+                width: 70%;
+            }
+        }
+    }
+    // .date-container{
+    //     .date-groups{
+    //         .dates{
+    //             width: 20rem;
+    //             height: 3.1rem;
+    //         }
+    //     }
+    // }
+}
+
+
+/*
+
+*/

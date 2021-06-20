@@ -1,0 +1,387 @@
+@import url(theme.css);
+/*nav*/
+.image1 {
+  width: 8rem;
+  height: 1.4rem;
+}
+
+.navbar_menu, .navbar_buttons {
+  display: none;
+}
+
+/*contact*/
+.contact {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(45, 165, 212, 0.9)), to(rgba(133, 178, 196, 0))), url("https://www.medicalplusbali.com/wp-content/uploads/2019/08/health_care.jpg");
+  background-image: linear-gradient(to right, rgba(45, 165, 212, 0.9), rgba(133, 178, 196, 0)), url("https://www.medicalplusbali.com/wp-content/uploads/2019/08/health_care.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 35vh;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.contact h2, .contact p {
+  color: var(--white);
+}
+
+/*vaccination*/
+.vaccination .about-department h3 {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.vaccination .about-department p {
+  text-align: left;
+}
+
+.vaccination .about-department ul li::before {
+  content: "\2022";
+  color: var(--blue_sky);
+  font-weight: bold;
+  display: inline-block;
+  font-size: 1rem;
+  width: 1rem;
+}
+
+.vaccination .about-department ul li {
+  font-size: 0.9rem;
+}
+
+.vaccination .icon-injury-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.vaccination .inside-icon-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.vaccination .inside-icon-box h4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.vaccination .fa-icon-one {
+  background-color: var(--faint_blue);
+  width: 2rem;
+  padding: 1rem;
+  border-radius: 5rem;
+}
+
+.vaccination .service-details-box {
+  border: 0.2rem solid var(--select_grey);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.vaccination .main-details-box {
+  padding: 0.5rem 1.5rem;
+}
+
+.vaccination .box-in-details-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5rem 0rem;
+  border-bottom: 0.1rem solid var(--select_grey);
+}
+
+.vaccination .box-in-details-box h5, .vaccination .box-in-details-box h6 {
+  font-size: 0.8rem;
+}
+
+.vaccination .box-in-details-box h5 {
+  color: var(--dark);
+}
+
+.vaccination .box-in-details-box h6 {
+  color: var(--greyish);
+}
+
+.vaccination .service-details-box h4 {
+  position: relative;
+  margin-left: 1.5rem;
+}
+
+.vaccination .service-details-box h4::before {
+  content: " ";
+  position: absolute;
+  width: 1rem;
+  border-bottom: 2px solid var(--blackish_blue);
+  top: 0.5rem;
+  left: -1.5rem;
+}
+
+/*services*/
+.services {
+  background-color: var(--skyblue);
+}
+
+.services .arrow-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.services .arrow-box h2 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.services .arrow-box .arrow-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.services .arrow-box .arrow-button .arrow {
+  padding: 0.5rem;
+  background-color: var(--white);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.services .arrow-box .arrow-button .arrow i {
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.services .desices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.services .desices .desices-box {
+  width: 100%;
+  position: relative;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 17rem;
+}
+
+.services .desices .desices-box::before {
+  position: absolute;
+  content: "";
+  border-top: 3px solid var(--blackish_blue);
+  width: 1rem;
+  bottom: 2rem;
+  z-index: 1;
+}
+
+.services .desices .desices-box .paitiont-img {
+  position: absolute;
+  height: 100%;
+}
+
+.services .desices .desices-box .paitiont-img img {
+  border-radius: 0.5rem;
+}
+
+.services .desices .desices-box .h3 {
+  position: absolute;
+  bottom: 0;
+  padding: 1.5rem 0rem;
+  background-color: var(--white);
+  width: 100%;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.services .desices .desices-box .h3 h3 {
+  margin-left: 1.5rem;
+}
+
+.services .fade {
+  -webkit-animation: fade 1s forwards;
+          animation: fade 1s forwards;
+  position: relative;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /*vaccination*/
+  .vaccination .one-box-vaccn {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 40% 50%;
+        grid-template-columns: 40% 50%;
+    grid-column-gap: 2rem;
+  }
+  .vaccination .inside-one-box h2 {
+    text-align: left;
+  }
+  .vaccination .inside-one-box img {
+    height: 17rem;
+  }
+  .vaccination .about-department {
+    margin-top: 2.5rem;
+  }
+  .vaccination .about-department ul li {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .vaccination .icon-injury-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-top: 4rem;
+  }
+  .vaccination .service-details-box {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .vaccination .main-service-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 1rem;
+            column-gap: 1rem;
+  }
+  .vaccination .service-details-box {
+    width: 50%;
+  }
+  /*more services*/
+  .services .arrow-box {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .services .arrow-box h2 {
+    margin-bottom: 0;
+  }
+  .services .desices {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .services .desices .desices-box {
+    width: 32.5%;
+  }
+  .services .desices .desices-box::before {
+    bottom: 2rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /*vaccination*/
+  .vaccination .vaccination-section {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 70% 30%;
+        grid-template-columns: 70% 30%;
+  }
+  .vaccination .service-details-box {
+    width: auto;
+  }
+  .vaccination .main-service-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .vaccination .icon-injury-box {
+    margin-top: 6rem;
+    margin-bottom: 0;
+  }
+  .vaccination .icon-injury-box .inside-icon-box p {
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
+/*# sourceMappingURL=dentistrycss.css.map */

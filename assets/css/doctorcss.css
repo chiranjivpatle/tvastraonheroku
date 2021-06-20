@@ -1,0 +1,722 @@
+@import url(theme.css);
+/*nav*/
+.image1 {
+  width: 8rem;
+  height: 1.4rem;
+}
+
+.navbar_menu, .navbar_buttons {
+  display: none;
+}
+
+:root {
+  --doctor-name: rgb(12 ,113 ,167);
+  --sudo-line: rgb(12 ,113 ,167);
+  --i: rgb(12 ,113 ,167);
+  --sort-by: rgb(241, 232, 232);
+}
+
+.alert {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  position: absolute;
+  right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 6rem;
+  z-index: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: 0.2rem solid red;
+}
+
+.alert i {
+  font-size: 1.5rem;
+  color: red;
+}
+
+.alert .alert_content {
+  margin-left: 1rem;
+}
+
+.alert .alert_content h4 {
+  color: red;
+}
+
+.alert .alert_content p {
+  color: red;
+  margin-bottom: 0;
+}
+
+.alert .closebtn {
+  margin-left: 15px;
+  font-weight: bold;
+  float: right;
+  color: red;
+  font-size: 2rem;
+  line-height: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.alert:hover {
+  color: black;
+}
+
+/* ..........delhi......... */
+#delhisurgen {
+  display: none;
+}
+
+/* ..........delhi.end.......... */
+/* .........sort.......... */
+.sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0rem 1rem;
+}
+
+.sort .sort-home {
+  font-family: 'nexa-light';
+}
+
+.sort select {
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8rem;
+  background-color: var(--sort-by);
+  border: none;
+  font-weight: 600;
+  width: 5.5rem;
+}
+
+/* ........sort end........ */
+#main .main .filter {
+  display: none;
+}
+
+#main .main .doctor-boxs .doctor-box {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.5rem;
+}
+
+#main .main .doctor-boxs .doctor-box .doctor-content .doctor-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  padding: 1rem 0rem;
+}
+
+#main .main .doctor-boxs .doctor-box .doctor-content .doctor-name::before {
+  position: absolute;
+  content: "";
+  width: 1.5rem;
+  border-top: 2px solid var(--sudo-line);
+}
+
+#main .main .doctor-boxs .doctor-box .doctor-content .doctor-name h4 {
+  margin-left: 1.8rem;
+  color: var(--doctor-name);
+}
+
+#main .main .doctor-boxs .doctor-box .doctor-content .doctor-logos ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.1rem;
+}
+
+#main .main .doctor-boxs .doctor-box .doctor-content .doctor-logos ul li .doctor-logo i {
+  margin: 0.5rem;
+  text-align: center;
+  color: var(--i);
+}
+
+#main .main .doctor-boxs .doctor-box .doctor-content .doctor-button {
+  text-align: center;
+  margin: 0.5rem 0rem;
+}
+
+#main .main .doctor-boxs .doctor-box .date-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 1 / span 1 / span 2;
+}
+
+#main .main .doctor-boxs .doctor-box .date-container .date-groups {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3rem;
+}
+
+#main .main .doctor-boxs .doctor-box .date-container .date-groups .dates {
+  width: 17rem;
+  text-align: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  height: 2rem;
+  cursor: pointer;
+}
+
+#main .main .doctor-boxs .doctor-box .date-container .date-groups .active h5 {
+  border-bottom: 3px solid #0c71a7;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#main .main .doctor-boxs .doctor-box .date-container .back-button {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  left: 0;
+  background: grey;
+  border-radius: 50%;
+  padding: 0.5rem 0.8rem;
+}
+
+#main .main .doctor-boxs .doctor-box .date-container .back-button h4 {
+  color: white;
+}
+
+#main .main .doctor-boxs .doctor-box .date-container .frountbutton {
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  background: grey;
+  border-radius: 50%;
+  padding: 0.5rem 0.8rem;
+  right: 0;
+}
+
+#main .main .doctor-boxs .doctor-box .date-container .frountbutton h4 {
+  color: white;
+}
+
+#main .main .doctor-boxs .doctor-box .doc_name_box3 {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+}
+
+#main .main .doctor-boxs .doctor-box .doc_name_box3 .arrow-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#main .main .doctor-boxs .doctor-box .doc_name_box3 .arrow-button .arrow {
+  padding: 1rem;
+}
+
+#main .main .doctor-boxs .doctor-box .doc_name_box3 .elements {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: -2.5rem;
+}
+
+#main .main .doctor-boxs .doctor-box .doc_name_box3 .elements .slots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 12rem;
+  margin-left: 3rem;
+}
+
+#main .main .doctor-boxs .doctor-box .swiper-container {
+  text-align: center;
+  background: #f7f6f1;
+  overflow: hidden;
+}
+
+#main .main .doctor-boxs .doctor-box .slots {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 3 / 1 / span 1 / span 2;
+}
+
+#main .main .doctor-boxs .doctor-box .slots .bookingtimegroup {
+  display: none;
+}
+
+#main .main .doctor-boxs .doctor-box .slots .bookingtimegroup .booking-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#main .main .doctor-boxs .doctor-box .slots .bookingtimegroup .booking-time .daytime {
+  margin-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  align-items: center;
+  width: 6rem;
+  margin-bottom: 0.5rem;
+}
+
+#main .main .doctor-boxs .doctor-box .slots .bookingtimegroup .booking-time ul {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+#main .main .doctor-boxs .doctor-box .slots .bookingtimegroup .booking-time ul li {
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0.7rem 1rem;
+  margin: 0.2rem;
+  z-index: 1;
+}
+
+#main .main .doctor-boxs .doctor-box .slots .bookingtimegroup .booking-hospital-name {
+  text-align: center;
+  color: #3d4d25;
+}
+
+#main .main .doctor-boxs .doctor-box .slots .bookingtimegroup .booking-hospital-name h4 {
+  text-align: center;
+}
+
+#main .main .doctor-boxs .doctor-box .slots .active {
+  display: block;
+}
+
+#pagination {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 2rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#pagination .pageBtn {
+  font-size: 1.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0.5rem;
+}
+
+#pagination .pageNo a {
+  width: 2rem;
+  height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #0c71a7;
+  margin: 0 0.5rem;
+  font-size: 0.8rem;
+}
+
+footer .footer-heading {
+  display: block;
+}
+
+footer .footer-sites-word {
+  display: block;
+}
+
+footer .footer-sites {
+  display: none;
+}
+
+footer .footer-reserve {
+  margin-top: 1rem;
+}
+
+/* ..................................................................... */
+/* ..................................................................... */
+/* ........................tablet...................................... */
+/* ..................................................................... */
+/* ..................................................................... */
+@media only screen and (min-width: 768px) {
+  #delhisurgen {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(133, 178, 196, 0.9)), to(rgba(133, 178, 196, 0.9))), url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Doctors.png");
+    background-image: linear-gradient(rgba(133, 178, 196, 0.9), rgba(133, 178, 196, 0.9)), url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Doctors.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 10rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: nexa-light;
+    font-size: 1.4rem;
+  }
+  #delhisurgen strong {
+    font-weight: 900;
+  }
+  .sort {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1.5rem 2rem;
+  }
+  .sort .sort-home {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: nexa-light;
+    font-size: 1.2rem;
+  }
+  #main {
+    padding-top: 0rem;
+  }
+  #main .main {
+    -ms-grid-columns: 1fr 3fr;
+        grid-template-columns: 1fr 3fr;
+    display: -ms-grid;
+    display: grid;
+  }
+  #main .main .filter {
+    display: block;
+    margin-right: 1rem;
+  }
+  #main .main .filter .filter-bar {
+    height: 2.5rem;
+    background-color: #d9dddf;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-left: 1rem;
+  }
+  #main .main .filter form .filter-buttons {
+    display: none;
+  }
+  #main .main .filter form .filter-search {
+    width: 95%;
+  }
+  #main .main .filter form .filter-search input[type="search"] {
+    display: none;
+    margin-bottom: 0.5rem;
+  }
+  #main .main .filter form .filter-search .filter-type {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 1rem 0rem;
+  }
+  #main .main .filter form .filter-search .filter-type .heading {
+    font-family: 'nexa-light';
+    font-size: 1.4rem;
+  }
+  #main .main .filter form .filter-search .filter-type .logos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    font-size: 0.7rem;
+  }
+  #main .main .filter form .filter-search .filter-type .logos .logo-search i {
+    color: #0c71a7;
+  }
+  #main .main .filter form .filter-search .filter-type .logos .logo-minus i {
+    color: #0c71a7;
+  }
+  #main .main .filter form .filter-search .filter-check-box {
+    margin-bottom: 1rem;
+  }
+  #main .main .filter form .filter-search .filter-check-box ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 0.2rem;
+  }
+  #main .main .filter form .filter-search .filter-check-box ul li input {
+    width: auto;
+    margin-right: 1rem;
+  }
+  #main .main .filter form .filter-search .filter-show-more {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  #main .main .filter form .filter-search .filter-show-more::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    top: 2rem;
+    left: 0rem;
+  }
+  #main .main .filter form .filter-search .filter-show-more a {
+    -webkit-text-decoration-line: none;
+            text-decoration-line: none;
+    font-family: nexa-light;
+    color: blue;
+  }
+  #main .main .doctor-boxs .doctor-box {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1fr;
+    -ms-grid-rows: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "doctor-content doctor-photo";
+    margin-bottom: 0.5rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-name {
+    grid-area: grid-name;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-logos {
+    grid-area: doctor-logos;
+    margin-left: 1.8rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-logos ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-logos ul li {
+    margin-bottom: 0.2rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-button {
+    margin-bottom: 1rem;
+    margin-left: 2.3rem;
+    text-align: start;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-photo {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: doctor-photo;
+  }
+  #main .main .doctor-boxs .doctor-box .date-container .date-groups .dates {
+    width: 16rem;
+    height: 2.7rem;
+  }
+  #main .main .doctor-boxs .doctor-box .swiper-container {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: 2 / 1 / span 1 / span 2;
+  }
+  #main .main .doctor-boxs .doctor-box .slots .bookingtimegroup .booking-time {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  footer .footer-heading {
+    display: none;
+  }
+  footer .footer-sites-word {
+    display: none;
+  }
+  footer .footer-sites {
+    display: block;
+  }
+}
+
+/* ..................................................................... */
+/* ..................................................................... */
+/* ........................decstop...................................... */
+/* ..................................................................... */
+/* ..................................................................... */
+@media only screen and (min-width: 1024px) {
+  #delhisurgen {
+    height: 12rem;
+    font-size: 2rem;
+  }
+  .sort {
+    padding: 1.5rem 7rem;
+  }
+  .sort .sort-home {
+    font-weight: bold;
+  }
+  #main .main .filter {
+    margin-right: 2rem;
+  }
+  #main .main .filter form {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  #main .main .filter form .filter-buttons {
+    display: block;
+    margin: 1rem 0rem;
+    margin-bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    background-color: var(--white_dark);
+  }
+  #main .main .filter form .filter-buttons .fil-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: 0.02rem solid rgba(0, 0, 0, 0.2);
+    margin: 0.1rem;
+    padding: 0.5rem 0rem;
+    padding-left: 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: 'nexa-light';
+  }
+  #main .main .filter form .filter-buttons .fil-button i {
+    margin-left: 0.5rem;
+  }
+  #main .main .filter form .filter-search {
+    margin-left: 1rem;
+  }
+  #main .main .filter form .filter-search .filter-type .heading {
+    font-weight: bold;
+  }
+  #main .main .filter form .filter-search .filter-type .logos .logo-minus i {
+    margin-left: 1rem;
+  }
+  #main .main .filter form .filter-search .filter-check-box ul li {
+    font-weight: bold;
+  }
+  #main .main .filter form .filter-search .filter-check-box ul li input {
+    width: auto;
+    margin-right: 1rem;
+    height: 1rem;
+  }
+  #main .main .doctor-boxs .doctor-box {
+    -ms-grid-columns: 3fr 1fr;
+        grid-template-columns: 3fr 1fr;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-name {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-name::before {
+    width: 2rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-name h4 {
+    margin-left: 2.5rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-logos ul {
+    grid-column-gap: 3rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-logos ul li {
+    font-weight: bold;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-button {
+    margin: 1.5rem;
+    margin-left: 2.5rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-content .doctor-button button {
+    padding: 0.5rem 1rem;
+  }
+  #main .main .doctor-boxs .doctor-box .doctor-photo {
+    height: 16rem;
+  }
+  #main .main .doctor-boxs .doctor-box .date-container .date-groups {
+    margin-left: 2rem;
+  }
+  #main .main .doctor-boxs .doctor-box .date-container .date-groups .dates {
+    width: 20rem;
+    height: 3.1rem;
+  }
+  #main .main .doctor-boxs .doctor-box .swiper-container {
+    background: #f3efef;
+  }
+}
+
+/*surgen heading*/
+/*# sourceMappingURL=doctorcss.css.map */

@@ -1,0 +1,686 @@
+
+$bg:#eee;
+$i:#0a7abb;
+$sudo :rgba(0,0,0,0.2); 
+$white :white;
+$green:green;
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $bg;
+}
+
+
+.alert {
+    padding: 0.5rem 1rem;
+    background-color: white;
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    top: 6rem;
+    z-index: 1;
+    align-items: center;
+    border-left: 0.2rem solid $green;
+    i{
+        font-size: 1.5rem;
+        color: $green;
+    }
+    .alert_content{
+        margin-left: 1rem;
+        h4{
+            color: $green;
+        }
+        p{
+            color: $green;
+            margin-bottom: 0;
+        }
+    }
+    .closebtn {
+      margin-left: 15px;
+      font-weight: bold;
+      float: right;
+      color: $green;
+      font-size: 2rem;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    &:hover {
+      color: black;
+    }
+}
+  
+.mystyle{
+    border-left: 0.3rem solid $i;
+    border-radius: 0.2rem;
+    background-color: rgb(226, 220, 220);
+    color: $i;
+    p{
+        font-weight: bold;
+        font-size: 1rem;
+        color: $i;
+    }
+}
+.profile{
+    .dashbord{
+        h2{
+            margin-bottom: 1rem;
+        }
+        .dashbord_button{
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            .dash_btn{
+                display: flex;
+                padding:0.5rem 0.8rem;
+              //  margin-right: 1rem;
+                i{
+                    color: $i;
+                    margin-right: 1rem;
+                }
+                p{
+                    margin-bottom: 0rem;
+                }
+                &:hover{
+                    border-left: 0.3rem solid $i;
+                    border-radius: 0.2rem;
+                    background-color: rgb(226, 220, 220);
+                }
+
+            }
+        }
+    }
+    .dashbord_content1{
+        background-color: $white;
+        padding: 1rem;
+        border-radius: 0.2rem;
+        .save_change{
+            align-items: center;
+            border-bottom: 0.0001rem solid $sudo ;
+            width: 100%;
+            h2{
+                margin-bottom: 1rem ;
+            }
+            .save_btn{
+                width: 100%;
+                border-radius: 0.3rem;
+                background: $i;
+                margin-bottom: 1rem;
+            }
+        }
+        .border_div{
+            border-bottom: 0.0001rem solid $sudo ;
+            padding:1rem 0.5rem;
+            width: 100%;
+            .photo-con{
+                h4{
+                    margin-bottom: 1rem;
+                }
+                .profile_photo{
+                    display: flex;
+                    .img{
+                        width: 4rem;
+                        height: 4rem;
+                        img{
+                            border-radius: 5rem;
+                        }
+                    }
+                    .select_photo{
+                        p{
+                            text-align: start;
+                            margin-left: 1rem;
+                            margin-bottom: 0.5rem;
+                        }
+                        .custom-file-upload {
+                            display: inline-block;
+                            cursor: pointer;
+                            input[type="file"] {
+                                display: none;
+                            }
+                            h5{
+                                margin-left: 1rem;
+                                color: $i;
+                            }
+                        }
+                    }
+                }
+            }
+            .inputs{
+                margin-top: 0.5rem;
+                label{
+                    h4{
+                        padding: 0.5rem 0;
+                    }
+                }
+                .tagify  {
+                    padding: 0.3rem 0.7rem;
+                }
+                input{
+                    // margin-top: 0.5rem;
+                    padding: 01rem 01rem;
+                }
+                select{
+                    // margin-top: 0.5rem;
+                    padding: 0.85rem 1rem;
+                }
+                input [type="date"]{
+                    padding: 0.85rem 1rem;
+                    margin-top: 0.5rem;
+                }
+                .num{
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    border: 1px solid rgba(0,0,0,0.2);
+                    background: $bg;
+                    input{
+                        border: none;
+                        background: $bg;
+                        
+                    }
+                    i{
+                        // position: absolute;
+                        color: $i;
+                        margin-right: 1rem;
+                    }
+                }
+            }
+            .last_class{
+                width: 100%;
+                .yourself{
+                    margin: 0.5rem 0;
+                }
+            }
+        }
+    }
+    .dashbord_content2{
+        background: $white;
+        display: block;
+        padding: 1rem;
+        border-radius: 0.3rem;
+        .compleatedAppointments{
+            margin: 1rem 0;
+        }
+        .no_appointment{
+            padding: 2rem 0;
+            text-align: center;
+            display: none;
+        }
+        h2{
+            margin: 1rem 0;
+        }
+        .appointment{
+            padding: 0.5rem;
+            background: #eee;
+            border: 1px solid gray;
+            border-radius: 0.3rem;
+            margin-top: 0.5rem;
+            .date_time{
+                .date{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: white;
+                    h4{
+                        text-align: center;
+                    }
+                }
+                display: flex;
+                justify-content: space-between;
+                form{
+                    height: 100%;
+                    input{
+                        display: none;
+                    }
+                    .date{
+                        justify-content: center;
+                        display: flex;
+                        width: 6rem;
+                        align-items: center;
+                        background: white;
+                        height: 100%;
+                    }
+                }
+                .time{
+                    .name{
+                        color: $i;
+                    }
+                    h4{
+                        text-align: center ;
+                        margin-bottom: 0.2rem;
+                        color: #8d8888;
+                    }
+                    .confirmed{
+                        text-align: center ;
+                        background: #8cc4e9;
+                        border-radius: 01rem;
+                        color: $white;
+                        font-family: nexa-bold;
+                        padding: 0.3rem 0.6rem;
+                        width: fit-content;
+                        margin: 0.5rem auto;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .cancel_appointment{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 0.5rem;
+                button{
+                    background: $i;
+                    width: 48%;
+                    border-radius: 0.4rem;
+                }
+            }
+        }
+    
+    }
+    .medical_record{
+        .head{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            button{
+                width: 100%;
+                border-radius: 0.4rem;
+                background: $i;
+                margin-bottom: 1rem;
+            }
+        }
+        .appointment{
+            .cancel_appointment{
+              //  margin-left: auto;
+                button{
+                    width: 100%;
+                }
+            }
+            form{
+                #uid{
+                    width: 0;
+                    height: 0;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+        .records{
+            width: auto;
+            margin: 1rem;
+            display: inline-block;
+            .record_delete{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.3rem;
+                background: #ccc;
+                form{
+                    input{
+                        display: none;
+                    }
+                    button{
+                        background: none;
+                    }
+                }
+            }
+            .photos{
+                border-bottom: 1.4rem solid #ccc;
+               
+                height: 8rem;
+            }
+        }
+    }
+}
+
+#number_change{
+    background: #0009;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: auto;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    .edit_number{
+        max-width: 90%;
+        width: 30rem;
+        background: #eee;
+        padding: 0.5rem;
+        transition: transform 0.2s ease-in;
+        animation: grow 0.3s ease-out;
+        h2{
+            margin:1rem 0 ;
+        }
+        .inputs{
+            border-bottom:1px solid rgba(0,0,0,0.2) ;
+            border-top:1px solid rgba(0,0,0,0.2) ;
+            padding-bottom: 1rem;
+            width: 100%;
+            .number{
+                background-color: #eee;
+            }
+            label{
+                h4{
+                    margin: 0.5rem 0;
+                }
+            }
+        }
+        .send_otp{
+            border-bottom:1px solid rgba(0,0,0,0.2) ;
+            text-align: right;
+            width: 100%;
+            button{
+                margin: 0.5rem 0;
+            }
+            .cancel_btn{
+                margin-left: auto;
+                background: #fa8072;
+                margin-right: 0.5rem;
+            }
+            .otp_btn{
+                background: #8fbc8f;
+            }            
+        }
+    }
+}
+#cancel_appointment{
+    background: #0009;
+    z-index: 10;
+    display: none;
+    
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    .edit_number{
+        max-width: 90%;
+        width: 30rem;
+        background: #eee;
+        padding: 0.5rem;
+        transition: transform 0.2s ease-in;
+        animation: grow 0.3s ease-out;
+        p{
+            text-align: start;
+        }
+        h2{
+            margin:1rem 0 ;
+        }
+        .send_otp{
+            border-bottom:1px solid rgba(0,0,0,0.2) ;
+            text-align: right;
+            width: 100%;
+            button{
+                margin: 0.5rem 0;
+                margin-left: auto;
+            }
+            .yes{
+                background: #fa8072;
+                margin-right: 0.5rem;
+            }
+            .no{
+                background: #8fbc8f;
+            }            
+        }
+    }
+}
+.add_record{
+    display: flex;
+    .edit_number{
+        form{
+            .add_photo{
+                background-color: #cccccc;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                width: -webkit-fill-available;
+                display: flex;
+                #previeww{
+                    display: flex;
+                    flex-wrap: wrap;
+                    img{
+                        width: 6.5rem;
+                        height: 5rem;
+                        margin-right: 0.5rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+                .add_photo_div{
+                    width: fit-content;
+                    height: fit-content;
+                    background-color: #333333;
+                    color: white;
+                    padding: 0.5rem;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    i{
+                        margin-bottom: 0.5rem ;
+                        color: white;
+                    }
+                    h3{
+                        color: white;
+                        margin: 0rem;
+                    }
+                    input[type="file"]{
+                        display: none;
+                    }
+                }
+            }
+            .report{
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                h2{
+                    margin: 0.5rem 0;
+                    margin-bottom: 1rem;
+                    width: 100%;
+                    color: $i;
+                }
+                input{
+                    width: 0;
+                    height: 0;
+                    margin: 0;
+                    padding: 0;
+                }
+                .report_type{
+                    display: flex;
+                    align-items: center;
+                    &:hover{
+                        background-color: #cccccc;;
+                    }
+                    i{
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+            .inputs{
+                width: 100%;
+                input{
+                    margin-top: 1rem;
+                    padding: 1rem;
+                }
+                .number{
+                    width: 0;
+                    height: 0;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+            .send_otp{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                button{
+                    margin-left: 0;
+                }
+                .done{
+                    background: #8fbc8f;
+                    margin-left: 0;
+                } 
+                .cancel_btn {
+                    background: #fa8072;
+                    margin-right: 0.5rem;
+                    width: fit-content;
+                    height: fit-content;
+                    padding: 0.5rem 1rem;
+                    color: white;
+                    font-family: 'nexa-light';
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* ....................................................*/
+/* ................................................... */
+/* ............tablet................................... */
+/* .................................................... */
+/* .................................................. */
+
+
+@media only screen and ( min-width:768px){
+
+
+    .profile{
+      //  min-height: 23.5rem;
+        .dashbord{
+            h2{
+                margin-bottom: 1rem;
+            }
+            .dashbord_button{
+                margin-bottom: 1.5rem;
+            }
+        }
+        .dashbord_content1{    
+            width: -webkit-fill-available;      
+            .border_div{
+                 display: flex;
+                 justify-content: space-between;
+                 flex-wrap: wrap;
+                .inputs{
+                    width: 49%;
+                }
+            }
+            .save_change{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 1rem;
+                h2{
+                    margin-bottom: 0;
+                }
+                .save_btn{
+                    width: auto;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .dashbord_content2{
+            .appointment{
+                display: flex;
+                .date_time{
+                    width: 50%;
+                    // margin: 0 auto;
+                    .time{
+                        margin: 0 auto;
+                    }
+                }
+                .cancel_appointment{
+                    margin-top: 0;
+                    margin-left: auto;
+                    button{
+                        height: 3.5rem;
+                        margin: auto;
+                    }
+                }
+            }
+        
+        }
+        .medical_record{
+            .head{
+                flex-direction: row;
+                align-items: center;
+                button{
+                    width: auto;
+                    margin-bottom: 1rem;
+                }
+            }
+            .appointment{
+                justify-content: space-between;
+                .date_time{
+                    margin: 0;
+                }
+                .cancel_appointment{
+                    button{
+                        height: auto;
+                    }
+                }
+            }
+            .records{
+                width: 18.5rem;
+            }
+        }
+    }
+
+}
+
+
+
+/* ....................................................*/
+/* ................................................... */
+/* ............dekstop................................... */
+/* .................................................... */
+/* .................................................. */
+
+
+@media only screen and ( min-width:1024px){
+
+
+    .profile{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        .dashbord{
+            width: 25%;
+            margin-right: 1rem;
+            .dashbord_button{
+                flex-direction: column;
+            }
+        }
+        .dashbord_content1{
+            .border_div{
+                justify-content: start;
+                .photo-con{
+                    width: 33.4%;
+                }
+                .inputs{
+                    width: 31.4%;
+                    margin-right: 1rem;
+                }
+            }
+        }
+        .dashbord_content2{
+            width: -webkit-fill-available;
+            .appointment{
+                .date_time{
+                    .date{
+                        width: 7rem;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+}

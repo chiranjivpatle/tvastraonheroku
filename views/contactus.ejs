@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/contactuscss.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+     <!--NavBar-->
+    <%- include('include/_navbar') %>
+    
+    <!--contact-->
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>Home / Contact Us</p>
+        
+    </section>
+    
+    <!--map-->
+    <section class="map">
+        <div class="map-i">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d168063.2973234223!2d80.16701081717011!3d21.44066881142657!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1615202686881!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!--whole-container-->
+    <div class="whole-container">
+    <section class="contact-info">
+        <div class="one-contact-info">
+            <i class="fa fa-home fa-2x" aria-hidden="true" ></i>
+            <div class="info-under-one-contact-info">
+                <h4>Noida,India</h4>
+                <p>sector 45</p>
+            </div>
+        </div>
+
+        <div class="one-contact-info">
+            <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+            <div class="info-under-one-contact-info">
+                <h4>00 (440)9865 562</h4>
+                <p>Mon to Fri 9am to 6am</p>
+            </div>
+        </div>
+
+        <div class="one-contact-info">
+            <div class="i-in-one-contact-info">
+                <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="info-under-one-contact-info">
+                <h4>Support@tvastra.com</h4>
+                <p>send us your query anytime!</p>
+            </div>
+        </div>
+        
+    </section>
+    <section class="data">
+        <div class="section-in-data">
+            <div class="block-in-data">
+                <div class="three-in-data">
+                    <input type="text" placeholder="Enter Your Name">
+                    <input type="text" placeholder="Enput Email Address">
+                    <input type="text" placeholder="Enter subject">
+                </div>
+            
+            
+                <div class="one-in-data">
+                    <input type="text" placeholder="Enter Message">
+                </div>
+            </div>
+
+            <div class="button">
+                <button>Send Message</button>
+            </div>
+        </div>
+    </section>
+    </div>
+    
+    <!--footer-->
+
+<%- include('include/_footer') %>
+
+
+</body>
+</html>

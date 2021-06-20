@@ -1,0 +1,223 @@
+@import url(theme.css);
+/*nav*/
+.image1 {
+  width: 8rem;
+  height: 1.4rem;
+}
+
+.navbar_menu, .navbar_buttons {
+  display: none;
+}
+
+/*map*/
+.map iframe {
+  width: 100%;
+  height: 50vh;
+}
+
+/*contavt*/
+.contact {
+  background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/contactUs.png");
+  background-size: cover;
+  background-position: center;
+  height: 35vh;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.contact h2, .contact p {
+  color: var(--white);
+}
+
+/*whole container*/
+.whole-container .one-contact-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.whole-container .one-contact-info i {
+  color: var(--blue_sky);
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+
+.whole-container .info-under-one-contact-info p {
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.whole-container .data {
+  background-color: var(--skyblue);
+}
+
+.whole-container .section-in-data input {
+  margin-bottom: 0.6rem;
+}
+
+.whole-container .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.whole-container .button button {
+  padding: 0.7rem 1.5rem;
+}
+
+/*footer*/
+footer {
+  background-color: var(--blackish_blue);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.f-img {
+  width: 10rem;
+  padding-bottom: 0.5rem;
+}
+
+.footer-list li a, .footer-logo i, .footer-h, .footer-h i {
+  color: var(--white);
+}
+
+.footer-list li {
+  padding: 0.4rem;
+}
+
+.footer-logo i {
+  padding: 0.5rem;
+}
+
+.footer-h {
+  padding: 0.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  /*.whole-container*/
+  .whole-container .contact-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .whole-container .info-under-one-contact-info p {
+    margin: 0rem;
+  }
+  .whole-container .block-in-data {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+    grid-column-gap: 0.5rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .whole-container .one-in-data input {
+    height: 76%;
+  }
+  .whole-container .button {
+    margin-right: -0.25rem;
+  }
+  /*footer*/
+  footer {
+    background-color: var(--white);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    row-gap: 2rem;
+  }
+  .f-img {
+    width: 11rem;
+    height: 2rem;
+  }
+  .footer-list li a, .footer-logo i, .footer-h, .footer-h i {
+    color: var(--blackish_blue);
+  }
+  .footer-list li {
+    padding: 0.5rem;
+  }
+  .footer-list li a, .footer-list i {
+    font-size: 0.9rem;
+  }
+  .footer-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .one-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .two-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /*whole container*/
+  .whole-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 30% 64%;
+        grid-template-columns: 30% 64%;
+  }
+  .whole-container .contact-info {
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+  }
+  /*footer*/
+  footer {
+    padding: 2rem 5rem;
+  }
+}
+/*# sourceMappingURL=contactuscss.css.map */

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>doctor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+
+    <link rel="stylesheet" href="css/patientappointment.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+    
+     
+    
+    <!-- include nav-->
+    <%- include('include/_navbar') %>
+        <!-- /include nav -->
+
+
+
+    <section>
+        <div id="doctor-box" class="doctor-box reschedule">
+            <h1><%= data.obj.name %></h1>
+            <ul>
+                <li><i class="far fa-calendar-plus"></i> <%= data.obj.appointmentdate %>  </li>
+                <li><%= data.obj.bookhospital %> <span>Hospital</span></li>
+                <li><i class="far fa-clock"></i> <%= data.obj.stime %> </li>
+                <li><i class="far fa-clock"></i>To <%= data.obj.etime %>  </li>
+                <!-- <li> <%= data.obj.doctorid %> <%= data.obj.objid %> </li> -->
+            </ul>
+            <button type="button" onclick="myFunction(`<%= 0 %>`)"> Reschedule appointment</button>
+
+            <div class="date-container opencon">
+
+                <div class="back-button">
+                    <h4> < </h4>
+                </div>
+
+                <div class="date-groups">
+
+                    <% for(var k = 0 ; k < data.doctors.schedule.length ; k++) { 
+                        var inc = 0 + k;
+                        var currentDate = new Date(new Date(). getTime() + 24 * 60 * 60 * 1000 * inc);
+                        var abc = String(currentDate) ;
+                        var newcurrentDate = abc.slice(0,15)
+                        %>
+                    <div class="dates" value=""  >
+                        <% if(k == 0){ %>
+                            <h4> Today </h4>
+                        <% }else if(k == 1) { %>
+                            <h4> tommorow </h4>
+                        <% }else{ %>
+                            <h4> <%= newcurrentDate %> </h4>
+                        <% } %>
+
+                        <%  if( data.doctors.schedule[k].length > 0 ){ 
+                            var sum = 0 ;
+                            for( var l = 0 ; l < data.doctors.schedule[k].length ; l++ ){
+                                var totalslots = data.doctors.schedule[k][l].slots.length ;
+                                 sum = sum + totalslots ;
+                                 console.log(`........${k}..sum = `,sum)
+                            }
+                            %>
+                            <h5> <%= sum %> Slots Available</h5>
+                            <% }else{ %>
+                                <h5>0 Slots Available</h5>
+                                <% } %>
+                    </div>
+                    <% } %>
+
+                </div>
+
+                <div class="frountbutton">
+                    <h4> > </h4>
+                </div>
+            </div>
+
+            <div class="slots">
+                <% for(var j = 0 ; j < data.doctors.schedule.length ; j++) {   %>
+                    <div class="bookingtimegroup">
+                        <% if(data.doctors.schedule[j].length > 0) { %>
+                            <% for(var m = 0; m < data.doctors.schedule[j].length ; m++ ) { %>
+                                <div class="booking-time">
+                                    <div class="daytime">
+                                        <h5> Morning: </h5> 
+                                    </div>
+                                        <ul>
+                                            <% for(var n = 0; n < data.doctors.schedule[j][m].slots.length ; n++ ) { 
+                                               var apmp = data.doctors.schedule[j][m].slots[n].schedule_time.slice(6,8)
+                                                if( apmp == "AM"  && data.doctors.schedule[j][m].slots[n].checkbox == "false" && data.doctors.schedule[j][m].slots[n].isbook == "false" ) {
+                                                    var currentDate = new Date(new Date(). getTime() + 24 * 60 * 60 * 1000 * j);
+                                                    var abc = String(currentDate) ;
+                                                        abc = abc.slice(0,15)
+                                                    %>
+                                                    <li
+                                                        onclick="window.location.href='/updatereschedule?appointmentdate=<%= abc %>&bookhospital=<%= data.doctors.schedule[j][m].hospital %>&time=<%= data.doctors.schedule[j][m].slots[n].schedule_time %>&doctorid=<%= data.obj.doctorid %>&objid=<%= data.obj.objid %>'" >
+                                                        <%= data.doctors.schedule[j][m].slots[n].schedule_time.slice(0,8) %>
+                                                    </li>
+                                            <% } } %> 
+                                        </ul>
+                                    </div>
+                                    <div class="booking-time">
+                                        <div class="daytime">
+                                            <h5> afternoon: </h5> 
+                                        </div>
+                                        <ul>
+                                            <% for(var n = 0; n < data.doctors.schedule[j][m].slots.length ; n++ ) { 
+                                                var apmp = data.doctors.schedule[j][m].slots[n].schedule_time.slice(6,8)
+                                                var fore = parseInt(data.doctors.schedule[j][m].slots[n].schedule_time.slice(0,2))
+
+                                                 if( (apmp == "PM" && fore < 4  && data.doctors.schedule[j][m].slots[n].checkbox == "false"  && data.doctors.schedule[j][m].slots[n].isbook == "false" ) || (fore == 12  && data.doctors.schedule[j][m].slots[n].checkbox == "false"   && data.doctors.schedule[j][m].slots[n].isbook == "false")) { %>
+                                                     <li  
+                                                    
+                                                     onclick="window.location.href='/updatereschedule?appointmentdate=<%= abc %>&bookhospital=<%= data.doctors.schedule[j][m].hospital %>&time=<%= data.doctors.schedule[j][m].slots[n].schedule_time %>&doctorid=<%= data.obj.doctorid %>&objid=<%= data.obj.objid %>'" >    <%= data.doctors.schedule[j][m].slots[n].schedule_time.slice(0,8) %>
+                                                     </li>
+                                             <% } } %> 
+                                        </ul>
+                                    </div>
+                                    <div class="booking-time">
+                                        <div class="daytime">
+                                            <h5> Evening: </h5>  
+                                        </div>
+                                        <ul>
+                                            <% for(var n = 0; n < data.doctors.schedule[j][m].slots.length ; n++ ) { 
+                                                var apmp = data.doctors.schedule[j][m].slots[n].schedule_time.slice(6,8)
+                                                var fore = parseInt(data.doctors.schedule[j][m].slots[n].schedule_time.slice(0,2)) ;
+                                                
+                                                 if( apmp == "PM" && fore >= 4 && fore != 12  && data.doctors.schedule[j][m].slots[n].checkbox == "false"  && data.doctors.schedule[j][m].slots[n].isbook == "false" )  { %>
+                                                     <li
+                                                     onclick="window.location.href='/updatereschedule?appointmentdate=<%= abc %>&bookhospital=<%= data.doctors.schedule[j][m].hospital %>&time=<%= data.doctors.schedule[j][m].slots[n].schedule_time %>&doctorid=<%= data.obj.doctorid %>&objid=<%= data.obj.objid %>'" >  <%= data.doctors.schedule[j][m].slots[n].schedule_time.slice(0,8) %>
+                                                     </li>
+                                             <% } } %> 
+                                        </ul> 
+                                    </div> 
+                                <div class="booking-hospital-name">
+                                    <h4> <%= data.doctors.schedule[j][m].hospital + m %></h4>
+                                </div>
+                            <% } %> 
+                        <% }else{ %>
+                            <h4> No slots Available </h4>
+                        <% } %>    
+                    </div> 
+                <% } %>
+            </div>
+
+        </div>
+
+      
+
+        <script>    
+            ( function toggle_Schedules(){
+                const datecontainer = document.getElementsByClassName("date-container");
+                console.log("datecontainer = ",datecontainer)
+
+                const frountbutton = document.getElementsByClassName("frountbutton");
+                console.log("frountbutton = ",frountbutton)
+
+                const backbutton = document.getElementsByClassName("back-button");
+                console.log("backbutton = ",backbutton)
+
+                for (let ii = 0; ii < datecontainer.length; ii++) {
+                    frountbutton[ii].addEventListener("click", e => {
+                        var xx = datecontainer[ii].getElementsByClassName("dates")[0].getAttribute("value") ;
+                            console.log("xx",xx);
+                        var xxx = parseInt(xx)
+                            console.log("parseInt xx",xxx);
+                        if((xx == "") || (xx == NaN)){
+                            xxx = 0 ;
+
+                                console.log("xxx = ",xxx)
+                        }
+                        var s = xxx + 1; 
+                        console.log("s = ",s)
+                        if(s <= 3){
+                            console.log("yes");
+                        }else{
+                            console.log("no");
+                        }
+                        if(s <= 4){
+                            const dates = datecontainer[ii].getElementsByClassName("dates");
+                            for (let jj = 0; jj < dates.length; jj++) {
+                                dates[jj].style.transform += "translateX(-100%)";
+                               
+                                dates[jj].setAttribute("value" , `${s}`);
+                                  
+                               console.log("uv",datecontainer[ii].getElementsByClassName("dates")[0].getAttribute("value"))
+                            }
+                            var xx = datecontainer[ii].getElementsByClassName("dates")[0].style.transform ;
+                            console.log("xx f1= ",xx)
+                           
+                        }
+                    }); 
+                }
+                for (let iii = 0; iii < datecontainer.length; iii++) {
+                    backbutton[iii].addEventListener("click", ee => {
+                        var ss = datecontainer[iii].getElementsByClassName("dates")[0].getAttribute("value") ;
+                        console.log("ss = ",ss)
+                        var sss = parseInt(ss)
+                        console.log("sss = ",sss)
+                        if(ss == ""){
+                            var ssss = 0;
+                        }else{
+                            
+                            var ssss = sss - 1;
+                        }
+
+                        console.log("ssss = ",ssss)
+
+                        if((ss == "") || (ss == 0)){
+                            console.log("no")
+                        }
+
+                        if(!((ss == "") || (ss == 0))){
+                            const datess = datecontainer[iii].getElementsByClassName("dates");
+                            for (let j = 0; j < datess.length; j++) {
+                                datess[j].style.transform += "translateX(100%)";
+                                datess[j].setAttribute("value" , `${ssss}`);
+                            }
+                             var sssss = datecontainer[iii].getElementsByClassName("dates")[0].style.transform ;
+                             console.log("xxx f2= ",sssss)
+                        }
+                    });
+                }
+            })();
+            </script>
+
+            <script>
+                function neww() {
+                    var slide = document.getElementsByClassName("opencon");
+                    for (var m = 0; m < slide.length; m++) {
+                        slide[m].style.height = "0";
+                    }
+                }
+                neww();
+                var slideIndexx;
+
+                function myFunction(slideIndexx) {
+                    showSlidesss(slideIndexx);
+                }
+                function showSlidesss(slideIndexx) {
+                    
+                    console.log(" slideIndexx ",slideIndexx)
+                    var s = document.getElementsByClassName("opencon");
+                    var doc = document.getElementsByClassName("doctor-box");
+                    var bt = doc[slideIndexx].getElementsByClassName("bookingtimegroup");
+                    
+
+                    if (s[slideIndexx].style.height == "auto") {
+                        s[slideIndexx].style.height = "0";
+                        s[slideIndexx].style.margin = "0";
+
+                        for(var j = 0 ; j< bt.length ;j++){
+                            bt[j].classList.remove("active");
+                        }
+
+                    } else {
+                        s[slideIndexx].style.height = "auto";
+                        s[slideIndexx].style.margin = "1rem 0.5rem";
+
+                    }
+                }
+            </script>
+
+            <script>
+                (function toggle_Schedules_And_Slots () {
+                    const booking = document.getElementsByClassName("doctor-box");
+                    for (let i = 0; i < booking.length; i++) {
+                        const bookingDateBtn = booking[i].getElementsByClassName("dates");
+                        const timesGroup = booking[i].getElementsByClassName("bookingtimegroup");
+                        for (let j = 0; j < bookingDateBtn.length; j++) {
+                            bookingDateBtn[j].addEventListener("click", e => {
+                                for (a = 0; a < timesGroup.length; a++) {
+                                    timesGroup[a].classList.remove("active");
+                                    bookingDateBtn[a].classList.remove("active");
+                                } 
+                                timesGroup[j].classList.add("active");
+                                bookingDateBtn[j].classList.add("active");
+                              //  booking[i].style.maxHeight = booking[i].scrollHeight + "px";
+                            });
+                        }
+                    }
+                
+                
+                })();
+            </script>
+
+
+    </section>
+
+
+        <!-- include _footer-->
+        <%- include('include/_footer') %>
+        <!-- /include _footer -->
+
+
+</body>
+</html>

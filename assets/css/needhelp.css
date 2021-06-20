@@ -1,0 +1,52 @@
+/* ............................................... */
+/*need-help*/
+.need-help {
+  background-color: var(--skyblue);
+}
+
+.need-help h2 {
+  color: var(--white);
+}
+
+.need-help p {
+  letter-spacing: 0.1rem;
+}
+
+.need-help .boxtwo {
+  text-align: center;
+}
+
+.need-help .boxtwo button {
+  background-color: var(--blue_sky);
+  padding: 0.8rem 0.7rem;
+  border-radius: 0.5rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  /*need help*/
+  .need-help {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .need-help .boxone h2 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .need-help .boxone p {
+    margin: 0;
+    padding: 0;
+  }
+  .need-help .boxtwo button {
+    padding: 1.3rem 3rem;
+    font-size: 1.2rem;
+  }
+}
+/*# sourceMappingURL=needhelp.css.map */

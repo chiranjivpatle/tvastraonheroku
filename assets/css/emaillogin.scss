@@ -1,0 +1,131 @@
+@import "login.scss"; 
+
+
+.alert {
+    background-color: var(--white);
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    right:1rem;
+    top:5rem;
+    align-items: center;
+    border-left: 0.2rem solid red;
+    
+    
+    i {
+        color: red;
+        z-index: 1;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    .alert_content {
+        h5 {
+            color:red;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+        }
+        p {
+            font-size: 0.8rem;
+            color:red;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    span {
+        color : var(--grey);
+        z-index: 1;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+}
+
+
+.alerttwo {
+    background-color: var(--white);
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    right:1rem;
+    top:5rem;
+    align-items: center;
+    border-left: 0.2rem solid green;
+    
+    
+    i {
+        color: green;
+        z-index: 1;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    .alert_content {
+        h5 {
+            color:green;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+        }
+        p {
+            font-size: 0.8rem;
+            color:green;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    span {
+        color : var(--grey);
+        z-index: 1;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+}
+
+
+.main{
+    .login-box{
+        .form{
+            form{
+                .location {
+                    span i {
+                        
+                        cursor: pointer;
+                    }
+                }
+                .forgot{
+                    display: flex;
+                    justify-content: space-between;
+                    width: -webkit-fill-available;
+                    
+                    margin: 1rem 0rem;
+                    input {
+                        width: 7rem;
+                        /* position: relative; */
+                        /* right: 0; */
+                        padding: 0;
+                        margin: 0;
+                        border: none;
+                        color: var(--blue_sky);
+                        font-weight: bold;
+                    }
+                    h5{
+                        color: var(--blue_sky);
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+nav {
+    #navbar_buttons {
+        .tvastraplus {
+            display: none;
+        }
+        .login-button {
+            display: none;
+        }
+    }
+}

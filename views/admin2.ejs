@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    
+     
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <a href="/profile">
+                <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>profile</p></div>
+            </a>
+            <a href="/appointment">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>appointments</p></div>
+            </a>
+           
+            <a href="/medical_report">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>medical reports </p></div>
+            </a>
+            <a href="/setting">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="dashbord_content1 mySlides">
+        <div>
+            <div class="adminDashboard">
+                <div class="col col1">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                    <span>User</span>
+                    <h4>46</h4>
+                </div>
+                <div class="col col2">
+                    <i class="fas fa-syringe"></i>
+                    <span>Doctors</span>
+                    <h4>60</h4>
+                </div>
+                <div class="col col3">
+                    <i class="fas fa-user-md"></i>
+                    <span>Hospitals</span>
+                    <h4>56</h4>
+                </div>
+                <div class="col col4">
+                    <i class="fas fa-briefcase-medical"></i>
+                    <span>Appointments</span>
+                    <h4>87</h4>
+                </div>
+            </div>
+            <div class="canvasContainer">
+                <h3>Hospital Survey</h3>
+                <div class="picContainer">
+                    <img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1007%2Fs10916-020-1538-4/MediaObjects/10916_2020_1538_Fig1_HTML.png" alt="Graph">
+                </div>
+            </div>
+            <div class="canvasContainer">
+                <h3>Patient Age</h3>
+                <div class="picContainer">
+                    <img src="https://chartio.com/assets/3ad3d8/tutorials/charts/pie-charts/8f2915ab9024902155c5d27d430831be813de071853c69d778102722a4d0efbf/pie-chart-example-1.png" alt="Graph">
+                </div>
+            </div>
+            <div class="recentAppointments">
+                <h3>Patients Enrolled</h3>
+                <table class="recentAppointmentsTable">
+                    <thead>
+                        <tr>
+                            <td>
+                                <h4>Name</h4>
+                            </td>
+                            <td>
+                                <h4>Phone Number</h4>
+                            </td>
+                            <td>
+                                <h4>Email</h4>
+                            </td>
+                            <td>
+                                <h4>Actions</h4>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>
+                                <h4> SUCHITTTTT</h4>
+                            </td>
+                            <td>
+                                <h4> 8600890463</h4>
+                            </td>
+                            <td>
+                                <h4> suchit@123</h4>
+                            </td>
+                            <td>
+                                <h4> <a href="/adminUserAllAppointments/608a32b49e201a00241dd23f">Appointment
+                                        Details</a></h4>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <h4> SUCHIT SUBHASH GOTE</h4>
+                            </td>
+                            <td>
+                                <h4> 8600890464</h4>
+                            </td>
+                            <td>
+                                <h4> suchit@1230</h4>
+                            </td>
+                            <td>
+                                <h4> <a href="/adminUserAllAppointments/60a271afccb5d3002474111c">Appointment
+                                        Details</a></h4>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <h4> AJAY</h4>
+                            </td>
+                            <td>
+                                <h4> 9813328784</h4>
+                            </td>
+                            <td>
+                                <h4> ajay.ranga.mr.unique@gmail.com</h4>
+                            </td>
+                            <td>
+                                <h4> <a href="/adminUserAllAppointments/5eeda17416042f54bc3f69d9">Appointment
+                                        Details</a></h4>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <h4> ABCDEFG</h4>
+                            </td>
+                            <td>
+                                <h4> 8806324494</h4>
+                            </td>
+                            <td>
+                                <h4> achiranjiv@gmail.com</h4>
+                            </td>
+                            <td>
+                                <h4> <a href="/adminUserAllAppointments/60a7422c62c4ab0024e42c61">Appointment
+                                        Details</a></h4>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <h4> ANIL</h4>
+                            </td>
+                            <td>
+                                <h4> 9999933333</h4>
+                            </td>
+                            <td>
+                                <h4> kl@gmail.com</h4>
+                            </td>
+                            <td>
+                                <h4> <a href="/adminUserAllAppointments/603e88988b4c63002461fbe1">Appointment
+                                        Details</a></h4>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+               
+            </div>
+    
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+
+</body>
+</html>

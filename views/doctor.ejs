@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <title>doctor</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/doctorcss.css">
+    
+        <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+    
+    </head>
+    
+    <body>
+    
+    
+        <!-- include nav-->
+        <%- include('include/_navbar') %>
+        <!-- /include nav -->
+    
+            <% if(data.err) { %>
+                <div class="alert" id="err">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    <div class="alert_content">
+                        <h4>failure</h4>
+                        <p> <strong> <%= data.err %> </strong> </p>
+                    </div>
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                </div>
+            <% } %>
+    
+            <section id="delhisurgen">
+                <div>
+                    Cardiac surgen in <strong> <u> Delhi</u> </strong>
+                </div>
+            </section>
+    
+            <!--.........sort ..........-->
+            <div class="sort">
+                <div class="sort-home"> Home / Doctor List </div>
+                <select id="" name="" onchange="sortBy(`${this.value}`)">
+                    <option >sort by</option>
+    
+                    <option  value="name" onclick="sortBy('name')">name(A-Z)</option>
+                    <option  value="-name" onclick="sortBy('-name')">name(Z-A)</</option>
+    
+                    <option value="experience"  onclick="sortBy('experience')">experience(LOW-HIGH)</option>
+                    <option value="-experience"  onclick="sortBy('-experience')">experience(HIGH-LOW)</option>
+    
+                    <option value="fees"  onclick="sortBy('fees')">avg fees(LOW-HIGH)</option>
+                    <option value="-fees"  onclick="sortBy('-fees')">avg fees(HIGH-LOW)</option>
+                </select>
+    
+            </div>
+            <!--.........sort end..........-->
+    
+            <!--.........main..........-->
+    
+            <section id="main">
+                <div class="main">
+                    <div class="filter">
+                        <div class="filter-bar">
+                            <h5> Filter By </h5>
+                        </div>
+                        <input type="hidden" id="aakhiri_umeed" value="<%= data.emp %>">
+                        <form action="/doctor" method="POST" id="filterform">
+                            <div class="filter-buttons">
+                            
+                            </div>
+                            <input type="hidden" name="pageno" id="pageno" value="1">
+                            <input type="hidden" name="name" id="sortInput" value="name">
+    
+                            <div class="filter-search">
+                                <div class="filter-type">
+                                    <div class="heading"> Location </div>
+                                    <div class="logos">
+                                        <div class="logo-search" onclick="filter_search_open(0)"> <i class="fas fa-search searchicon"></i> </div>
+                                        <div class="logo-minus"> <i class="fa fa-minus"></i></div>
+                                    </div>
+                                </div>
+                                <input type="search" onblur="filter_search_close(this)" placeholder="search location"/>
+                                <div class="filter-check-box">
+                                    <ul>
+                                        <%
+                                        var emtarr = []; 
+                                        for(var i=0; i < data.all_doc_check.length; i++) { 
+                                            var typehospital= data.all_doc_check[i].city.split(",")
+                                            for(var j=0; j< typehospital.length ;j++) {
+                                                if(emtarr.length > 0){
+                                                    for(var k=0; k < emtarr.length; k++){
+                                                     var ok = 0;
+                                                        if(typehospital[j].toLowerCase() == emtarr[k] ){
+                                                            k = emtarr.length;
+                                                        }else{
+                                                             ok = 1;
+                                                        }
+                                                    }
+                                                    if(ok){
+                                                        emtarr.push(typehospital[j].toLowerCase()); 
+                                                        %>
+                                                        <li> <input type="checkbox"  onchange="this.form.submit()" name="city" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"><%= typehospital[j] %></li>
+                                            <%
+                                                    }
+                                                }else{ 
+                                                    emtarr.push(typehospital[j].toLowerCase())  %>
+                                                    <li> <input type="checkbox" onchange="this.form.submit()" name="city" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"><%= typehospital[j] %></li>
+                                             <%   }
+                                           } 
+                                        } %>
+                                    </ul>
+                                </div>
+                                <div class="filter-show-more" onclick="fltr_showMore(0)" ><a href="#">+ show more</a></div>
+                                <div class="filter-show-less"  onclick="fltr_showMore(0)" ><a href="#">+ show less</a></div>
+
+    
+                           
+                            </div>
+    
+                            <div class="filter-search">
+                                <div class="filter-type">
+                                    <div class="heading"> Treatment </div>
+                                    <div class="logos">
+                                        <div class="logo-search" onclick="filter_search_open(1)"> <i class="fas fa-search searchicon"></i> </div>
+                                        <div class="logo-minus"> <i class="fa fa-minus"></i></div>
+                                    </div>
+                                </div>
+                                <input type="search" onblur="filter_search_close(this)" placeholder="search location"/>
+    
+                                <div class="filter-check-box">
+                                    <ul>
+                                        <%
+                                        var emtarr = []; 
+                                        for(var i=0; i < data.all_doc_check.length; i++) { 
+                                            var typehospital= data.all_doc_check[i].specification.split(",")
+                                            for(var j=0; j< typehospital.length ;j++) {
+                                                if(emtarr.length > 0){
+                                                    for(var k=0; k < emtarr.length; k++){
+                                                     var ok = 0;
+                                                        if(typehospital[j].toLowerCase() == emtarr[k] ){
+                                                            k = emtarr.length;
+                                                        }else{
+                                                             ok = 1;
+                                                        }
+                                                    }
+                                                    if(ok){
+                                                        emtarr.push(typehospital[j].toLowerCase()); 
+                                                        %>
+                                                        <li> <input type="checkbox" onchange="this.form.submit()"  name="specification" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"><%= typehospital[j] %></li>
+                                            <%
+                                                    }
+                                                }else{ 
+                                                    emtarr.push(typehospital[j].toLowerCase())  %>
+                                                    <li> <input type="checkbox" onchange="this.form.submit()"  name="specification" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"><%= typehospital[j] %></li>
+                                             <%   }
+                                           } 
+                                        } %>
+                                    </ul>
+                                </div>
+                                <div class="filter-show-more" onclick="fltr_showMore(0)" ><a href="#">+ show more</a></div>
+                                <div class="filter-show-less"  onclick="fltr_showMore(0)" ><a href="#">+ show less</a></div>
+
+    
+                            </div>
+    
+                            <div class="filter-search">
+                                <div class="filter-type">
+                                    <div class="heading"> Hospital </div>
+                                    <div class="logos">
+                                        <div class="logo-search" onclick="filter_search_open(2)"> <i class="fas fa-search searchicon"></i> </div>
+    
+                                        <div class="logo-minus"> <i class="fa fa-minus"></i></div>
+                                    </div>
+                                </div>
+                                <input type="search" onblur="filter_search_close(this)" placeholder="search location"/>
+    
+                                <div class="filter-check-box">
+                                    <ul>
+                                        <%
+                                        var emtarr = []; 
+                                        for(var i=0; i < data.all_doc_check.length; i++) { 
+                                            var typehospital= data.all_doc_check[i].hospital.split(",")
+                                            for(var j=0; j< typehospital.length ;j++) {
+                                                if(emtarr.length > 0){
+                                                    for(var k=0; k < emtarr.length; k++){
+                                                     var ok = 0;
+                                                        if(typehospital[j].toLowerCase() == emtarr[k] ){
+                                                            k = emtarr.length;
+                                                        }else{
+                                                             ok = 1;
+                                                        }
+                                                    }
+                                                    if(ok){
+                                                        emtarr.push(typehospital[j].toLowerCase()); 
+                                                        %>
+                                                        <li> <input type="checkbox"  onchange="this.form.submit()" name="hospital" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"><%= typehospital[j] %></li>
+                                            <%
+                                                    }
+                                                }else{ 
+                                                    emtarr.push(typehospital[j].toLowerCase())  %>
+                                                    <li> <input type="checkbox"  onchange="this.form.submit()" name="hospital" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"><%= typehospital[j] %></li>
+                                             <%   }
+                                           } 
+                                        } %>
+                                    </ul>
+                                </div>
+                                <div class="filter-show-more" onclick="fltr_showMore(0)" ><a href="#">+ show more</a></div>
+                                <div class="filter-show-less"  onclick="fltr_showMore(0)" ><a href="#">+ show less</a></div>
+
+    
+                            </div>
+    
+                            <div class="filter-search">
+                                <div class="filter-type">
+                                    <div class="heading"> Year of experience </div>
+                                    <div class="logos">
+                                        <div class="logo-search" onclick="filter_search_open(3)"> <i class="fas fa-search searchicon"></i> </div>
+    
+                                        <div class="logo-minus"> <i class="fa fa-minus"></i></div>
+                                    </div>
+                                </div>
+                                <input type="search" onblur="filter_search_close(this)" placeholder="search location"/>
+    
+                                <div class="filter-check-box">
+                                    <ul>
+                                        <%
+                                        var emtarr = []; 
+                                        for(var i=0; i < data.all_doc_check.length; i++) { 
+                                            var typehospital= data.all_doc_check[i].experience.split(",")
+                                            for(var j=0; j< typehospital.length ;j++) {
+                                                if(emtarr.length > 0){
+                                                    for(var k=0; k < emtarr.length; k++){
+                                                     var ok = 0;
+                                                        if(typehospital[j] == emtarr[k] ){
+                                                            k = emtarr.length;
+                                                        }else{
+                                                             ok = 1;
+                                                        }
+                                                    }
+                                                    if(ok){
+                                                        emtarr.push(typehospital[j]); 
+                                                        %>
+                                                        <li> <input type="checkbox"  onchange="this.form.submit()" name="experience" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"><%= typehospital[j] %></li>
+                                            <%
+                                                    }
+                                                }else{ 
+                                                    emtarr.push(typehospital[j])  %>
+                                                    <li> <input type="checkbox"  onchange="this.form.submit()" name="experience" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"><%= typehospital[j] %></li>
+                                             <%   }
+                                           } 
+                                        } %>
+                                    </ul>
+                                </div>
+                                <div class="filter-show-more" onclick="fltr_showMore(0)" ><a href="#">+ show more</a></div>
+                                <div class="filter-show-less"  onclick="fltr_showMore(0)" ><a href="#">+ show less</a></div>
+
+    
+                            </div>
+                        </form>
+                    </div> 
+    
+                    <div class="doctor-boxs">
+                        <% for(var i=0 ; i < data.doctors.length ; i++) {%>
+                            <div class="doctor-box">
+                                <div class="doctor-content">
+    
+                                    <div class="doctor-name">
+                                        <h4 id='name<%= i %><%= data.doctors[i]._id %>'><%= data.doctors[i].name %></h4>
+                                    </div>
+    
+                                    <div class="doctor-logos">
+                                        <ul>
+                                            <li>
+                                                <div class="doctor-logo"><i class="fas fa-certificate"></i></div>
+                                                <div id='specification<%= i %><%= data.doctors[i]._id %>'><%= data.doctors[i].specification %></div>
+                                            </li>
+                                            <li>
+                                                <div class="doctor-logo"><i class="fas fa-hospital"></i></div>
+                                                <div id='qualification<%= i %><%= data.doctors[i]._id %>'><%= data.doctors[i].qualification %></div>
+                                            </li>
+                                            <li>
+                                                <div class="doctor-logo"><i class="fas fa-clock"></i></div>
+                                                <div id='experience<%= i %><%= data.doctors[i]._id %>'><%= data.doctors[i].experience %></div>
+                                            </li>
+                                            <li>
+                                                <div class="doctor-logo"><i class="fa fa-map-marker"></i></div>
+                                                <div id='hospital<%= i %><%= data.doctors[i]._id %>'><%= data.doctors[i].hospital %></div>
+                                            </li>
+                                            <li>
+                                                <div class="doctor-logo"> <i class="fas fa-clock"></i></div>
+                                                <%= data.doctors[i].colony %>
+                                                    <%= data.doctors[i].city %>
+                                                        <%= data.doctors[i].state %>
+                                            </li>
+                                            <li>
+                                                <div class="doctor-logo"> <i class="fas fa-clock"></i></div>
+                                                <%= data.doctors[i].fees %>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="doctor-button">
+                                        <button class="bookapointment" onclick="myFunction(`<%= i %>`,`<%= data.doctors[i]._id %>`)"> book an apointment
+                                        </button>
+                                    </div>
+    
+                                </div>
+    
+                                <div class="doctor-photo" onclick="window.location.href='doctor_profile?id=<%= data.doctors[i]._id %>'"  >
+                        
+                                    <img src="./uploads/<%= data.doctors[i].file %>" alt="" id='profile<%= i %><%= data.doctors[i]._id %>' > 
+                                
+                            </div>
+                                
+                               
+                                <div class="date-container opencon">
+    
+                                    <div class="back-button">
+                                        <h4> < </h4>
+                                    </div>
+    
+                                    <div class="date-groups">
+    
+                                        <% for(var k = 0 ; k < 7 ; k++) { 
+                                            var inc = 0 + k;
+                                            var currentDate = new Date(new Date(). getTime() + 24 * 60 * 60 * 1000 * inc);
+                                            var abc = String(currentDate) ;
+                                            var newcurrentDate = abc.slice(0,15)
+                                            %>
+                                        <div class="dates" value="" id='date<%= k %><%= data.doctors[i]._id %>' >
+                                            <% if(k == 0){ %>
+                                                <h4  id='bookingdate<%= k %><%= data.doctors[i]._id %>'>Today</h4>
+                                            <% }else if(k == 1) { %>
+                                                <h4  id='bookingdate<%= k %><%= data.doctors[i]._id %>'>Tommorow</h4>
+                                            <% }else{ %>
+                                                <h4  id='bookingdate<%= k %><%= data.doctors[i]._id %>'><%= newcurrentDate %></h4>
+                                            <% } %>
+    
+                                                    <h5><span id='day<%= k %><%= data.doctors[i]._id %>'>  0  </span> Slots Available</h5>
+                                                  
+                                        </div>
+                                        <% } %>
+                    
+                                    </div>
+    
+                                    <div class="frountbutton">
+                                        <h4> > </h4>
+                                    </div>
+                                </div>
+                                
+                                   
+                                <div class="slots">
+                                    <% for(var j = 0 ; j < 7 ; j++) {   %>
+                                        <div class="bookingtimegroup">
+    
+                                        </div> 
+                                    <% } %>
+                                </div>
+       
+                            </div>                       
+                        <% } %>
+                    </div>
+    
+                </div>
+            </section>
+    
+    
+            <ul id="pagination">       
+                <li class="pageBtn"><a>First</a></li>
+                <% for(var i=1; i<=Math.ceil(data.noofuser/3) ;i++){  
+                    console.log("noofuser........",noofuser, noofuser/2, noofuser+1, Math.ceil(data.noofuser/2))
+                   console.log("parseInt(data.pagenoselected )",data.pagenoselected )
+                    if( data.pagenoselected  == i){ %>
+                        <li class="pageNo" id="pageNo<%= i %>" > <a onclick="pageno(`<%= i %>`)" style="background: skyblue;" ><%= i %></a></li>
+                    <% } else{ %>
+                        <li class="pageNo" id="pageNo<%= i %>"> <a onclick="pageno(`<%= i %>`)" ><%= i %></a></li>
+                    <%  } %>
+    
+                <%   }  %>
+                <li class="pageBtn"><a onclick="pageno()" >Last</a></li>       
+            </ul>
+    
+    
+            <!-- include help-->
+            <%- include('include/_needhelp') %>
+                <!-- /include help -->
+    
+                <!-- include _footer-->
+                <%- include('include/_footer') %>
+                    <!-- /include _footer -->
+    
+    
+    
+                    <script>    
+                    ( function toggle_Schedules(){
+                        const datecontainer = document.getElementsByClassName("date-container");
+                        console.log("datecontainer = ",datecontainer)
+    
+                        const frountbutton = document.getElementsByClassName("frountbutton");
+                        console.log("frountbutton = ",frountbutton)
+    
+                        const backbutton = document.getElementsByClassName("back-button");
+                        console.log("backbutton = ",backbutton)
+                        console.log("datecontainer[ii].getElementsByClassName",datecontainer[0].getElementsByClassName("dates")[0])
+
+    
+                        for (let ii = 0; ii < datecontainer.length; ii++) {
+                            frountbutton[ii].addEventListener("click", e => {
+                                var xx = datecontainer[ii].getElementsByClassName("dates")[0].getAttribute("value") ;
+                                    console.log("xx",xx);
+                                var xxx = parseInt(xx)
+                                    console.log("parseInt xx",xxx);
+                                if((xx == "") || (xx == NaN)){
+                                    xxx = 0 ;
+    
+                                        console.log("xxx = ",xxx)
+                                }
+                                var s = xxx + 1; 
+                                console.log("s = ",s)
+                                if(s <= 3){
+                                    console.log("yes");
+                                }else{
+                                    console.log("no");
+                                }
+                                if(s <= 4){
+                                    const dates = datecontainer[ii].getElementsByClassName("dates");
+                                    console.log("dates.length",dates.length)
+
+                                    for (let jj = 0; jj < dates.length; jj++) {
+                                        dates[jj].style.transform += "translateX(-100%)";
+                                       
+                                        dates[jj].setAttribute("value" , `${s}`);
+                                          
+                                       console.log("uv",datecontainer[ii].getElementsByClassName("dates")[0].getAttribute("value"))
+                                    }
+                                    var xx = datecontainer[ii].getElementsByClassName("dates")[0].style.transform ;
+                                    console.log("xx f1= ",xx)
+                                   
+                                }
+                            }); 
+                        }
+                        for (let iii = 0; iii < datecontainer.length; iii++) {
+                            backbutton[iii].addEventListener("click", ee => {
+                                var ss = datecontainer[iii].getElementsByClassName("dates")[0].getAttribute("value") ;
+                                console.log("ss = ",ss)
+                                var sss = parseInt(ss)
+                                console.log("sss = ",sss)
+                                if(ss == ""){
+                                    var ssss = 0;
+                                }else{
+                                    
+                                    var ssss = sss - 1;
+                                }
+    
+                                console.log("ssss = ",ssss)
+    
+                                if((ss == "") || (ss == 0)){
+                                    console.log("no")
+                                }
+    
+                                if(!((ss == "") || (ss == 0))){
+                                    const datess = datecontainer[iii].getElementsByClassName("dates");
+                                    for (let j = 0; j < datess.length; j++) {
+                                        datess[j].style.transform += "translateX(100%)";
+                                        datess[j].setAttribute("value" , `${ssss}`);
+                                    }
+                                     var sssss = datecontainer[iii].getElementsByClassName("dates")[0].style.transform ;
+                                     console.log("xxx f2= ",sssss)
+                                }
+                            });
+                        }
+                    })();
+                    </script>
+    
+                    <script>
+                        function neww() {
+                            var slide = document.getElementsByClassName("opencon");
+                            for (var m = 0; m < slide.length; m++) {
+                                slide[m].style.height = "0";
+                            }
+                        }
+                        neww();
+                        var slideIndexx;
+    
+                       function myFunction(slideIndexx,docid) {
+                            showSlidesss(slideIndexx,docid);
+                        }
+                        async  function showSlidesss(slideIndexx,docid) {
+                            console.log(" ids ",docid)
+                            
+                            console.log(" slideIndexx ",slideIndexx)
+                            var s = document.getElementsByClassName("opencon");
+                            var doc = document.getElementsByClassName("doctor-box");
+                            var bt = doc[slideIndexx].getElementsByClassName("bookingtimegroup");
+    
+                            if (s[slideIndexx].style.height == "auto") {
+                                s[slideIndexx].style.height = "0";
+                                s[slideIndexx].style.margin = "0";
+    
+                                for(var j = 0 ; j< bt.length ;j++){
+                                    bt[j].classList.remove("active");
+                                }
+    
+                             }else {
+                                s[slideIndexx].style.height = "auto";
+                                s[slideIndexx].style.margin = "1rem 0.5rem";
+    
+                            }
+    
+                            console.log( "/getschedule/" + docid )
+                            const responsee = await fetch(`/getschedule?docid=${docid}`)
+                            const c = await responsee.json();
+                            console.log("ccccccccccdddddddddddddddd",c)
+
+                            console.log("cccccccccc",c.schedule[0])
+    
+                            for(var i =0 ;i < c.schedule.length; i++){
+                                var date = document.getElementById(`day${i}${docid}`);
+                                date.innerHTML=c.schedule[i]
+                            }
+                        
+                        }
+                    </script>                               
+    
+                    <script>
+                        (function toggle_Schedules_And_Slots () {
+                            const booking = document.getElementsByClassName("doctor-box");
+    
+                            for (let i = 0; i < booking.length; i++) {
+                                const bookingDateBtn = booking[i].getElementsByClassName("dates");
+                                const timesGroup = booking[i].getElementsByClassName("bookingtimegroup");
+    
+    
+                                for (let j = 0; j < bookingDateBtn.length; j++) {
+                                    bookingDateBtn[j].addEventListener("click",async e => {
+                                        for (a = 0; a < timesGroup.length; a++) {
+                                            timesGroup[a].classList.remove("active");
+                                            bookingDateBtn[a].classList.remove("active");
+                                        } 
+                                        timesGroup[j].classList.add("active");
+                                        bookingDateBtn[j].classList.add("active");
+    
+                                        
+                                        var ids = bookingDateBtn[j].id ;
+                                        var isdlen = ids.length ;
+                                        var day =parseInt(  ids.slice(4,5) );
+                                        var docid = ids.slice(5,isdlen) ;
+                                        console.log("ids[j]............",ids) ;
+                                        
+                                        console.log("bookingDateBtn[j]............",bookingDateBtn[j]) ;
+                                        console.log("bookingdate${j}${docid}. h4id.",`bookingdate${j}${docid}`) ;
+                                        var x = document.getElementById(`bookingdate${j}${docid}`).innerHTML;
+                                        console.log("  xtypeof = ",typeof(x))
+                                        console.log("  xxx = ",`b${x}m`)
+    
+                                        var isdoctor = `<%= data.user.doctor %>`
+                                        console.log(".isdoctor",isdoctor)
+    
+    
+                                        if(x == "Today"){
+                                            var currentDate = new Date(new Date(). getTime() + 24 * 60 * 60 * 1000 * 0);
+                                            var abc = String(currentDate) ;
+                                                x = abc.slice(0,15) 
+                                            console.log("  x = ",x)
+                                        }else if(x == "Tommorow"){
+                                            var currentDate = new Date(new Date(). getTime() + 24 * 60 * 60 * 1000 * 1);
+                                            var abc = String(currentDate) ;
+                                                x = abc.slice(0,15) 
+                                            console.log("  x = ",x)
+                                        }else{
+                                            console.log("  x = ",x)
+                                        }
+    
+    
+                                        console.log("  ids ",ids)
+                                        console.log("  day ",day)
+                                        console.log("  docid ",docid)
+    
+                                         var d = new Date();
+                                         var n = d.getDay()
+                                         console.log("n = ",n); 
+    
+                                         var clickday = n + day ;
+                                         console.log("vclickday = ",clickday); 
+                                         if(clickday > 6){
+                                             var clickday = clickday - 7 ;
+                                             console.log("clickday = ",clickday); 
+                                         }
+    
+                                         if(clickday == 0)clickday="Sunday" ;
+                                         if(clickday == 1)clickday="Monday" ;
+                                         if(clickday == 2)clickday="Tuesday" ;
+                                         if(clickday == 3)clickday="Wednesday" ;
+                                         if(clickday == 4)clickday="Thursday" ;
+                                         if(clickday == 5)clickday="Friday" ;
+                                         if(clickday == 6)clickday="Saturday" ;
+    
+                                         console.log("nuwclickday = ",clickday); 
+    
+                                         const responsee = await fetch(`/setschedule?docid=${docid}&clickday=${clickday}`)
+                                         const c = await responsee.json();
+                                         console.log("cc = ",c); 
+    
+                                        timesGroup[j].innerHTML = "";
+    
+                                        console.log("bookingdate = ")
+                                        for(var k=0 ; k < c.length ; k++){
+                                            var mlis ="" ;
+                                            var alis ="" ;
+                                            var elis ="" ;
+    
+                                            for(var l=0 ; l <  c[k].slots.length  ; l++){ 
+    
+                                                var apmp = c[k].slots[l].schedule_time.slice(6,8);
+                                                var fore = parseInt(c[k].slots[l].schedule_time.slice(0,2));
+                                                var checkbox = c[k].slots[l].checkbox ;
+                                                var isbook = c[k].slots[l].isbook ;
+    
+                                                var sabchangaci = true;
+                                                console.log(" ..................................x ,new Date().getHours()",x, (`${new Date()}`).slice(0,15));
+                                                if(   x == (`${new Date()}`).slice(0,15)   ){
+                                                    var foremin = parseInt(c[k].slots[l].schedule_time.slice(3,5));
+                                                    console.log(" ....................................fore:foremin apmp ",fore ,foremin , apmp) 
+                                                    var newfore = fore;
+                                                    if(apmp == "PM" && newfore != 12 ){
+                                                        newfore = newfore + 12 ;
+                                                    }                                        
+                                                    console.log(" ..............................new......fore:foremin apmp ",newfore ,foremin , apmp) 
+                                                    console.log(" ............................new Date().getHours()...,.getMinutes().....",new Date().getHours() ,new Date().getMinutes() )                                         
+                                                        sabchangaci = false;
+        
+                                                    if( (newfore*60 + foremin) > (new Date().getHours()*60 + new Date().getMinutes()) ){
+                                                        sabchangaci =  true ;
+                                                        console.log(" .............sabchangaci............",sabchangaci )                                         
+                                                    }
+                                                }
+    
+    
+    
+                                                var name = document.getElementById(`name${i}${docid}`).innerHTML;
+                                                console.log("  doc name ",name)                                         
+    
+                                                var hospital = document.getElementById(`hospital${i}${docid}`).innerHTML;
+                                                console.log("  doc hospital ",hospital)
+                                                
+                                                var qualification = document.getElementById(`qualification${i}${docid}`).innerHTML;
+                                                console.log("  doc qualification ",qualification)
+
+                                                var profile = document.getElementById(`profile${i}${docid}`).src;
+                                            profile = profile.slice(21,profile.length)
+                                            console.log("  doc profile ",profile)
+                                                
+                                                var appointmentdate = x;
+                                                console.log("  doc appointmentdate ",appointmentdate)
+                                              
+                                                if(apmp == "AM" && checkbox == "false" && isbook == "false" && sabchangaci ){
+                                                    mlis += `<li onclick="window.location.href='/patientappointment?name=${name}&hospital=${hospital}&profile=${profile}&qualification=${qualification}&appointmentdate=${x}&time=${c[k].slots[l].schedule_time}&bookhospital=${c[k].hospital}&scheduleid=${c[k].schedule_index }&slotid=${c[k].slots[l].id}&doctorid=${docid}&isdoctor=${isdoctor} '" > ${c[k].slots[l].schedule_time.slice(0,8)} </li>`;
+                                                }
+                                                else if( (apmp == "PM" && fore < 4 && checkbox == "false" && isbook == "false" && sabchangaci ) || (fore == 12 && checkbox == "false" && isbook == "false"  && sabchangaci)){
+                                                    alis += `<li onclick="window.location.href='/patientappointment?name=${name}&hospital=${hospital}&profile=${profile}&qualification=${qualification}&appointmentdate=${x}&time=${c[k].slots[l].schedule_time}&bookhospital=${c[k].hospital}&scheduleid=${c[k].schedule_index }&slotid=${c[k].slots[l].id}&doctorid=${docid}&isdoctor=${isdoctor} '" > ${c[k].slots[l].schedule_time.slice(0,8)} </li>`;
+                                                }else if(checkbox == "false" && isbook == "false" && sabchangaci){
+                                                    elis += `<li onclick="window.location.href='/patientappointment?name=${name}&hospital=${hospital}&profile=${profile}&qualification=${qualification}&appointmentdate=${x}&time=${c[k].slots[l].schedule_time}&bookhospital=${c[k].hospital}&scheduleid=${c[k].schedule_index }&slotid=${c[k].slots[l].id}&doctorid=${docid}&isdoctor=${isdoctor} '" > ${c[k].slots[l].schedule_time.slice(0,8)} </li>`;
+                                                }
+                                            }
+    
+                                         timesGroup[j].innerHTML += 
+                                           `<div class="booking-time">
+                                                <div class="daytime">
+                                                    <h5> Morning: </h5> 
+                                                </div>
+                                                <ul>
+                                                   ${mlis}
+                                                </ul>
+                                            </div>
+                                            <div class="booking-time">
+                                                <div class="daytime">
+                                                    <h5> afternoon: </h5> 
+                                                </div>
+                                                <ul>
+                                                    ${alis}
+                                                </ul>
+                                            </div>
+                                            <div class="booking-time">
+                                                <div class="daytime">
+                                                    <h5> Evening: </h5>  
+                                                </div>
+                                                <ul>
+                                                    ${elis}
+                                                </ul> 
+                                            </div> 
+                                            <div class="booking-hospital-name">
+                                                <h4>  ${c[k].hospital} </h4>
+                                            </div>`
+                                        
+                                        }
+                                
+                                    });
+                                }
+                            }
+                        
+                        })();
+                    </script>
+    
+                    <script>
+                        var aakhiri_umeed = document.getElementById("aakhiri_umeed").value
+                        console.log("aakhiri_umeed",aakhiri_umeed);
+                        aakhiri_umeed = aakhiri_umeed.split(",")
+                        for( var i=0 ;i< aakhiri_umeed.length ; i++) {
+                            document.getElementById(`${aakhiri_umeed[i]}`).setAttribute("checked", "");
+                         }
+    
+                        var fltr_checkBox = document.querySelectorAll(".filter-check-box input") ;
+                        var selectedFilters = document.querySelector(".filter-buttons") ;
+                        console.log("fltr_checkBox",fltr_checkBox);
+                        console.log("selectedFilters",selectedFilters);
+    
+                         for(i=0; i < fltr_checkBox.length; i++){
+                             if(fltr_checkBox[i].checked){
+                                 var fltrName = fltr_checkBox[i].parentElement.innerText;
+                                 selectedFilters.innerHTML += `<div class="fil-button"> <div> ${fltrName} </div> <i class="fa fa-times" onclick="removeFltr(${i})" ></i> </div>` ;
+                            };
+                         };
+    
+                         function removeFltr(i){
+                            fltr_checkBox[i].checked = false;
+                            fltr_checkBox[i].form.submit();
+                        };
+                        
+                        function filter_search_open (i){
+                            var target = document.querySelectorAll(".filter-search > input");
+                            //  target[i].classList.toggle("active");
+                            target[i].style.display ="block";
+                        };
+                        
+                        function filter_search_close (e){
+                            //  e.classList.remove("active");
+                            e.style.display ="none";
+                        };
+                        
+                                            (function searchFilters(){
+                                                const fltr_search = document.querySelectorAll(".filter-search > input");
+                                                console.log("fltr_search...",fltr_search)
+                        
+                                                for(i=0; i < fltr_search.length; i++){
+                                                    fltr_search[i].addEventListener("input", (e)=>{
+                                                        var searchValue = e.target.value.toLowerCase();
+                                                        var fg = e.target.parentElement;
+                                                        var items = fg.getElementsByTagName("li");
+                                                        console.log("li...",items)
+                                                        for(j=0; j<items.length; j++){
+                                                            if (items[j].innerText.toLowerCase().includes(searchValue)) {
+                                                                items[j].style.display = "block";
+                                                            }else{
+                                                                items[j].style.display = "none";
+                                                            }
+                                                        }
+                                                    })
+                                                };
+                                            })();
+    
+    
+                                            (function checkedFiltersOnTop () {
+                                                const filterList = document.querySelectorAll(".filter-check-box ul");
+                                            
+                                                filterList.forEach(function (ul) {
+                                            
+                                                    var arrListItems = ul.children;
+                                                    
+                                                    for (var i = 0; i < arrListItems.length; i++) {
+                                                        if (arrListItems[i].querySelector("input").checked) {
+                                                            ul.prepend(arrListItems[i]);
+                                                        };
+                                                    }
+                                                });
+                                            })();
+    
+                                            function sortBy(value){
+                                                console.log("sottby.......")
+                                                document.getElementById("sortInput").value = value;
+                                                console.log("sottby.......")
+    
+                                                document.getElementById("filterform").submit();
+                                            };
+    
+                                            function pageno(value){
+                                            console.log("pageno.......")
+                                            document.getElementById("pageno").value = value;
+                                            document.getElementById(`pageNo${value}`).style.color = "red";
+
+                                            document.getElementById("filterform").submit();
+                                        };
+
+
+                                        function fltr_showMore (i){
+                                            var target = document.getElementsByClassName("filter-check-box")[i];
+                                            var targetmore = document.getElementsByClassName("filter-show-more")[i];
+                                            var targetless = document.getElementsByClassName("filter-show-less")[i];
+
+                                            if(target.style.maxHeight != "fit-content"){
+                                                target.style.maxHeight = "fit-content"
+                                                targetmore.style.display = "none" ;
+                                                targetless.style.display = "block" ;
+                                            }else{
+                                                target.style.maxHeight = "9.2rem"
+                                                targetmore.style.display = "block" ;
+                                                targetless.style.display = "none" ;
+                                            }
+
+                                        };
+                                            
+    
+                    </script>
+           
+    
+    </body>
+    
+  
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

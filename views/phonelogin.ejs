@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/phonelogin.css">
+
+    <title>phone-login</title>
+</head>
+<body>
+
+
+   <!--NavBar-->
+   <%- include('include/_navbar') %>
+
+
+   <% if(data.err) { %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h5>failure</h5>
+            <p> <strong> <%= data.err %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+    
+<% if(data.succ) { %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h5>failure</h5>
+            <p> <strong> = messages </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+
+
+<div class="main">
+    <div class="login-box">
+        <div class="login">
+            <h2>Phone Login</h2>
+        </div>
+        <div class="form">
+            <form action="phonelogin" method="post">
+                <div class="location">
+                    <input type="text" placeholder="Enter Mobile No" id="mobilenumber" name="mobileNo" required >
+                    
+                </div>
+                <a href=""><h5>Login with password</h5></a>
+                <button> Login <span> <i class="fa fa-arrow-right" aria-hidden="true"></i> </span></button>
+            </form>
+        </div>
+    </div>
+    <div class="reserved">
+        <h6> All right reserved <i class="fa fa-copyright" aria-hidden="true"></i> Tvastra 2020 </h6>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+    function toggle() {
+  var x = document.getElementById("password");
+  var y =document.getElementById("eye");
+  if (x.type === "password") {
+    x.type = "text";
+    y.style.color = "rgb(9, 116, 187)";
+  } else {
+    x.type = "password";
+    y.style.color = "grey";
+  }
+
+
+  
+
+
+}
+</script>
+    
+</body>
+</html>

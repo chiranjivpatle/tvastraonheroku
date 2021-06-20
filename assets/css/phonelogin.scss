@@ -1,0 +1,74 @@
+@import "login.scss" ;
+
+.main{
+    .login-box{
+        .form{
+            form{
+                .location {
+                    
+                    
+                    
+                }
+                a {
+                    h5 {
+                    color: var(--blue_sky);
+                    margin: 0.5rem;
+                    font-size: 0.8rem;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+.alert {
+    background-color: var(--white);
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    right:1rem;
+    top:5rem;
+    align-items: center;
+    border-left: 0.2rem solid red;
+    
+    
+    i {
+        color: red;
+        z-index: 1;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    .alert_content {
+        h5 {
+            color:red;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+        }
+        p {
+            font-size: 0.8rem;
+            color:red;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    span {
+        color : var(--grey);
+        z-index: 1;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+}
+
+nav {
+    #navbar_buttons {
+        .tvastraplus {
+            display: none;
+        }
+        .login-button {
+            display: none;
+        }
+    }
+}

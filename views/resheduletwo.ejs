@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>doctor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+
+    <link rel="stylesheet" href="css/patientappointment.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+    
+     
+    
+    <!-- include nav-->
+    <%- include('include/_navbar') %>
+        <!-- /include nav -->
+
+
+
+    <section>
+        <div id="doctor-box" class="doctor-box reschedule">
+            <h1><%= data.obj.name %></h1>
+            <ul>
+                <li><i class="far fa-calendar-plus"></i> <%= data.obj.appointmentdate %>  </li>
+                <li><%= data.obj.bookhospital %> <span>Hospital</span></li>
+                <li><i class="far fa-clock"></i> <%= data.obj.stime %> </li>
+                <li><i class="far fa-clock"></i>To <%= data.obj.etime %>  </li>
+                <!-- <li> <%= data.obj.doctorid %> <%= data.obj.objid %> </li> -->
+            </ul>
+            <button type="button" onclick="myFunction(`<%= data.obj.doctorid %>`)"> Reschedule appointment</button>
+
+            <div class="date-container opencon">
+
+                <div class="back-button">
+                    <h4> < </h4>
+                </div>
+
+                <div class="date-groups">
+                    <% for(var k = 0 ; k < 7 ; k++) { 
+                        var inc = 0 + k;
+                        var currentDate = new Date(new Date(). getTime() + 24 * 60 * 60 * 1000 * inc);
+                        var abc = String(currentDate) ;
+                        var newcurrentDate = abc.slice(0,15)
+                        %>
+                    <div class="dates" value="" id='date<%= k %><%= data.obj.doctorid %>' >
+                        <% if(k == 0){ %>
+                            <h4  id='bookingdate<%= k %><%= data.obj.doctorid %>'>Today</h4>
+                        <% }else if(k == 1) { %>
+                            <h4  id='bookingdate<%= k %><%= data.obj.doctorid %>'>Tommorow</h4>
+                        <% }else{ %>
+                            <h4  id='bookingdate<%= k %><%= data.obj.doctorid %>'><%= newcurrentDate %></h4>
+                        <% } %>
+
+                                <h5><span id='day<%= k %><%= data.obj.doctorid %>'>  0  </span> Slots Available</h5>
+                              
+                    </div>
+                    <% } %>
+
+                </div>
+
+                <div class="frountbutton">
+                    <h4> > </h4>
+                </div>
+            </div>
+
+            <div class="slots">
+                <% for(var j = 0 ; j < 7 ; j++) {   %>
+                    <div class="bookingtimegroup">
+                        
+                    </div> 
+                <% } %>
+            </div>
+
+        </div>
+
+      
+
+        <script>
+            (function toggle_Schedules_And_Slots () {
+                const booking = document.getElementsByClassName("doctor-box");
+
+                for (let i = 0; i < booking.length; i++) {
+                    const bookingDateBtn = booking[i].getElementsByClassName("dates");
+                    const timesGroup = booking[i].getElementsByClassName("bookingtimegroup");
+
+
+                    for (let j = 0; j < bookingDateBtn.length; j++) {
+                        bookingDateBtn[j].addEventListener("click",async e => {
+                            for (a = 0; a < timesGroup.length; a++) {
+                                timesGroup[a].classList.remove("active");
+                                bookingDateBtn[a].classList.remove("active");
+                            } 
+                            timesGroup[j].classList.add("active");
+                            bookingDateBtn[j].classList.add("active");
+
+                            
+                            var ids = bookingDateBtn[j].id ;
+                            var isdlen = ids.length ;
+                            var day =parseInt(  ids.slice(4,5) );
+                            var docid = ids.slice(5,isdlen) ;
+                            console.log("ids[j]............",ids) ;
+                            
+                            console.log("bookingDateBtn[j]............",bookingDateBtn[j]) ;
+                            console.log("bookingdate${j}${docid}. h4id.",`bookingdate${j}${docid}`) ;
+                            var x = document.getElementById(`bookingdate${j}${docid}`).innerHTML;
+                            console.log("  xtypeof = ",typeof(x))
+                            console.log("  xxx = ",`b${x}m`)
+
+                            var isdoctor = `<%= data.user.doctor %>`
+                            console.log(".isdoctor",isdoctor)
+
+
+                            if(x == "Today"){
+                                var currentDate = new Date(new Date(). getTime() + 24 * 60 * 60 * 1000 * 0);
+                                var abc = String(currentDate) ;
+                                    x = abc.slice(0,15) 
+                                console.log("  x = ",x)
+                            }else if(x == "Tommorow"){
+                                var currentDate = new Date(new Date(). getTime() + 24 * 60 * 60 * 1000 * 1);
+                                var abc = String(currentDate) ;
+                                    x = abc.slice(0,15) 
+                                console.log("  x = ",x)
+                            }else{
+                                console.log("  x = ",x)
+                            }
+
+
+                            console.log("  ids ",ids)
+                            console.log("  day ",day)
+                            console.log("  docid ",docid)
+
+                             var d = new Date();
+                             var n = d.getDay()
+                             console.log("n = ",n); 
+
+                             var clickday = n + day ;
+                             console.log("vclickday = ",clickday); 
+                             if(clickday > 6){
+                                 var clickday = clickday - 7 ;
+                                 console.log("clickday = ",clickday); 
+                             }
+
+                             if(clickday == 0)clickday="Sunday" ;
+                             if(clickday == 1)clickday="Monday" ;
+                             if(clickday == 2)clickday="Tuesday" ;
+                             if(clickday == 3)clickday="Wednesday" ;
+                             if(clickday == 4)clickday="Thursday" ;
+                             if(clickday == 5)clickday="Friday" ;
+                             if(clickday == 6)clickday="Saturday" ;
+
+                             console.log("nuwclickday = ",clickday); 
+
+                             const responsee = await fetch(`/setscheduletwo?docid=${docid}&clickday=${clickday}`)
+                             const c = await responsee.json();
+                             console.log("cc = ",c); 
+
+                            timesGroup[j].innerHTML = "";
+
+                            console.log("bookingdate = ")
+                            for(var k=0 ; k < c.length ; k++){
+                                var mlis ="" ;
+                                var alis ="" ;
+                                var elis ="" ;
+
+                                for(var l=0 ; l <  c[k].slots.length  ; l++){ 
+
+                                    var apmp = c[k].slots[l].schedule_time.slice(6,8);
+                                    var fore = parseInt(c[k].slots[l].schedule_time.slice(0,2));
+                                    var checkbox = c[k].slots[l].checkbox ;
+                                    var isbook = c[k].slots[l].isbook ;
+
+                                    var sabchangaci = true;
+                                    console.log(" ..................................x ,new Date().getHours()",x, (`${new Date()}`).slice(0,15));
+                                    if(   x == (`${new Date()}`).slice(0,15)   ){
+                                        var foremin = parseInt(c[k].slots[l].schedule_time.slice(3,5));
+                                        console.log(" ....................................fore:foremin apmp ",fore ,foremin , apmp) 
+                                        var newfore = fore;
+                                        if(apmp == "PM" && newfore != 12 ){
+                                            newfore = newfore + 12 ;
+                                        }                                        
+                                        console.log(" ..............................new......fore:foremin apmp ",newfore ,foremin , apmp) 
+                                        console.log(" ............................new Date().getHours()...,.getMinutes().....",new Date().getHours() ,new Date().getMinutes() )                                         
+                                            sabchangaci = false;
+
+                                        if( (newfore*60 + foremin) > (new Date().getHours()*60 + new Date().getMinutes()) ){
+                                            sabchangaci =  true ;
+                                            console.log(" .............sabchangaci............",sabchangaci )                                         
+                                        }
+                                    }
+
+
+
+                                    var name = document.getElementById(`name${i}${docid}`).innerHTML;
+                                    console.log("  doc name ",name)                                         
+
+                                    var hospital = document.getElementById(`hospital${i}${docid}`).innerHTML;
+                                    console.log("  doc hospital ",hospital)
+                                    
+                                    var qualification = document.getElementById(`qualification${i}${docid}`).innerHTML;
+                                    console.log("  doc qualification ",qualification)
+
+                                    var profile = document.getElementById(`profile${i}${docid}`).src;
+                                profile = profile.slice(21,profile.length)
+                                console.log("  doc profile ",profile)
+                                    
+                                    var appointmentdate = x;
+                                    console.log("  doc appointmentdate ",appointmentdate)
+                                  
+                                    if(apmp == "AM" && checkbox == "false" && isbook == "false" && sabchangaci ){
+                                        mlis += `<li onclick="window.location.href='/updatereschedule?name=${name}&hospital=${hospital}&profile=${profile}&qualification=${qualification}&appointmentdate=${x}&time=${c[k].slots[l].schedule_time}&bookhospital=${c[k].hospital}&scheduleid=${c[k].schedule_index }&slotid=${c[k].slots[l].id}&doctorid=${docid}&isdoctor=${isdoctor} '" > ${c[k].slots[l].schedule_time.slice(0,8)} </li>`;
+                                    }
+                                    else if( (apmp == "PM" && fore < 4 && checkbox == "false" && isbook == "false" && sabchangaci ) || (fore == 12 && checkbox == "false" && isbook == "false"  && sabchangaci)){
+                                        alis += `<li onclick="window.location.href='/updatereschedule?name=${name}&hospital=${hospital}&profile=${profile}&qualification=${qualification}&appointmentdate=${x}&time=${c[k].slots[l].schedule_time}&bookhospital=${c[k].hospital}&scheduleid=${c[k].schedule_index }&slotid=${c[k].slots[l].id}&doctorid=${docid}&isdoctor=${isdoctor} '" > ${c[k].slots[l].schedule_time.slice(0,8)} </li>`;
+                                    }else if(checkbox == "false" && isbook == "false" && sabchangaci){
+                                        elis += `<li onclick="window.location.href='/updatereschedule?name=${name}&hospital=${hospital}&profile=${profile}&qualification=${qualification}&appointmentdate=${x}&time=${c[k].slots[l].schedule_time}&bookhospital=${c[k].hospital}&scheduleid=${c[k].schedule_index }&slotid=${c[k].slots[l].id}&doctorid=${docid}&isdoctor=${isdoctor} '" > ${c[k].slots[l].schedule_time.slice(0,8)} </li>`;
+                                    }
+                                }
+
+                             timesGroup[j].innerHTML += 
+                               `<div class="booking-time">
+                                    <div class="daytime">
+                                        <h5> Morning: </h5> 
+                                    </div>
+                                    <ul>
+                                       ${mlis}
+                                    </ul>
+                                </div>
+                                <div class="booking-time">
+                                    <div class="daytime">
+                                        <h5> afternoon: </h5> 
+                                    </div>
+                                    <ul>
+                                        ${alis}
+                                    </ul>
+                                </div>
+                                <div class="booking-time">
+                                    <div class="daytime">
+                                        <h5> Evening: </h5>  
+                                    </div>
+                                    <ul>
+                                        ${elis}
+                                    </ul> 
+                                </div> 
+                                <div class="booking-hospital-name">
+                                    <h4>  ${c[k].hospital} </h4>
+                                </div>`
+                            
+                            }
+                    
+                        });
+                    }
+                }
+            
+            })();
+        </script>
+
+<script>
+    function neww() {
+        var slide = document.getElementsByClassName("opencon");
+        for (var m = 0; m < slide.length; m++) {
+            slide[m].style.height = "0";
+        }
+    }
+    neww();
+    var slideIndexx;
+
+   function myFunction(docid) {
+        showSlidesss(docid);
+    }
+    async  function showSlidesss(docid) {
+        console.log(" ids ",docid)
+        
+        console.log(" slideIndexx ",slideIndexx)
+        var s = document.getElementsByClassName("opencon");
+        var doc = document.getElementsByClassName("doctor-box");
+        var bt = doc.getElementsByClassName("bookingtimegroup");
+
+        if (s[0].style.height == "auto") {
+            s[0].style.height = "0";
+            s[0].style.margin = "0";
+
+            for(var j = 0 ; j< bt.length ;j++){
+                bt[j].classList.remove("active");
+            }
+
+         }else {
+            s[0].style.height = "auto";
+            s[0].style.margin = "1rem 0.5rem";
+
+        }
+
+        console.log( "/getscheduletwo/" + docid )
+        const responsee = await fetch(`/getscheduletwo?docid=${docid}`)
+        const c = await responsee.json();
+        console.log("ccccccccccdddddddddddddddd",c)
+
+        console.log("cccccccccc",c.schedule[0])
+
+        for(var i =0 ;i < c.schedule.length; i++){
+            var date = document.getElementById(`day${i}${docid}`);
+            date.innerHTML=c.schedule[i]
+        }
+    
+    }
+</script>   
+
+            <script>
+                (function toggle_Schedules_And_Slots () {
+                    const booking = document.getElementsByClassName("doctor-box");
+                    for (let i = 0; i < booking.length; i++) {
+                        const bookingDateBtn = booking[i].getElementsByClassName("dates");
+                        const timesGroup = booking[i].getElementsByClassName("bookingtimegroup");
+                        for (let j = 0; j < bookingDateBtn.length; j++) {
+                            bookingDateBtn[j].addEventListener("click", e => {
+                                for (a = 0; a < timesGroup.length; a++) {
+                                    timesGroup[a].classList.remove("active");
+                                    bookingDateBtn[a].classList.remove("active");
+                                } 
+                                timesGroup[j].classList.add("active");
+                                bookingDateBtn[j].classList.add("active");
+                              //  booking[i].style.maxHeight = booking[i].scrollHeight + "px";
+                            });
+                        }
+                    }
+                
+                
+                })();
+            </script>
+
+
+    </section>
+
+
+        <!-- include _footer-->
+        <%- include('include/_footer') %>
+        <!-- /include _footer -->
+
+
+</body>
+</html>

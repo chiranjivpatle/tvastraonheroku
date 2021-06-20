@@ -1,0 +1,260 @@
+:root {
+  --heading:rgba(255, 255, 255,0.9);
+  --header-p:rgba(255, 255, 255,0.6);
+  --video-box:black;
+  --button-background:#4e6ca3;
+  --button-font:white;
+  --box-border:rgba(255, 255, 255,0.5);
+}
+
+.heading {
+  height: 16rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/aboutUs_hero.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/aboutUs_hero.jpeg");
+  background-position: top;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.heading .content h1 {
+  color: var(--heading);
+}
+
+.heading .content p {
+  margin: 0;
+  color: var(--header-p);
+}
+
+.introduction .parase h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.introduction .parase .signiture {
+  text-align: center;
+}
+
+.introduction .parase .signiture img {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  width: 12rem;
+}
+
+.introduction .doctor-photo {
+  margin-top: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* ...................video box.................... */
+.video-box {
+  background-color: var(--video-box);
+}
+
+.video-box #myvideo {
+  display: none;
+}
+
+.video-box .video-info .video-content {
+  text-align: center;
+}
+
+.video-box .video-info .video-content h2 {
+  color: var(--heading);
+  margin-bottom: 1rem;
+}
+
+.video-box .video-info .video-content p {
+  color: var(--header-p);
+}
+
+.video-box .video-info .video-content button {
+  border: none;
+  border-radius: 0.3rem;
+  background-color: var(--blue_sky);
+  margin-bottom: 1rem;
+  color: var(--button-font);
+}
+
+.video-box .video-info .member-box .member {
+  height: 6rem;
+  border: 2px solid var(--box-border);
+  border-radius: 0.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.video-box .video-info .member-box .member h2 {
+  color: var(--heading);
+}
+
+.video-box .video-info .member-box .member p {
+  color: var(--header-p);
+  margin-bottom: 0;
+}
+
+/*help*/
+.helps {
+  background-color: var(--skyblue);
+}
+
+.helps .help {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.helps .content h2 {
+  color: var(--white);
+}
+
+.helps .content p {
+  color: var(--black);
+}
+
+.helps button {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* ...................................................................... */
+/* ...................................................................... */
+/* .........................tablet....................................... */
+/* ...................................................................... */
+/* ...................................................................... */
+@media only screen and (min-width: 768px) {
+  .heading {
+    height: 21rem;
+  }
+  .introduction {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .introduction .parase h2 {
+    text-align: start;
+  }
+  .introduction .parase p {
+    text-align: start;
+  }
+  .introduction .parase .signiture {
+    text-align: start;
+  }
+  .introduction .doctor-photo {
+    text-align: end;
+  }
+  /* ...................video box.................... */
+  .video-box .video-info .video-content {
+    text-align: start;
+  }
+  .video-box .video-info .video-content h2 {
+    margin-bottom: 1rem;
+  }
+  .video-box .video-info .video-content p {
+    margin-bottom: 0;
+    text-align: start;
+  }
+  .video-box .video-info .video-content button {
+    margin: 3rem 0;
+  }
+  .video-box .video-info .member-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .video-box .video-info .member-box .member {
+    width: 32%;
+  }
+}
+
+/* ...................................................................... */
+/* ...................................................................... */
+/* .........................decstop...................................... */
+/* ...................................................................... */
+/* ...................................................................... */
+@media only screen and (min-width: 1023px) {
+  /* .................nav............ */
+  p {
+    font-size: 1.2rem;
+  }
+  .heading .content h1 {
+    text-align: center;
+  }
+  .introduction .parase {
+    width: 100%;
+  }
+  .introduction .doctor-photo img {
+    width: 45%;
+    margin-left: 10rem;
+  }
+  /* ...................video box.................... */
+  .video-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    padding: 0;
+    width: 100%;
+  }
+  .video-box .video {
+    width: 100%;
+  }
+  .video-box .video #myvideo {
+    display: block;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    height: 32rem;
+  }
+  .video-box .video-info {
+    margin: 5rem 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+  }
+  .video-box .video-info .video-content {
+    width: 100%;
+    margin-right: 2rem;
+  }
+  .video-box .video-info .video-content h2 {
+    margin-bottom: 2rem;
+  }
+  .video-box .video-info .video-content button {
+    margin: 4.5rem 0;
+    padding: 0.7rem 1rem;
+  }
+  .video-box .video-info .member-box .member {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+/*# sourceMappingURL=aboutus.css.map */

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/new-theme.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_nav') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <a href="/profile">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>profile</p></div>
+            </a>
+            <a href="/appointment">
+                <div class="dash_btn dot appointment_page"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>appointments</p></div>
+            </a>
+            <% if(data.user.doctor == "doctor"){ %>
+                <a href="/schedules">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>schedules</p></div>
+                </a>
+            <% } %>  
+            <a href="/medical_report">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>medical reports </p></div>
+            </a>
+            <a href="/setting">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+            </a>
+        </div>
+    </div>
+
+  
+    <div class="dashbord_content2 mySlides">
+        <h2 class="no_appointment ">  no Appointment 😥 </h2>
+
+        <h2>Upcomming Appointments</h2>
+
+        <%  
+        var comp = 1;
+        for(var i = 0; i < data.user.appointments.length ; i++){ 
+           
+            console.log("date", data.user.appointments[i].appointmentdate , data.user.appointments[i].etime ) 
+            var year= parseInt(  data.user.appointments[i].appointmentdate.slice(11,15) );
+            var a=data.user.appointments[i].appointmentdate.slice(4,7);
+            var day= parseInt(  data.user.appointments[i].appointmentdate.slice(8,10) );
+            if(a=="Jan") a = 01;
+            if(a=="Feb") a = 02;
+            if(a=="Mar") a = 03;
+            if(a=="Apr") a = 04;
+            if(a=="May") a = 05;
+            if(a=="Jun") a = 06;
+            if(a=="Jul") a = 07;
+            if(a=="Aug") a = 08;
+            if(a=="Sep") a = 09;
+            if(a=="Oct") a = 10;
+            if(a=="Nov") a = 11;
+            if(a=="Dec") a = 12;
+
+            console.log("answer",a)
+            var eth = parseInt( data.user.appointments[i].etime.slice(1,3) );
+            var etm =  parseInt( data.user.appointments[i].etime.slice(4,6) );
+            var etam =  parseInt( data.user.appointments[i].etime.slice(7,9) );
+    
+            if(etam == "PM" && eth != 12){
+                eth = eth + 12 ;
+            }
+
+            var current = new Date();
+            console.log(current)
+           var y = current.getFullYear() ;
+           var cm = current.getMonth() + 1;
+           var d = current.getDate() ;
+           var h = current.getHours() ;
+           var min = current.getMinutes() ;
+
+           console.log("y",y  );
+           console.log("cm",cm  );
+           console.log("d", d );
+           console.log("h", h );
+           console.log("min",min  );
+
+            console.log("year" , year );
+            console.log("a" ,  a);
+            console.log("day" ,day);
+            console.log("eth" ,eth  );
+            console.log("etm" ,etm  );
+
+
+
+    if( (y > year) || ((y==year) && (cm>a)) || ((y==year) && (cm==a) && (d>day) ) || ((y==year) && (cm==a) && (d==day) && (h>eth)) ||  ((y==year) && (cm==a) && (d==day) && (h==eth) && (min>etm)) ){
+        
+        
+        console.log("ok")   %>
+        <div class="appointment">
+            <div class="date_time">
+                <div class="date"> <h4> <%= data.user.appointments[i].appointmentdate.slice(4,10)  %> </h4></div>
+                <div class="time"> 
+
+                    <h4 class="name"><%= data.user.appointments[i].name  %> </h4>
+                    <h4><%= data.user.appointments[i].stime  %> to <%= data.user.appointments[i].etime %></h4>
+                    <h4><%= data.user.appointments[i].bookhospital %> </h4>
+                    <div class="confirmed">Confirmed </div>
+                </div>
+            </div>
+            <div class="cancel_appointment">
+                <% if( !(data.user.doctor == "doctor")){ %>
+                <button type="button" onclick="window.location.href='/reschedule?objindex=<%= i %> '"> reshedule Aappointment</button >
+                <button  onclick="cancel_appointment_btn(`<%= i %>`)" >cancel Aappointment </button>
+                <% } %>
+            </div>
+        </div>
+    <%  }else{ console.log("not ok") %>
+
+            <% if(comp == 1){ comp++ %>
+                <h2 class="compleatedAppointments">compleated Appointments</h2>
+            <%  } %>
+
+    <div class="appointment">
+        <div class="date_time">
+            <div class="date"> <h4> <%= data.user.appointments[i].appointmentdate.slice(4,10)  %> </h4></div>
+            <div class="time"> 
+
+                <h4 class="name"><%= data.user.appointments[i].name  %> </h4>
+                <h4><%= data.user.appointments[i].stime  %> to <%= data.user.appointments[i].etime %></h4>
+                <h4><%= data.user.appointments[i].bookhospital %> </h4>
+                <div class="confirmed">Confirmed </div>
+            </div>
+        </div>
+        <div class="cancel_appointment">
+            <% if( !(data.user.doctor == "doctor")){ %>
+            <button type="button" onclick="window.location.href='/reschedule?objindex=<%= i %> '"> reshedule Aappointment</button >
+            <button  onclick="cancel_appointment_btn(`<%= i %>`)" >cancel Aappointment </button>
+            <% } %>
+        </div>
+    </div>
+
+<% } %>
+   
+    
+        
+        <div id="cancel_appointment" class="cancel_appointment_btn" >
+            <div class="edit_number">
+                <h2>Cancel Appointment?</h2>
+                <p>Are you sure you want to cancel your appointment deleteappointment ?</p>
+                <div class="send_otp">
+                    <button class="yes" type="button" onclick="window.location.href='/deleteappointment?objid=<%= data.user.appointments[i]._id %> '">yes</button>
+                    <button class="no"  onclick="cancel_appointment_btn_no(`<%= i %>`)"  >no</button>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        
+        
+                    
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+<script>
+
+    var medical_report = document.getElementsByClassName("appointment_page");
+    medical_report[0].style.background = "rgb(226, 220, 220)"; 
+    medical_report[0].classList.add("mystyle");
+  
+
+    //...............................................
+    function cancel_appointment_btn(i){
+        var cancel_appointment_btn = document.getElementsByClassName("cancel_appointment_btn");
+        cancel_appointment_btn[i].style.display = "flex";
+    }
+    
+    function cancel_appointment_btn_no(i){
+        var cancel_appointment_btn = document.getElementsByClassName("cancel_appointment_btn");
+        cancel_appointment_btn[i].style.display = "none";
+    }
+    //............................................
+    
+ 
+    
+
+
+</script>
+
+
+</body>
+</html>

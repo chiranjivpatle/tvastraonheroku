@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <% if(!(data.admin.type == "admin")){ %>
+            
+                <a href="/profile">
+                    <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>profile</p></div>
+                </a>
+                <a href="/appointment">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>appointments</p></div>
+                </a>
+                <% if(data.user.doctor == "doctor"){ %>
+                    <a href="/schedule">
+                        <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>schedules</p></div>
+                    </a>
+                <% } %>            
+                <a href="/medical_report">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>medical reports </p></div>
+                </a>
+                <a href="/setting">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+                </a>
+
+            <% }else{  %> 
+                <a href="/admin">
+                    <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>dashbord</p></div>
+                </a>
+                <a href="/useradmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>user</p></div>
+                </a>
+                <a href="/doctoradmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>doctor</p></div>
+                </a>           
+                <a href="/hospitaladmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>hospital reports </p></div>
+                </a>
+                <a href="/settingadmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+                </a>
+            <%   } %> 
+        </div>
+    </div>
+
+    <div class="dashbord_content2 mySlides medical_record">
+        <div class="head">
+            <h2>Medical Records</h2>
+            <% if(!(data.admin.type == "admin")){ %>
+                <button onclick="add_record()"  >add record </button>
+             <% } %>   
+        </div>
+    
+    <% for(var i = 0 ; i < record.length ; i++ ){ %>
+    <div class="appointment">
+        <div class="date_time">
+            <form action="/show_record" method="POST">
+                <input type="text" name="record_id" value="<%= data.record[i]._id %>" >
+                <button class="date" type="submit"> <h5 id="datess"><%= data.user.birthdate %></h5></button>
+            </form>
+            <div class="time"> 
+                <h4 class="name"><%= data.record[i].title %></h4>
+                <h4><%= data.record[i].name %> </h4>
+                <h4><%= data.record[i].record_type %></h4>
+            </div>
+        </div>
+        <div class="cancel_appointment">
+            <form action="/delete_record" method="POST">
+                <input type="text" name="uid" id="uid" value="<%= data.record[i]._id %>">
+                <button  >Delete </button>
+            </form>
+        </div>
+    </div>       
+    
+
+    <% } %>    
+                                                    
+    </div>
+
+</section>
+
+<div id="number_change" class="add_record" >
+    <div class="edit_number">
+
+        <form action="/medical_record" method="POST" enctype="multipart/form-data">
+            <div class="add_photo">
+                <div id="previeww" >
+                </div>
+                <label class="add_photo_div">
+                    <input type="file" name="record_photos" id="file-input"  multiple required>   
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <h3>add photo</h3>
+                </label>
+            </div>
+            <div class="inputs">
+                <input type="text" name="title" class="" placeholder="title" required>
+                <input type="text" name="name" class="" value='<%= data.user.name %>' required>
+                <input type="date" name="date" class="date" required>
+                <input type="text" name="mobileNo" class="number" value='<%= data.user.mobileNo %>'>
+            </div>
+            <div class="report">
+                <h2>type of record</h2>  
+                <input type="radio" name="record_type" value="report" id="reportTypeInput" >
+                <label for="reportTypeInput">
+                    <div class="report_type">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                        <h3>report</h3>
+                    </div>
+                </label>
+                <input type="radio" name="record_type" value="prescription" id="prescriptionTypeInput">
+                <label for="prescriptionTypeInput">
+                    <div class="report_type">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                        <h3>prescription</h3>
+                    </div>
+                </label>
+                <input type="radio" name="record_type" value="report" id="invoiceTypeInput">
+                <label for="invoiceTypeInput">
+                    <div class="report_type">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                        <h3>invoice</h3>
+                    </div>
+                </label>
+         
+            </div>
+            <div class="send_otp">
+                <div class="cancel_btn" onclick="not_add_record()" >cancel</div>
+                <button class="done" onclick="not_add_recordtwo()" type="submit" >Done</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+<script>
+
+        var medical_report = document.getElementsByClassName("medical_report");
+        medical_report[0].style.background = "rgb(226, 220, 220)"; 
+        medical_report[0].classList.add("mystyle");
+      
+
+function add_record(){
+  var number_change = document.getElementsByClassName("add_record");
+    number_change[0].style.display = "flex";
+}
+function not_add_record(){
+  var number_change = document.getElementsByClassName("add_record");
+    number_change[0].style.display = "none";
+}
+
+function not_add_recordtwo(){
+  var number_change = document.getElementsByClassName("add_record");
+  var photo_change = document.querySelector('input[type="file"]');
+  if(photo_change.value) {
+    number_change[0].style.display = "none";
+  }
+  else {
+    number_change[0].style.display = "flex";
+  }
+}
+    
+    
+/*function previewImages() {
+    var preview = document.querySelector('#previeww');
+    if (this.files) {
+      [].forEach.call(this.files, readAndPreview);
+    }
+    function readAndPreview(file) {
+      if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+        return alert(file.name + " is not an image");
+      } // else...
+      var reader = new FileReader();
+      reader.addEventListener("load", function() {
+        var image = new Image();
+        image.height = 100;
+        image.title  = file.name;
+        image.src    = this.result;
+        preview.appendChild(image);
+      });
+      reader.readAsDataURL(file);
+    }
+  }
+  
+  document.querySelector('#file-input').addEventListener("change", previewImages);*/
+
+
+</script>
+<script>
+    (function(){
+        const reportPicInput = document.getElementById("file-input");
+        var selectedPhotoContainer = document.querySelector("#previeww");
+
+        reportPicInput.addEventListener("change", e=>{
+            if(reportPicInput.files.length>5){
+                alert("Maximum 5 files are allowed");
+                reportPicInput.value=null;
+                selectedPhotoContainer.innerHTML='';
+            }
+            
+        })
+    })();
+</script>
+
+
+
+</body>
+</html>

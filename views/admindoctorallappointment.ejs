@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/admin.css">
+
+    <title>email-login</title>
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <a href="/admin">
+                <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>dashbord</p></div>
+            </a>
+            <a href="/useradmin">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>user</p></div>
+            </a>
+            <a href="/doctoradmin">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>doctor</p></div>
+            </a>           
+            <a href="/hospitaladmin">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>hospital reports </p></div>
+            </a>
+            <a href="/settingadmin">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="dashbord_content1 mySlides">
+        <div>
+       
+            <div class="recentAppointments">
+                <h3>Patients Enrolled</h3>
+                <table class="recentAppointmentsTable">
+                    <thead>
+                        <tr>
+                            <td>
+                                <h4>patient</h4>
+                            </td>
+                            <td>
+                                <h4>patient Number</h4>
+                            </td>
+                            <td>
+                                <h4>user</h4>
+                            </td>
+                            <td>
+                                <h4>hospital name</h4>
+                            </td>
+                            <td>
+                                <h4>date</h4>
+                            </td>
+                            <td>
+                                <h4>timing</h4>
+                            </td>
+                            <td>
+                                <h4>status</h4>
+                            </td>
+                            <td>
+                                <h4>action</h4>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (var i = 0; i < data.useridapp.appointments.length ;i++ ){ %>
+                            <tr>
+                                <td>
+                                    <h4> <%= data.useridapp.appointments[i].name  %> </h4>
+                                </td>
+                                <td>
+                                    <h4> <%= data.useridapp.appointments[i].patientnumber  %></h4>
+                                </td>
+                                <td>
+                                    <h4> <%= data.useridapp.appointments[i].username  %> </h4>
+                                </td>
+                                <td>
+                                    <h4> <%= data.useridapp.appointments[i].bookhospital  %> </h4>
+                                </td>
+                                <td>
+                                    <h4> <%= data.useridapp.appointments[i].appointmentdate  %> </h4>
+                                </td>
+                                <td>
+                                    <h4> <%= data.useridapp.appointments[i].stime  %>-<%= data.useridapp.appointments[i].etime  %></h4>
+                                </td>
+                                <td>                                   
+                                    <%  
+                                        console.log("data.useridapp.appointments[i] ", data.useridapp.appointments[i] ) 
+                                    
+                                        console.log("date", data.useridapp.appointments[i].appointmentdate , data.useridapp.appointments[i].etime ) 
+                                        var year= parseInt(  data.useridapp.appointments[i].appointmentdate.slice(11,15) );
+                                        var a=data.useridapp.appointments[i].appointmentdate.slice(4,7);
+                                        var day= parseInt(  data.useridapp.appointments[i].appointmentdate.slice(8,10) );
+                                        if(a=="Jan") a = 01;
+                                        if(a=="Feb") a = 02;
+                                        if(a=="Mar") a = 03;
+                                        if(a=="Apr") a = 04;
+                                        if(a=="May") a = 05;
+                                        if(a=="Jun") a = 06;
+                                        if(a=="Jul") a = 07;
+                                        if(a=="Aug") a = 08;
+                                        if(a=="Sep") a = 09;
+                                        if(a=="Oct") a = 10;
+                                        if(a=="Nov") a = 11;
+                                        if(a=="Dec") a = 12;
+                            
+                                        console.log("answer",a)
+                                        var eth = parseInt( data.useridapp.appointments[i].etime.slice(1,3) );
+                                        var etm =  parseInt( data.useridapp.appointments[i].etime.slice(4,6) );
+                                        var etam =   data.useridapp.appointments[i].etime.slice(7,9) ;
+                                
+                                        console.log(".........etam",etam)
+                                        if(etam == "PM" && eth != 12){
+                                            eth = eth + 12 ;
+                                        }
+                            
+                                        var current = new Date();
+                                        console.log(current)
+                                       var y = current.getFullYear() ;
+                                       var cm = current.getMonth() + 1;
+                                       var d = current.getDate() ;
+                                       var h = current.getHours() ;
+                                       var min = current.getMinutes() ;
+                            
+                                       console.log("y",y  );
+                                       console.log("cm",cm  );
+                                       console.log("d", d );
+                                       console.log("h", h );
+                                       console.log("min",min  );
+                            
+                                        console.log("year" , year );
+                                        console.log("a" ,  a);
+                                        console.log("day" ,day);
+                                        console.log("eth" ,eth  );
+                                        console.log("etm" ,etm  );
+                            
+                            
+                            
+                                        if( !((y > year) || ((y==year) && (cm>a)) || ((y==year) && (cm==a) && (d>day) ) || ((y==year) && (cm==a) && (d==day) && (h>eth)) ||  ((y==year) && (cm==a) && (d==day) && (h==eth) && (min>etm))) ){
+                                        console.log("ok")   
+                                        var isok = "ok";
+                                        }else{ 
+                                            console.log("not ok") 
+                                            var isok = "notok";
+                                        } 
+                                        
+                                         if(isok == "notok"){ %>
+                                            <h4>  Compleated </h4>
+                                        <% }else{  %>
+                                            <%  if (data.useridapp.appointments[i].cancel == "cancel"){  %>
+                                                <h4> canceled  </h4>
+                                            <%  }else{ %>
+                                                <h4>  Approved </h4>
+                                            <%  } %>
+                                        <%  } %>
+                                                
+                               
+                                </td>
+                                <td>
+                                    <%  if(isok == "notok"){ %>
+                                        <h4>   </h4>
+                                    <% }else if (data.useridapp.appointments[i].cancel == "cancel"){  %>
+                                        <h4>   </h4>
+                                        <%  }else{ %>
+                                            <h4 class="cancel" onclick="window.location.href='/cancelappointmentadmin?docid=<%= data.useridapp._id %>&docappoid=<%= data.useridapp.appointments[i]._id %>&userid=<%= data.useridapp.appointments[i].userid %>&userappointmentid=<%= data.useridapp.appointments[i].userappointmentid %>'">  Cancel </h4>     
+                                      <% } %>
+                                </td>
+                            </tr>
+                      <%  } %>
+                                                
+                    </tbody>
+                </table>
+               
+            </div>
+    
+        </div>
+    </div>
+
+</section>
+
+ 
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+
+</body>
+</html>

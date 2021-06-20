@@ -1,0 +1,754 @@
+@import url(theme.css);
+
+
+@mixin back-img-data {
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */  
+    
+}
+
+@mixin flexprob {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+} 
+
+
+.alert {
+    background-color: var(--white);
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    right:1rem;
+    top:5rem;
+    align-items: center;
+    border-left: 0.2rem solid green;
+    
+    
+    i {
+        color: green;
+        z-index: 1;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    .alert_content {
+        h5 {
+            color: green;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+        }
+        p {
+            font-size: 0.8rem;
+            color: green;
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    span {
+        color : var(--grey);
+        z-index: 1;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+}
+
+
+/*healthcare*/
+.healthcare {
+    background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.jpg");
+    background-size: cover;
+
+
+.location  {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background-color: var(--white);
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+.healthcare_icon1 {
+    margin-left: 0.5rem;
+}
+.healthcare_icon2 {
+    margin-right: 0.5rem;
+    
+}
+.location input {
+    border: none;
+    
+}
+.forsearch {
+    width: 100%;
+    #myP {
+        
+        position: absolute;
+        ul {
+            background-color: var(--white);
+            li {
+                display: none;
+                
+                border: 0.1rem solid var(--skyblue)
+            }
+        }
+    }
+}
+.form button {
+    margin-top: 1rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+}
+
+/*how it work*/
+.How_it_work {
+
+.container2{
+    
+    
+        
+        .need_grid{
+            
+                .blockk{
+                    margin-bottom: 1rem;
+                    border-radius: 0.5rem;
+                    li{
+                       
+                        padding: 1rem ;
+                
+                       
+                        h3{
+                            span{
+                                color: var(--skyblue);
+                                margin-right: 0.5rem;
+                            }
+                        }
+
+                    }
+                }
+                .last {
+                    margin-bottom: 0rem;
+                }
+                .block1{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 0.5rem;
+                    
+                    
+                        .container2_img{
+
+                        }
+                    
+                    h4{
+                        margin: 1rem;
+                    }
+                    p{
+
+                    }
+                }
+            
+        }
+    
+} 
+}
+
+/*expert doctor*/
+.doctors {
+    background-color: var(--blackish_blue);
+    
+
+ h2,  p {
+    color: var(--white);
+}
+
+.container3 {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+}
+
+.doctor_box{
+    width: 100%;
+}
+
+.doctor_image {
+
+    height: 20rem;
+    width: 100%;
+}
+
+.doctor_name {
+    width: 100%;
+}
+
+.aside {
+    background-color: var(--white);
+    padding-bottom: 0.5rem;
+    position: relative;
+    border-bottom: 0.3rem solid var(--skyblue);
+}
+
+.aside li{
+    color: var(--black) ;
+    text-align: left;
+    margin-left: 1.8rem;
+    line-height: 1.1rem;
+    
+}
+
+
+.aside li h4::before {
+    content: " ";
+    position: absolute;
+    width: 7%;
+    border-bottom: 0.2rem solid var(--skyblue);
+    left:0rem;
+    top:1.4rem;
+}
+.aside li h4 {
+    padding-top: 1rem;
+    
+    color: var(--blue_sky);
+}
+}
+/* ........treatment........................ */
+.Treatment{
+    .doc{
+        .docs{
+            .doc-c{
+                .grid-box{
+                    height: 20rem;
+                    width: 100%;
+                    margin-top: 1rem;
+                    position: relative;
+                    .linear-g{
+                        background-image: linear-gradient(rgba(0,0,0,0)0%,rgba(17, 10, 26,0.9)57%);
+                        position: absolute;
+                        width: 100%;
+                        height: 40%;
+                        bottom: 0%;
+                    }
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    .name{
+                        position: absolute;
+                        bottom: 6%;
+                        left: 6%;
+                        font-size: 0.75rem;
+                        font-family: Nexa Light;
+                        color: var(--white);
+                        text-align: left;
+                        h5{
+                            margin-bottom: 0.3rem;
+                            letter-spacing: 0.02rem;
+                            font-size: 1rem;
+                            font-family: Nexa Bold;
+                            color: var(--white);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* ........treatment..end................... */
+
+
+/* services */
+
+.services {
+
+    background-color:var(--secondary);
+
+
+h5 {
+    color: gray;
+    padding: 0rem;
+    padding-bottom: 1rem;
+}
+
+.card-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-row-gap: 0.5rem;
+    grid-column-gap: 0.5rem;
+    
+    text-align: center;
+    
+    
+    
+}
+.pic {
+    height:5rem;
+    width: 5rem;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 0.5rem;
+}
+}
+ 
+
+
+
+
+@media only screen and (min-width:768px)
+{
+    /*healthcare*/
+     
+    .healthcare{
+        height: 11rem;
+    .location {
+        width: 75%;
+        
+        margin-top: 0.5rem;
+        margin-right: 0.1rem;
+    }
+    .form {
+        flex-direction: row;
+    }
+   .form button {
+        margin-bottom: 1rem;
+        font-size: 0.64rem;
+    }
+
+    
+    li span{
+        padding: 1rem;
+    }
+}
+    /*how it work*/
+    .How_it_work {
+
+        .container2{
+            
+            
+                
+                .need_grid{
+                    
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                    grid-column-gap: 1rem;
+                        
+                        
+                        .blockk{
+                            
+                            cursor: pointer;
+                            li{
+                               
+                                padding: 1rem ;
+                                
+                                
+                               
+                                h3{
+                                    span{
+                                        color: var(--skyblue);
+                                        margin-right: 0.5rem;
+                                    }
+                                }
+        
+                            }
+                        }
+                        .last {
+                            margin-bottom: auto;
+                        }
+                        .block1{
+                            grid-column-start: 2;
+                            grid-column-end: 3;
+                            grid-row-start: 1;
+                            grid-row-end: 8;
+                            width: auto;
+                            height: auto;
+                            
+                        
+                            
+                            
+
+                            
+                                
+                                .container2_img{
+                                    
+                                }
+                            
+                            h4{
+                                text-align: center;
+                                
+                            }
+                            p{
+                                
+                            }
+                        }
+                    
+                }
+            
+        } 
+        }
+    
+
+/*expert doctor*/
+.doctors {
+.doctor_box {
+    width: 21.5rem;
+}
+.container3 {
+    column-gap: 1rem;
+}
+.aside {
+    height: 7rem;
+}
+.aside li {
+    margin-right: 1.9rem;
+}
+
+}
+
+/* .............treatment................................................. */
+.Treatment{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .doc{
+        .docs{
+            .doc-c{
+                width: 47.5%;
+                margin: 0.5rem 0.5rem;
+                float: left;
+                .grid-box{
+                    margin: 0rem;
+                }
+            }
+        }
+    }
+}
+/* .............treatment...end.............................................. */
+
+
+/*services*/
+.services {
+.card-wrapper {
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem;
+    
+    
+    
+    
+    
+}
+}
+
+
+
+
+
+}
+@media only screen and ( min-width:1024px) {
+  
+
+    /*healthcare*/
+    
+    .healthcare {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    
+    .location  {
+    
+        height: 2.95rem;
+        
+    }
+    
+    
+    .healthcare_icon1 {
+        color: var(--blackish_blue);
+    }
+    .healthcare_icon2 i {
+        color: var(--gray);
+    }
+    .container1 h1, .container1 p {
+        width: 50%;
+    }
+    .form {
+        width: 70%;
+    
+}
+.form button {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+}
+    .container1 form input {
+        padding: 1rem;
+    }
+}
+    
+  /*how it work*/
+  .How_it_work {
+
+    .container2{
+        
+        
+            
+            .need_grid{
+                
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+               
+                    
+                    
+                    .blockk{
+                        width: 27rem;
+                        cursor: pointer;
+                        li{
+                           
+                            padding: 1rem ;
+                            
+                            
+                           
+                            h3{
+                                margin-top: 1rem;
+                                span{
+                                    color: var(--skyblue);
+                                    margin-right: 0.5rem;
+                                }
+                            }
+    
+                        }
+                    }
+                    .last {
+                        margin-bottom: auto;
+                        li{
+                            h3 {
+                                padding-top: 0.5rem;
+                                padding-bottom: 1rem;
+                            }
+                        }
+                    }
+                    .block1{
+                        grid-column-start: 2;
+                        grid-column-end: 3;
+                        grid-row-start: 1;
+                        grid-row-end: 8;
+                        width: auto;
+                        height: auto;
+                        padding-right: 0;
+                        
+                    
+                        
+                        
+
+                        
+                            
+                            img{
+                                object-fit: contain;
+                            }
+                        
+                        h4{
+                            text-align: center;
+                            
+                        }
+                        p{
+                            
+                            text-align: center;
+                        }
+                    }
+                
+            }
+        
+    } 
+    }
+
+    /*world expertd doctor*/
+    .doctors {
+    .doctor_box {
+        width: 24.3%;
+        
+        
+    }
+
+    /* Slideshow container */
+.slideshow-container {
+   
+  }
+  /* The dots/bullets/indicators */
+  .dot {
+    text-align: center;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    margin-top: 3rem;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+  .active, .dot:hover {
+    background-color: var(--blackish_blue);
+    border:0.1px solid var(--blue_sky);
+  }
+  
+    .container3 {
+        display: flex;
+        column-gap: 0.5rem;
+        
+    }
+    .fade {
+    
+        animation: fade 1s forwards;
+        position: relative;
+        transform: translateX(100%);
+        
+        
+      }
+      
+      
+      
+      @keyframes fade {
+        
+    
+      from {opacity: .4}
+      to {opacity: 1}
+    
+      100%{ transform: translateX(0%)}
+      }
+           
+    .aside li {
+        font-size: 0.85rem;
+        font-weight: bold;
+    }
+
+  
+
+
+
+    
+}
+
+/*......treatment.......................  */
+.Treatment{
+    justify-content: flex-start;
+    .doc{
+        .docs{
+            display: grid;
+            height: 50rem;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(10,1fr) ;
+            .doc-c{
+                margin: 0.3rem;
+                width: auto;
+                .grid-box{
+                    height: 100%;
+                }
+            }
+            #ta{
+                grid-area: 1 / 1 / span 3 / span 1;
+                margin-left: 0;
+            }
+            #tb{
+                grid-area: 1 / 2 / span 5 / span 1;
+            }
+            #tc{
+                grid-area: 1 / 3 / span 4 / span 1;
+                margin-right: 0;
+            }
+            #td{
+                grid-area: 4 / 1 / span 8 / span 1;
+                margin-left: 0;
+            }
+            #te{
+                grid-area: 6 / 2 / span 5 /  3;
+            }
+            #tf{
+                grid-area: 5 / 3 / span 6 / span 1;
+                margin-right: 0;
+            }
+        }
+         /* Fading animation */
+.fade {
+    
+    animation: fade 1s forwards;
+    position: relative;
+    transform: translateX(100%);
+    
+    
+  }
+  
+  
+  
+  @keyframes fade {
+    
+
+  from {opacity: .4}
+  to {opacity: 1}
+
+  100%{ transform: translateX(0%)}
+  }
+        
+    }
+    .dotss{
+        margin-top: 2rem;
+        .dott{
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin-right: 0.5rem;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            &:hover, .active {
+                border: 0.1rem solid var(--blue_sky);
+               background-color:var(--white);
+            }
+        }
+    }
+}
+
+/*......treatment.end......................  */
+
+
+/*services*/
+.services {
+    
+
+.card {
+    padding-top:2.4rem;
+    padding-bottom: 2.4rem;
+}
+.card-wrapper {
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 0.5rem;
+    padding-bottom: 1rem;
+    
+}
+.card h5{
+    text-align: center;
+    font-size: 1.1rem;
+    
+}
+
+}
+
+
+
+
+
+
+}

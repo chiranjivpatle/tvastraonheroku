@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/emaillogin.css">
+
+    <title>email-login</title>
+</head>
+<body>
+
+<!--NavBar-->
+<%- include('include/_navbar') %>
+
+<% if(data.err) { %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h5>Failure</h5>
+            <p> <strong><%= data.err %></strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+    
+<% if(data.succ) { %>
+    <div class="alerttwo">
+        <i class="fa fa-check-circle " aria-hidden="true"></i>
+        <div class="alert_content">
+            <h5>Sucess</h5>
+            <p> <strong> <%= data.succ %></strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<div class="main">
+
+    <div class="login-box">
+
+        <div class="login">
+            <h2>Email Login</h2>
+        </div>
+
+        <div class="form">
+            <form action="/emaillogin" method="POST" id="loginform" >
+                <input type="text" class="a"  placeholder="Enter Email Address" name ="email" required>
+                <div class="location">
+                    <input type="password" placeholder="Enter Password" id="pswd" name ="password">
+                    <span> <i class="fa fa-eye-slash" aria-hidden="true" id="eye" onclick="toggle()"></i> </span>
+                </div>
+                <span id = "message" style="color:red"> </span> 
+                <div class="forgot">
+                    <a href="./phonelogin"><h5>Login with OTP</h5></a>
+                    <input type="submit" value=" Forgot Password " formaction="/forgot_password" id="forgot_password" >
+                </div>
+                <button type="submit"> LOGIN <span> <i class="fa fa-arrow-right" aria-hidden="true"></i> </span></button>
+            </form>
+        </div>
+    
+        <div class="signup">
+             Not Registerd? <a href="./signup"> <span>Sign Up</span></a> 
+        </div>
+    </div>
+
+    <div class="reserved">
+        <h6> All right reserved <i class="fa fa-copyright" aria-hidden="true"></i> Tvastra 2020 </h6>
+    </div>
+
+</div>
+
+    
+
+<script>
+
+   var state = false;
+    function toggle() {
+        if (state) {
+            document.getElementsById("pswd").setAttribute("type","password");
+            state = true;
+        }
+        else {
+            document.getElementsById("pswd").setAttribute("type","text");
+            state = false;
+        }
+    }
+    
+
+    function toggle() {
+  var x = document.getElementById("pswd");
+  var y =document.getElementById("eye");
+  if (x.type === "password") {
+    x.type = "text";
+    y.style.color = "rgb(9, 116, 187)";
+  } else {
+    x.type = "password";
+    y.style.color = "grey";
+  }
+
+
+  
+
+
+}
+
+</script>
+
+
+<script>  
+    function verifyPassword() {  
+      var pw = document.getElementById("pswd").value;  
+      //check empty password field  
+      if(pw == "") {  
+         document.getElementById("message").innerHTML = "**Fill the password please!";  
+         return false;  
+      }  
+       
+     //minimum password length validation  
+      if(pw.length < 8) {  
+         document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+         return false;  
+      }  
+      
+    //maximum length of password validation  
+      if(pw.length > 15) {  
+         document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+         return false;  
+      } else {  
+         alert("Password is correct");  
+      }  
+    }  
+    </script>  
+
+</body>
+</html>

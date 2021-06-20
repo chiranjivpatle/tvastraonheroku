@@ -1,0 +1,339 @@
+/*nav*/
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1rem;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    background-color: var(--white);
+  }
+  nav .image1 {
+    width: 8rem;
+    height: 1.4rem;
+  }
+  nav #navbar_menu {
+    display: none;
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    right: 0rem;
+    top: 3.5rem;
+    background-color: var(--white);
+    padding: 1rem;
+    height: 23.1rem;
+    width: 17rem;
+    text-align: center;
+    -webkit-animation: mymove 0.5s linear;
+            animation: mymove 0.5s linear;
+  }
+  @-webkit-keyframes mymove {
+    from {
+      top: 0rem;
+    }
+    to {
+      top: 3.5rem;
+    }
+  }
+  @keyframes mymove {
+    from {
+      top: 0rem;
+    }
+    to {
+      top: 3.5rem;
+    }
+  }
+  nav #navbar_menu li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  nav .dropbtn {
+    font-size: 0.9rem;
+  }
+  nav .dropdown-content {
+    display: none;
+    -webkit-box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+            box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+    padding: 0.5rem;
+  }
+  nav .dropdown-content a {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  nav .dropdown-content a:hover {
+    background-color: var(--skyblue);
+    border-left: 0.2rem solid var(--blackish_blue);
+  }
+  nav .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  nav #navbar_buttons {
+    position: absolute;
+    top: 22rem;
+    display: none;
+    right: 1rem;
+    -webkit-animation: mymov 0.5s linear;
+            animation: mymov 0.5s linear;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 768px) and (min-width: 768px) and (max-width: 1024px) {
+  nav #navbar_buttons {
+    right: 0;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  @-webkit-keyframes mymov {
+    from {
+      top: 0rem;
+    }
+    to {
+      top: 22rem;
+    }
+  }
+  @keyframes mymov {
+    from {
+      top: 0rem;
+    }
+    to {
+      top: 22rem;
+    }
+  }
+  nav #navbar_buttons button {
+    margin-left: 0.5rem;
+  }
+  nav #navbar_buttons .tvastraplus {
+    background-color: var(--blue_sky);
+  }
+  nav #navbar_buttons .tvastraplus a {
+    color: var(--white);
+  }
+  nav #navbar_buttons .quote-button a {
+    color: var(--white);
+  }
+  nav .dropdown-profile_data {
+    display: none;
+    position: absolute;
+    -webkit-box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+            box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+    background-color: var(--white);
+    padding: 0.5rem;
+    margin-left: -5rem;
+  }
+  nav .dropdown-profile_data a {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 12px 16px;
+    font-weight: bold;
+  }
+  nav .whole_profile:hover .dropdown-profile_data {
+    display: block;
+  }
+  nav .profileandname {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  nav .profileandname .imageofprofile {
+    height: 4rem;
+    width: 4rem;
+  }
+  nav .profileandname .nameandmob .nameit a h5 {
+    color: var(--blue_sky);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    background-color: var(--white);
+    padding: 1rem 2rem;
+  }
+  nav .item_and_button {
+    margin-left: 10rem;
+  }
+  nav .item_and_button .tvastraplus {
+    background-color: var(--blue_sky);
+  }
+  nav .item_and_button .tvastraplus a {
+    color: var(--white);
+  }
+  nav .dropdown-profile_data {
+    display: none;
+    position: absolute;
+    -webkit-box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+            box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+    background-color: var(--white);
+    padding: 0.5rem;
+    z-index: 1;
+  }
+  nav .dropdown-profile_data a {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 12px 16px;
+    font-weight: bold;
+  }
+  nav .whole_profile:hover .dropdown-profile_data {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /*nav*/
+  nav {
+    background-color: var(--white);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 5rem;
+    padding-right: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  nav .image1 {
+    width: 10rem;
+    height: 1.7rem;
+  }
+  nav #navbar_menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  nav #navbar_menu li {
+    display: inline;
+    margin-left: 1.5rem;
+  }
+  nav #navbar_menu li:hover {
+    -webkit-box-shadow: 0 5px var(--gray);
+            box-shadow: 0 5px var(--gray);
+    -webkit-transform: translateY(0.2px);
+            transform: translateY(0.2px);
+  }
+  nav #navbar_menu li a {
+    font-weight: bold;
+  }
+  nav .dropbtn {
+    font-size: 0.9rem;
+  }
+  nav .dropdown-content {
+    display: none;
+    position: absolute;
+    -webkit-box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+            box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+    background-color: var(--white);
+    padding: 0.5rem;
+  }
+  nav .dropdown-content a {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 12px 16px;
+    font-weight: bold;
+  }
+  nav .dropdown-content a:hover {
+    background-color: var(--skyblue);
+    border-left: 0.2rem solid var(--blackish_blue);
+  }
+  nav .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  nav .item_and_button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  nav .item_and_button #navbar_buttons {
+    display: inline;
+  }
+  nav .item_and_button #navbar_buttons .tvastraplus {
+    border: 0.1rem solid;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    background-color: var(--blue_sky);
+  }
+  nav .item_and_button #navbar_buttons .tvastraplus a {
+    color: var(--white);
+  }
+  nav .quote-button {
+    background-color: var(--blackish_blue);
+    color: var(--white);
+    border: 0.1rem solid;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+  }
+  nav .quote-button a {
+    color: var(--white);
+  }
+  nav #nav_icon {
+    display: none;
+  }
+  nav .dropdown-profile_data {
+    display: none;
+    position: absolute;
+    -webkit-box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+            box-shadow: 10px 10px 16px 0px rgba(6, 94, 226, 0.74);
+    background-color: var(--white);
+    padding: 0.5rem;
+    right: 2rem;
+    z-index: 1;
+  }
+  nav .dropdown-profile_data a {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 12px 16px;
+    font-weight: bold;
+  }
+  nav .whole_profile:hover .dropdown-profile_data {
+    display: block;
+  }
+  nav .profileandname {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  nav .profileandname .imageofprofile {
+    height: 4rem;
+    width: 4rem;
+  }
+  nav .profileandname .nameandmob .nameit a h5 {
+    color: var(--blue_sky);
+  }
+  nav .profile_data {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0.5rem;
+  }
+}
+/*# sourceMappingURL=navbar.css.map */

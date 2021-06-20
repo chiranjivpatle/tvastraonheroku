@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/admin.css">
+
+    <title>email-login</title>
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <a href="/admin">
+                <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>dashbord</p></div>
+            </a>
+            <a href="/useradmin">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>user</p></div>
+            </a>
+            <a href="/doctoradmin">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>doctor</p></div>
+            </a>           
+            <a href="/hospitaladmin">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>hospital reports </p></div>
+            </a>
+            <a href="/setting">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="dashbord_content1 mySlides">
+        <div>
+            <div class="adminDashboard">
+                <div class="col col1">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                    <span>User</span>
+                    <h4> <%= data.obj.totaluser %> </h4>
+                </div>
+                <div class="col col2">
+                    <i class="fas fa-syringe"></i>
+                    <span>Doctors</span>
+                    <h4><%= data.obj.totaldoctor %></h4>
+                </div>
+                <div class="col col3">
+                    <i class="fas fa-user-md"></i>
+                    <span>Hospitals</span>
+                    <h4> <%= data.obj.hospital %> </h4>
+                </div>
+                <div class="col col4">
+                    <i class="fas fa-briefcase-medical"></i>
+                    <span>Appointments</span>
+                    <h4> <%= data.obj.appointments %> </h4>
+                </div>
+            </div>
+            <div class="canvasContainer">
+                <h3>Hospital Survey</h3>
+                <div class="picContainer">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOI6yvvkZp2708YDZfrT1JGQmBmuw2Jt1cww&usqp=CAU" alt="Graph">
+                </div>
+            </div>
+            <div class="canvasContainer">
+                <h3>Patient Age</h3>
+                <div class="picContainer">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmOVIyKJ2n6naNwZooG6X0bVETepJQYnj5pA&usqp=CAU" alt="">
+                </div>
+            </div>
+            <div class="recentAppointments">
+                <h3>Patients Enrolled</h3>
+                <table class="recentAppointmentsTable">
+                    <thead>
+                        <tr>
+                            <td>
+                                <h4>Name</h4>
+                            </td>
+                            <td>
+                                <h4>Phone Number</h4>
+                            </td>
+                            <td>
+                                <h4>Email</h4>
+                            </td>
+                            <td>
+                                <h4>Actions</h4>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (var i = 0; i < data.obj.patient.length ;i++ ){ %>
+                            <tr>
+                                <td>
+                                    <h4> <%= data.obj.patient[i].name  %> </h4>
+                                </td>
+                                <td>
+                                    <h4> <%= data.obj.patient[i].mobileNo  %></h4>
+                                </td>
+                                <td>
+                                    <h4> <%= data.obj.patient[i].email  %> </h4>
+                                </td>
+                                <td>
+                                    <h4 onclick="window.location.href='/adminallappointment?userid=<%= data.obj.patient[i].id  %>'" > Appointment Details</h4>
+                                </td>
+                            </tr>
+                      <%  } %>
+                                                
+                    </tbody>
+                </table>
+               
+            </div>
+    
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+
+</body>
+</html>

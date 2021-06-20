@@ -1,0 +1,14 @@
+@import "login.scss";
+
+textarea{
+    border:1px solid rgba(0, 0, 0,.2);
+    height: 10rem;
+    margin-bottom: 0.5rem;
+    width: -webkit-fill-available;
+    padding-left: 1rem;
+}
+@media only screen and ( min-width:768px) {
+    .main {
+        height: 110vh;
+    }
+}

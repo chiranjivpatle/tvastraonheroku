@@ -1,0 +1,378 @@
+@import url(theme.css);
+
+
+/*nav*/ 
+.image1 {
+    width: 8rem;
+    height: 1.4rem;
+}
+.navbar_menu, .navbar_buttons {
+    display: none;
+}
+
+/*surgen heading*/
+
+.surgen_heading {
+    display:none;
+}
+
+/*doctor list*/
+
+.doctor_list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    
+
+select {
+    background-color: var(--select_grey);
+    padding: 0.5rem;
+    
+    font-size: 0.8rem;
+    width: auto;
+    color: var(--black);
+    outline: none;
+    border: none;
+}
+}
+
+/*doctor details*/
+.doc_details {
+.doc_name{
+    border:0.1rem solid var(--select_grey);
+    margin-bottom: 1rem;
+    height: 18.5%;
+}
+
+.doc_certi_img img {
+    width: 1rem;
+    margin-right: 1rem;
+}
+.doc_certi_img {
+    display: flex;
+    
+}
+.doc_button {
+    text-align: center;
+    padding: 0.5rem ;
+    
+}
+.doc_button button {
+    font-size: 0.8rem;
+    padding: 0.5rem 3rem;
+}
+.doc_name h3 {
+    position: relative;
+}
+.doc_name h3::before {
+    content: " ";
+    position: absolute;
+    width: 2rem;
+    left: -2rem;
+    top:1.5rem;
+    border-bottom: 0.2rem solid var(--skyblue);
+    
+}
+.doc_name_box1 h3 {
+    color: var(--blue_sky);
+    margin-left: 2rem;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    position: relative;
+}
+.doc_name ul li i{
+    margin-right: 1rem;
+    color: var(--blue_sky);
+}
+.doc_name_box1 ul li {
+    display: flex;
+    margin: 0.5rem;
+    font-size: 0.85rem;
+    
+}
+.spanbox {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+.spanbox span {
+    border:0.1px solid var(--gray);
+    border-radius: 5rem;
+    padding: 0.5rem;
+    margin: 0.2rem;
+    font-family: "Nexa Light";
+    color: var(--gray);
+    
+}
+.box2 {
+    display: none;
+}
+.hospitalimage {
+    height: 18rem;
+}
+}
+
+
+/*need-help*/
+
+.need-help {
+    background-color:var(--skyblue);
+    
+}
+.need-help h2 {
+    
+    color:var(--white);
+}
+.need-help p {
+    letter-spacing: 0.1rem;
+    
+}
+.boxtwo  {
+    text-align: center;
+}
+.boxtwo button {
+    background-color: var(--blue_sky);
+    padding: 0.8rem 0.7rem;
+    border-radius: 0.5rem;
+}
+/*footer*/
+footer {
+    .footer-logo {
+        display: none;
+    }
+}
+
+
+
+@media only screen and (min-width:768px)
+{  
+   /*doctor list*/
+    .doctor_list {
+        font-size: 1.5rem;
+        font-family: "Nexa Light";
+        padding-bottom: 0;
+        
+    
+    
+    select {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-weight: bold;
+    }
+}
+
+    /*doc details*/
+    .doc_details {
+        
+    .doc_name {
+    
+    display: grid;
+    grid-template-columns: 70% 30%;
+    
+}
+.minus-font {
+    margin-left: 1rem;
+}
+.fonts-box i {
+    color: var(--blue_sky);
+}
+
+.doc_name_box1 ul {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-left: 2rem;
+    
+}
+.doc_name .doc_name_box1 ul li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--black);
+    font-weight: bold;
+}
+.doc_name_box1 h3 {
+    font-size: 1.2rem;
+    
+}
+.spanbox {
+    margin-left: 2rem;
+    font-weight: bold;
+}
+ .doc_name_box2 {
+    height:100%;
+}
+
+
+
+    
+    .doc_button button {
+        font-size: 0.8rem;
+        padding: 0.6rem 3.5rem;
+        margin-top:2rem ;
+        margin-left: 1rem;
+    }
+    .doc_button {
+        
+        margin-left: 1rem;
+        text-align: left;
+
+    }
+    
+    
+    .box1 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        
+    }
+    .hospitalimage {
+        height: 19rem;
+    }
+}
+    
+/*footer*/
+footer {
+    .footer-logo {
+        display: block;
+    }
+}
+}
+
+
+
+   
+@media only screen and (min-width:1024px)
+{
+     
+
+.doctor_list {
+    padding-top: 4.5rem;
+}
+
+    /*surgen heading*/
+    .surgen_heading {
+        display: flex;
+        background-image:linear-gradient(rgba(133, 178, 196, 0.8),rgba(123, 146, 155, 0.8)),url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Doctors.png");
+        height: 35vh;
+        background-size: cover;
+        font-size: 2rem;
+        align-items: center;
+    
+        font-family: "Nexa Light";
+
+     span {
+        text-decoration: underline;
+        font-family: "Nexa Bold";
+        margin-left: 0.8rem;
+    }
+
+
+    
+}
+    
+    
+
+
+
+
+
+    /*doc details*/
+    .doc_details{
+        display: grid;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 1fr;
+        padding-top: 2rem;
+        
+    
+    .doc_name {
+        // height: 24%;
+    }
+    
+    .doc_button button {
+        
+        margin-top:2rem ;
+    }
+
+    .spanbox {
+        margin-left: 3rem;
+    }
+    .box2 {
+        display: block;
+        grid-row-start: 1;
+        padding-right: 2rem;
+        
+    }
+    .hospitalimage {
+        height: 18rem;
+    }
+    .filter {
+        background-color: var(--select_grey);
+        padding: 0.8rem;
+        
+        
+    }
+    .filter h4 {
+        font-family: "Nexa Light";
+    }
+    .filter p, .filters-box p{
+        text-align: left;
+        margin: 0;
+        padding: 0;
+    }
+    .filters-box {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+        margin-left: 1rem;
+    }
+    input[type=checkbox] {
+        width: auto;
+    }
+    .forcheckbox1 {
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+        
+    }
+    .forcheckbox1 .box1_inside_forcheckbox1 {
+        margin-right: 1rem;
+    }
+    .box2_inside_forcheckbox1 {
+        padding-bottom: 0.2rem;
+    }
+    .minus-font i {
+        color: var(--select_grey);
+    }
+    
+    .show_more h6{
+        color: var(--skyblue);
+        padding: 1rem;
+        border-bottom: 0.1rem solid var(--gray);
+    }
+    
+   
+    .fonts-box {
+        display: flex;
+    }
+}
+
+
+    /*need help*/
+.need-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.need-help .boxtwo button {
+    padding: 1.5rem 3rem;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+}
+

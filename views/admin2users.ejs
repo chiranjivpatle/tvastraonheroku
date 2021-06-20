@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    
+     
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <a href="/profile">
+                <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>profile</p></div>
+            </a>
+            <a href="/appointment">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>appointments</p></div>
+            </a>
+           
+            <a href="/medical_report">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>medical reports </p></div>
+            </a>
+            <a href="/setting">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="dashbord_content1 mySlides">
+        <div class="allHospitalsContainer">
+            <h2>All Users</h2>
+            <div class="cards">
+                
+                <div class="card card0">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://tvastra-pics.s3.ap-south-1.amazonaws.com/ajayJun-30-2020-10%3A59%3A46.jpeg" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('0')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem0">
+                                <li><a href="/adminEditProfile/5eeda17416042f54bc3f69d9 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5eeda17416042f54bc3f69d9 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5eeda17416042f54bc3f69d9 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                ajay
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>9813328784</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> ajay.ranga.mr.unique@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Dec 31 2000
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                panipat haryana
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card1">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('1')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem1">
+                                <li><a href="/adminEditProfile/5ef16fa4a3fe660004b311b0 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5ef16fa4a3fe660004b311b0 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5ef16fa4a3fe660004b311b0 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                abcde
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>8813083500</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> abc@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Feb 02 2000
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                safidon haryana
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card2">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('2')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem2">
+                                <li><a href="/adminEditProfile/5ef1aa00c422980004d46be0 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5ef1aa00c422980004d46be0 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5ef1aa00c422980004d46be0 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                Senti
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>9050044754</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> sentish3@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Jun 23 2020
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                panipat haryana
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card3">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('3')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem3">
+                                <li><a href="/adminEditProfile/5ef4cda2d1d58c2b765d0cc5 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5ef4cda2d1d58c2b765d0cc5 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5ef4cda2d1d58c2b765d0cc5 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                NEERAJ JOSHI
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>9568097237</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> neerajjoshi@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Feb 05 2000
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                noida uttar pradesh
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card4">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('4')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem4">
+                                <li><a href="/adminEditProfile/5efee6426c097d7288e741f4 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5efee6426c097d7288e741f4 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5efee6426c097d7288e741f4 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                Prashant Vashisht
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>7503740690</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> prashant@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Jun 02 1998
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                new delhi delhi
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card5">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('5')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem5">
+                                <li><a href="/adminEditProfile/5f08940e5f9d8ed1611552b3 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5f08940e5f9d8ed1611552b3 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5f08940e5f9d8ed1611552b3 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                Prashant Vashisht
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>7011121504</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> p223@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Feb 06 1998
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                new delhi delhi
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card6">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('6')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem6">
+                                <li><a href="/adminEditProfile/5f17f82a692fd41c0a4fa82a ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5f17f82a692fd41c0a4fa82a ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5f17f82a692fd41c0a4fa82a ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                tester
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>7894654586</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> user1@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Dec 31 2001
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                panipat haryana
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card7">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('7')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem7">
+                                <li><a href="/adminEditProfile/5f2196f0602650fb9b831832 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5f2196f0602650fb9b831832 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5f2196f0602650fb9b831832 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                Deva
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>6305423328</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> devateja58@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Apr 07 1997
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                vizag andhra pradesh
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card8">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('8')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem8">
+                                <li><a href="/adminEditProfile/5f226d4c602650fb9b831844 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5f226d4c602650fb9b831844 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5f226d4c602650fb9b831844 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                Manisha Lamba
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>483398000</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> manishalamba1318@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                female</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Dec 10 1998
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                kurukshetra haryana
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card9">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('9')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem9">
+                                <li><a href="/adminEditProfile/5f227068602650fb9b831854 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5f227068602650fb9b831854 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5f227068602650fb9b831854 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                Anu Sharma
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>9350916424</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> anusharma8499@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                female</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Apr 08 1999
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                karnal haryana
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card card10">
+                    <div class="picContainer hospitalPicContainer">
+                        <img src="https://cdn2.iconfinder.com/data/icons/medical-services-2/256/Doctor2-512.png" alt=" Doctor Pic">
+                        <div class="controls userControls">
+                            <a onclick="showMenu('10')">
+                                <div>
+                                    <i class="fas fa-bars"></i>
+                                </div>
+                            </a>
+                            <ul class="menuItems" id="menuItem10">
+                                <li><a href="/adminEditProfile/5f361850602650fb9b8319d7 ">Edit Profile</a>
+                                </li>
+                                <li><a href="/adminUserAllAppointments/5f361850602650fb9b8319d7 ">
+                                        Appointments</a></li>
+                                <li><a href="/adminMedicalReports/5f361850602650fb9b8319d7 ">Medical
+                                        Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="abouHospital">
+                        <li class="name">
+                            <h3>
+                                shivam singla
+                            </h3>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>9671481492</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span> shivam@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-venus-mars"></i> <span>
+                                male</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-week"></i>
+                            <span>Aug 14 2020
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                
+                                ludhiana punjab
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+              
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    async function showMenu(menuId) {
+        var menuItem = document.querySelector("#menuItem" + menuId);
+        if (menuItem.style.height === "unset")
+            menuItem.style.height = 0;
+        else
+            menuItem.style.height = "unset";
+    }
+</script>
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+
+</body>
+</html>

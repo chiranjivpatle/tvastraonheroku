@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tvastra project</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--NavBar-->
+    <%- include('include/_navbar') %>
+
+
+
+    <% if(data.succ) { %>
+        <div class="alert">
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            <div class="alert_content">
+                <h5><%= data.succ.head %></h5>
+                <!<p> <strong> <%= data.succ.body %> </strong> </p>
+            </div>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        </div>
+    <% } %>
+        
+    <% if(data.succ==null) { %>
+           
+    <% } %>
+
+
+
+
+    <!--find affordable healthcare-->
+    <section class="healthcare">
+        <div class="container1">
+            <h1>Find Affordable Healthcare </h1>
+            <p> Join the thousend of other who have exercised their rights to quality healthcare at a price you can afford</p>
+                <form class="form">
+                    
+                    <div class="location">
+                        <div class="healthcare_icon1"><i class="fa fa-map-marker"></i></div>
+                        <input type="text" class="search1" placeholder= "Ahmedabad">
+                        <div class="healthcare_icon2"><i class="fa fa-crosshairs"></i></div>
+                    </div>
+                    <div class="forsearch">
+                        <input type="text" class="search2" placeholder="Search for doctors, hospitals and treatment"  onkeyup="searchValue(this.value)">
+                        <div id="myP">
+                        
+                        </div>
+                    </div>
+                    <button>Search</button>
+                </form>
+        </div>
+    </section>
+
+    
+
+    <!--how it works-->
+    <section class="How_it_work" >
+        <div class="container2">
+            <h2>How it works</h2>
+            <p>Various facilities are provided here .but there is a protocol which needs to be followed so that you get the service at its best.  </p> 
+        
+                <ul class="need_grid">
+                    
+                    
+                        <div class="blockk" onclick="currentSlidess(1)">
+                            <li><h3 class="h"><span class='s'>01</span> Fix Consultation</h3></li> 
+                        </div>  
+
+                        <div class="block1">               
+                            <img class="container2_img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.png" alt="tvastra logo">
+                            <h4>Fix Consultation</h4>
+                            <p>  depicts that user will have to fix appointment first when it selects a particular doctor. </p>                      
+                        </div>
+                    
+
+                    
+                        <div class="blockk" onclick="currentSlidess(2)" >
+                            <li><h3 class="h"><span class='s'>02</span> Upload Medical Report</h3></li> 
+                        </div>  
+
+                        <div class="block1">               
+                            <img class="container2_img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img2.png" alt="tvastra logo">
+                            <h4>Fix Consultation</h4>
+                            <p> This depicts that user will have to fix appointment first when it selects a particular doctor. </p>                      
+                        </div>
+                    
+
+                    
+                        <div class="blockk" onclick="currentSlidess(3)">
+                            <li><h3 class="h"><span class='s'>03</span> Consult With Doctor</h3></li> 
+                        </div>  
+
+                        <div class="block1">               
+                            <img class="container2_img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img3.jpeg" alt="tvastra logo">
+                            <h4>Fix Consultation</h4>
+                            <p> This depicts that user will have to fix appointment first when it selects a particular doctor. </p>                      
+                        </div>
+                    
+
+                    
+                        <div class="blockk" onclick="currentSlidess(4)">
+                            <li><h3 class="h"><span class='s'>04</span> Fix Surgery</h3></li>
+                        </div>  
+
+                        <div class="block1">               
+                            <img class="container2_img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img4.jpeg" alt="tvastra logo">
+                            <h4>Fix Consultation</h4>
+                            <p> This depicts that user will have to fix appointment first when it selects a particular doctor. </p>                      
+                        </div>
+                    
+
+                    
+                        <div class="blockk" onclick="currentSlidess(5)">
+                            <li><h3 class="h"><span class='s'>05</span> Hospital Send estimates</h3></li>
+                        </div>  
+
+                        <div class="block1">               
+                            <img class="container2_img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img5.jpg" alt="tvastra logo">
+                            <h4>Fix Consultation</h4>
+                            <p> This depicts that user will have to fix appointment first when it selects a particular doctor. </p>                      
+                        </div>
+                    
+
+                    
+                        <div class="blockk" onclick="currentSlidess(6)">
+                            <li><h3 class="h"><span class='s'>06</span> Payment</h3></li> 
+                        </div>  
+
+                        <div class="block1">               
+                            <img class="container2_img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img6.jpg" alt="tvastra logo">
+                            <h4>Fix Consultation</h4>
+                            <p> This depicts that user will have to fix appointment first when it selects a particular doctor. </p>                      
+                        </div>
+                    
+
+                    
+                        <div class="blockk last" onclick="currentSlidess(7)">
+                            <li><h3 class="h"><span class='s'>07</span> Surgery Completed</h3></li>
+                        </div>  
+
+                        <div class="block1">               
+                            <img class="container2_img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img7.jpeg" alt="tvastra logo">
+                            <h4>Fix Consultation</h4>
+                            <p> This depicts that user will have to fix appointment first when it selects a particular doctor. </p>                      
+                        </div>
+                    
+                    
+                
+                </ul>
+            
+        </div>
+    </section>
+
+    <!--world expert doctor-->
+        <section class="doctors">
+            <h2>World Class Expert Doctors!</h2>
+            <p>The university of texas southastern medical center has been a long world-renowned research hospital. But untill the '80s, you couldn't go there.now with the addition of aston center and zale Lipsy Hospital. UT southastern is also a mecca for partients. </p> 
+                
+            <div class="slideshow-container">
+            <div class="container3 fade">
+                
+                <div class="doctor_box">  
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="doc1">
+                    </div> 
+                    <div class="doctor_name">  
+                            <ul class="aside">
+                                     <li><h4>Duke Sanson</h4></li>
+                                     <li>Neuro sergeon</li>
+                                     <li>chain department of neurological surgery</li>
+                                     <li>australia</li>
+                            </ul>          
+                    </div>
+                </div>
+    
+                <div class="doctor_box">  
+                    <div class="doctor_image">                
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg" alt="doc1">
+                    </div> 
+                    <div class="doctor_name"> 
+                        <ul class="aside">
+                            <li><h4>Georgea Peter</h4></li>
+                            <li>Breast cancer Surgeon</li>
+                            <li>Director .UT. Southwest</li>
+                            <li>London</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="doctor_box">         
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--005.jpg" alt="doc1">
+                    </div>  
+                    <div class="doctor_name">
+                        <ul class="aside">
+                            <li><h4>CHarlie Moon</h4></li>
+                            <li>Cardiac Surgeon</li>
+                            <li>MBBS,MD. FRCP. MRCP. Fellowship</li>
+                            <li>New Delhi. india</li>
+                        </ul>
+                    </div>
+                        
+                </div>  
+    
+                <div class="doctor_box">          
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--003.jpg" alt="doc1">
+                    </div>
+                    <div class="doctor_name">
+                        <ul class="aside">
+                            <li><h4>Rose Moon </h4></li>
+                            <li>Plastic sergeon</li>
+                            <li>Department of plastic and Recontructive Surgery</li>
+                            <li>Dubai</li>
+                        </ul>
+                    </div>    
+                </div>
+            </div>
+                
+            <div class="container3 fade">
+                <div class="doctor_box">  
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--003.jpg" alt="doc1">
+                    </div> 
+                    <div class="doctor_name">  
+                            <ul class="aside">
+                                     <li><h4>Duke Sanson</h4></li>
+                                     <li>Neuro sergeon</li>
+                                     <li>chain department of neurological surgery</li>
+                                     <li>australia</li>
+                            </ul>          
+                    </div>
+                </div>
+    
+                <div class="doctor_box">  
+                    <div class="doctor_image">                
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--003.jpg" alt="doc1">
+                    </div> 
+                    <div class="doctor_name"> 
+                        <ul class="aside">
+                            <li><h4>Georgea Peter</h4></li>
+                            <li>Breast cancer Surgeon</li>
+                            <li>Director .UT. Southwest</li>
+                            <li>London</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="doctor_box">         
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--003.jpg" alt="doc1">
+                    </div>  
+                    <div class="doctor_name">
+                        <ul class="aside">
+                            <li><h4>CHarlie Moon</h4></li>
+                            <li>Cardiac Surgeon</li>
+                            <li>MBBS,MD. FRCP. MRCP. Fellowship</li>
+                            <li>New Delhi. india</li>
+                        </ul>
+                    </div>
+                        
+                </div>  
+    
+                <div class="doctor_box">          
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--003.jpg" alt="doc1">
+                    </div>
+                    <div class="doctor_name">
+                        <ul class="aside">
+                            <li><h4>Rose Moon </h4></li>
+                            <li>Plastic sergeon</li>
+                            <li>Department of plastic and Recontructive Surgery</li>
+                            <li>Dubai</li>
+                        </ul>
+                    </div>    
+                </div>
+            </div>
+
+            <div class="container3 fade">
+                <div class="doctor_box">  
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="doc1">
+                    </div> 
+                    <div class="doctor_name">  
+                            <ul class="aside">
+                                     <li><h4>Duke Sanson</h4></li>
+                                     <li>Neuro sergeon</li>
+                                     <li>chain department of neurological surgery</li>
+                                     <li>australia</li>
+                            </ul>          
+                    </div>
+                </div>
+    
+                <div class="doctor_box">  
+                    <div class="doctor_image">                
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="doc1">
+                    </div> 
+                    <div class="doctor_name"> 
+                        <ul class="aside">
+                            <li><h4>Georgea Peter</h4></li>
+                            <li>Breast cancer Surgeon</li>
+                            <li>Director .UT. Southwest</li>
+                            <li>London</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="doctor_box">          
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="doc1">
+                    </div>
+                    <div class="doctor_name">
+                        <ul class="aside">
+                            <li><h4>Rose Moon </h4></li>
+                            <li>Plastic sergeon</li>
+                            <li>Department of plastic and Recontructive Surgery</li>
+                            <li>Dubai</li>
+                        </ul>
+                    </div>    
+                </div>
+    
+                <div class="doctor_box">         
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--003.jpg" alt="doc1">
+                    </div>  
+                    <div class="doctor_name">
+                        <ul class="aside">
+                            <li><h4>CHarlie Moon</h4></li>
+                            <li>Cardiac Surgeon</li>
+                            <li>MBBS,MD. FRCP. MRCP. Fellowship</li>
+                            <li>New Delhi. india</li>
+                        </ul>
+                    </div>
+                        
+                </div>  
+    
+               
+            </div>
+
+            <div class="container3 fade">
+               
+    
+                <div class="doctor_box">  
+                    <div class="doctor_image">                
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg" alt="doc1">
+                    </div> 
+                    <div class="doctor_name"> 
+                        <ul class="aside">
+                            <li><h4>Georgea Peter</h4></li>
+                            <li>Breast cancer Surgeon</li>
+                            <li>Director .UT. Southwest</li>
+                            <li>London</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="doctor_box">  
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg" alt="doc1">
+                    </div> 
+                    <div class="doctor_name">  
+                            <ul class="aside">
+                                     <li><h4>Duke Sanson</h4></li>
+                                     <li>Neuro sergeon</li>
+                                     <li>chain department of neurological surgery</li>
+                                     <li>australia</li>
+                            </ul>          
+                    </div>
+                </div>
+
+                <div class="doctor_box">          
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg" alt="doc1">
+                    </div>
+                    <div class="doctor_name">
+                        <ul class="aside">
+                            <li><h4>Rose Moon </h4></li>
+                            <li>Plastic sergeon</li>
+                            <li>Department of plastic and Recontructive Surgery</li>
+                            <li>Dubai</li>
+                        </ul>
+                    </div>    
+                </div>
+    
+                <div class="doctor_box">         
+                    <div class="doctor_image">
+                        <img class="img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg" alt="doc1">
+                    </div>  
+                    <div class="doctor_name">
+                        <ul class="aside">
+                            <li><h4>CHarlie Moon</h4></li>
+                            <li>Cardiac Surgeon</li>
+                            <li>MBBS,MD. FRCP. MRCP. Fellowship</li>
+                            <li>New Delhi. india</li>
+                        </ul>
+                    </div>
+                        
+                </div>  
+    
+               
+            </div>
+            </div>
+            
+    
+
+            <div class="dots-thing">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+                <span class="dot" onclick="currentSlide(4)"></span> 
+            </div>
+            
+       </section>
+
+
+
+    <!--.........Treatment....4....-->
+<section class="Treatment">
+
+    <div class="demo-hp">
+        <h1>Featured Medical Treatment</h1>
+        <p>Join the theousend of other who have exercised their rights to quality healthcare at a price you can afford  </p> 
+    </div>
+
+    <div class="doc">
+            <div class="docs fade">
+                <div class="doc-c" id="ta">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--009.jpg" alt="">
+                        <div class="name">
+                            <h5>Dentistry</h5>
+                            50+ Specialists     
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tb">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--010.jpg" alt="">
+                        <div class="name">
+                            <h5>cancer</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tc">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--011.jpg" alt="">
+                        <div class="name">
+                            <h5>Cardiologic Treatment</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="td">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--006.jpg" alt="">
+                        <div class="name">
+                            <h5>Multi Organ Transplant</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="te">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg" alt="">
+                        <div class="name">
+                            <h5>Orthopedics Surgery</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tf">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--007.jpg" alt="">
+                        <div class="name">
+                            <h5>Infertility Treatment</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+           </div>
+    </div>
+    <div class="doc">
+            <div class="docs fade">
+                <div class="doc-c" id="ta">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg" alt="">
+                        <div class="name">
+                            <h5>Dentistry</h5>
+                            50+ Specialists     
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tb">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg" alt="">
+                        <div class="name">
+                            <h5>cancer</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tc">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg" alt="">
+                        <div class="name">
+                            <h5>Cardiologic Treatment</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="td">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg" alt="">
+                        <div class="name">
+                            <h5>Multi Organ Transplant</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="te">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg" alt="">
+                        <div class="name">
+                            <h5>Orthopedics Surgery</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tf">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg" alt="">
+                        <div class="name">
+                            <h5>Infertility Treatment</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+           </div>
+    </div>
+    <div class="doc">
+            <div class="docs fade">
+                <div class="doc-c" id="ta">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--009.jpg" alt="">
+                        <div class="name">
+                            <h5>Dentistry</h5>
+                            50+ Specialists     
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tb">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--010.jpg" alt="">
+                        <div class="name">
+                            <h5>cancer</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tc">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--011.jpg" alt="">
+                        <div class="name">
+                            <h5>Cardiologic Treatment</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="td">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--006.jpg" alt="">
+                        <div class="name">
+                            <h5>Multi Organ Transplant</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="te">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg" alt="">
+                        <div class="name">
+                            <h5>Orthopedics Surgery</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-c" id="tf">
+                    <div class="grid-box">
+                        <div class="linear-g"></div>
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--007.jpg" alt="">
+                        <div class="name">
+                            <h5>Infertility Treatment</h5>
+                            50+ Specialists
+                        </div>
+                    </div>
+                </div>
+           </div>
+    </div>
+
+        <div class="dotss">
+            <span class="dott" onclick="currentSlidee(1)"></span> 
+            <span class="dott" onclick="currentSlidee(2)"></span> 
+            <span class="dott" onclick="currentSlidee(3)"></span> 
+        </div>
+</section>
+<!--.........Treatment.ned...4....-->
+
+
+ <!--services-->
+ <section class="services">
+    <h2>Exclusive services</h2>
+    <p>We want you to be comfortable and thus apart from threating you illness, we provide you with other services that you can see</p>
+    <div class="card-wrapper">
+        <div class="card">
+            <img class="pic" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-01.png"/>
+            <h5>Travel</h5>
+        </div>
+        <div class="card">
+            <img class="pic" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-02.png"/>
+            <h5>Food</h5>
+        </div>
+        <div class="card">
+            <img class="pic" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-03.png"/>
+            <h5>Accomodation</h5>
+        </div>
+        <div class="card">
+            <img class="pic" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-07.png"/>
+            <h5>Labs</h5>
+        </div>
+        <div class="card">
+            <img class="pic" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-10.png"/>
+            <h5>Reports</h5>
+        </div>
+        <div class="card">
+            <img class="pic" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-06.png"/>
+            <h5>Ambulance</h5>
+        </div>
+   </div>
+  
+
+</section>
+    
+
+<!--need help-->
+
+<%- include('include/_needhelp') %>
+  
+
+<!--footer-->
+
+<%- include('include/_footer') %>
+
+       
+<script>
+
+    
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("container3");
+      var dots = document.getElementsByClassName("dot");
+     
+
+
+
+
+
+
+      for (i = 0; i < slides.length; i++) {
+          
+          slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace("active");
+      }
+      slides[slideIndex-1].style.display = "flex";  
+      
+
+      dots[slideIndex-1].className += " active";
+
+    }
+
+
+
+
+
+
+///carousar 2
+
+    var slideIndexx = 1;
+showSlidess(slideIndexx);
+
+function plusSlides(n) {
+  showSlidess(slideIndexx += n);
+}
+
+function currentSlidee(n) {
+  showSlidess(slideIndexx = n);
+}
+
+function showSlidess(n) {
+  var i;
+  var slidess = document.getElementsByClassName("doc");
+  var dotss = document.getElementsByClassName("dott");
+  if (n > slidess.length) {slideIndexx = 1}    
+  if (n < 1) {slideIndexx = slidess.length}
+  for (i = 0; i < slidess.length; i++) {
+      slidess[i].style.display = "none";  
+  }
+  for (i = 0; i < dotss.length; i++) {
+      dotss[i].className = dotss[i].className.replace(" active", "");
+  }
+  slidess[slideIndexx-1].style.display = "flex";  
+  dotss[slideIndexx-1].className += " active";
+}
+
+
+
+
+//carosar2 end
+
+
+
+
+
+
+
+
+
+//button thing
+
+
+
+
+
+var slideInd = 1;
+    showSlid(slideInd);
+    
+    function plusSlid(n) {
+      showSlid(slideInd += n);
+    }
+    
+    function currentSlidess(n) {
+      showSlid(slideInd = n);
+    }
+    
+    function showSlid(n) {
+      var i;
+      var slid = document.getElementsByClassName("block1");
+      var dottt = document.getElementsByClassName("blockk");
+      if (n > slid.length) {slideInd = 1}    
+      if (n < 1) {slideInd = slid.length}
+      for (i = 0; i < slid.length; i++) {
+          slid[i].style.display = "none";  
+      }
+
+      var heading=document.getElementsByClassName("h");
+      var spann=document.getElementsByClassName("s");
+
+      for (var a=0;a< heading.length;a++)
+      {
+        heading[a].style.color="rgba(0,0,0,0.2)";
+        spann[a].style.color="rgba(0,0,0,0.2)";
+          dottt[a].style.border="0.1rem solid rgba(0,0,0,0.2)";
+      }
+
+      /*for (i = 0; i < dottt.length; i++) {
+          dottt[i].className = dottt[i].className.replace("active");
+      }*/
+      slid[slideInd-1].style.display = "flex";  
+      dottt[slideInd-1].style.border="0.1rem solid black";
+      heading[slideInd-1].style.color="#1e0447";
+      spann[slideInd-1].style.color="skyblue";
+    }
+    
+    
+   
+    </script>
+  <script>
+    (async function searchall(){
+
+        var sear = await fetch("/searchSuggestions");
+        const searres = await sear.json();
+        console.log("aaaaaaaaa",searres);
+        console.log("aaaaaaaaa",searres[0]);
+        
+
+        var ulstart = `<ul>`
+        var ulend =`</ul>`
+        function createli(crli) {
+            console.log("crli",crli.toLowerCase())
+            // charAt(str.length-1)
+            // console.log(a.replace(" world", ""))
+            // str = str.substring(0, str.length - 1);
+            //  console.log("typeof(crli)",typeof(crli))
+            //  var lsd = crli.charAt(crli.length-1)
+            //  console.log("lsd",lsd)
+            //  console.log(charAt(crli.length-1))
+            //  console.log(charAt(crli.length-1))
+
+
+            if(crli.charAt(crli.length-1)=="n") {
+            var ansinp = crli.substring(0,crli.length-1).toLowerCase();
+            console.log("1111111111111111111",ansinp)
+            return `<li onclick="window.location.href='/doctor?name=${ansinp}'"><span class ="searresult">${crli.substring(0,crli.length-1)}</span></li>`}
+
+            if(crli.charAt(crli.length-1)=="h") {
+            var ansinp = crli.substring(0,crli.length-1).toLowerCase();
+            console.log("22222222222222222",ansinp)
+
+            return `<li onclick="window.location.href='/doctor?hospital=${ansinp}'"><span class ="searresult">${crli.substring(0,crli.length-1)}</span></li>`}
+
+            if(crli.charAt(crli.length-1)=="s") {
+            var ansinp = crli.substring(0,crli.length-1).toLowerCase();
+            console.log("3333333333333333333333333333333333",ansinp)
+            return `<li onclick="window.location.href='/doctor?speci=${ansinp}'"><span class ="searresult">${crli.substring(0,crli.length-1)}</span></li>`}
+
+           
+        }
+
+        document.getElementById("myP").innerHTML =
+        
+        `
+         ${ulstart}
+          ${searres.map(createli).join("").toLowerCase()}
+          ${ulend}
+        `
+
+
+
+
+    })();
+      
+      
+  </script> 
+  <script>
+      
+        
+        
+  
+   function searchValue(val) {
+    const searchPanel = document.getElementById("myP");
+    val = val.toLowerCase().trim();
+    
+    const dataArray = [];
+    const liArray = document.querySelectorAll(".searresult");
+    
+    for (var i = 0; i < liArray.length; i++) {
+      dataArray.push(liArray[i].innerHTML);
+      
+
+      liArray[i].parentElement.style.display = "none";
+    }
+    if (val === "") {
+      for (var i = 0; i < liArray.length; i++) {
+        dataArray.push(liArray[i].innerHTML);
+        liArray[i].parentElement.style.display = "none";
+      }
+      return 0;
+    }
+    else {
+      for (var i = 0; i < liArray.length; i++) {
+        if (liArray[i].innerHTML.startsWith(val)) {
+          liArray[i].parentElement.style.display = "flex"
+        }
+      }
+    }
+
+  }
+ 
+        
+      
+  </script>    
+
+</body>
+</html>

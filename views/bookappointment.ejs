@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/bookappointment.css">
+    <title>book-appointment</title>
+
+</head>
+<body>
+
+<!--NavBar-->
+<%- include('include/_navbar') %>
+
+<div class="main">
+    <div class="login-box">
+        <div class="login">
+            <h3>Book-Appointment</h3>
+        </div>
+        <div class="form">
+            <form action="">
+                <h5> select appointment date*</h5>
+                <input type="date" placeholder="">
+
+                <h5> Time interval*</h5>
+                <ul>
+                    <li>
+                        <input type="radio" id="morning" name="time-intervar" value="morning">
+                        <label for="morning">morning</label><br>  
+                    </li>
+                    <li>
+                        <input type="radio" id="afternoon" name="time-intervar" value="afternoon">
+                        <label for="afternoon">afternoon</label><br>
+                    </li>
+                    <li>
+                        <input type="radio" id="evening" name="time-intervar" value="evening">
+                        <label for="evening">evening</label>
+                    </li>
+                </ul>
+                
+                <h5> Appointment Status / Urgency*</h5>
+                <ul>
+                    <li>
+                        <input type="radio" id="routing" name="timeintervar" value="routing">
+                        <label for="routing">routing check-up</label><br>
+                    </li>
+                    <li>
+                        <input type="radio" id="non-urgent" name="timeintervar" value="nonurgent">
+                        <label for="non-urgent">Non Urgent Check-Up</label><br>
+                    </li>
+                    <li>
+                        <input type="radio" id="urgent" name="timeintervar" value="urgent">
+                        <label for="urgent">Urgent Check-Up</label>
+                    </li>                  
+                    <li>
+                        <input type="radio" id="surgical" name="timeintervar" value="surgical">
+                        <label for="surgical">Surgical Appointment</label>         
+                    </li>                  
+                </ul>
+                    
+                <h5> Upload Previous Health Record</h5>
+                <input type="file" id="myfile" name="myfile">
+
+                <h5> Appointment details</h5>
+                <textarea placeholder=""></textarea>
+
+                <button> BOOK APPOINTMENT <span> <i class="fa fa-arrow-right" aria-hidden="true"></i> </span></button>
+            </form>
+        </div>   
+    </div>
+    <div class="reserved"> 
+        <h6> All right reserved Tvastra 2020 </h6> 
+    </div>
+
+</div>
+
+    
+</body>
+</html>
+
+
+
+
+</body>
+</html>

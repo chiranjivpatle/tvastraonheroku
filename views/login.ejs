@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <title>login</title>
+</head>
+<body>
+
+<!--NavBar-->
+<%- include('include/_navbar') %>
+
+
+<div class="main">
+
+    <div class="login-box">
+
+        <div class="login">
+            <h2>Login</h2>
+        </div>
+
+        <div class="form">
+            <form action="">
+                <div class="location">
+                    <input type="text" placeholder="Enter mobile number" >
+                    <span> <i class="fa fa-question-circle" aria-hidden="true"></i> </span>
+                </div>
+                <input type="text" class="a"  placeholder="Enter OTP">
+                <button> LOGIN <span> <i class="fa fa-arrow-right" aria-hidden="true"></i> </span></button>
+            </form>
+        </div>
+    
+        <div class="signup">
+             Not Registerd? <a href="signup"><span>Sign Up</span></a> 
+        </div>
+    </div>
+
+    <div class="reserved">
+        <h6> All right reserved <i class="fa fa-copyright" aria-hidden="true"></i> Tvastra 2020 </h6>
+    </div>
+
+</div>
+
+    
+</body>
+</html>

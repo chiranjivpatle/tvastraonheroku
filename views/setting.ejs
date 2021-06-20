@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <% if(data.admin){   %>
+                <a href="/admin">
+                    <div class="dash_btn dot" ><i class="fa fa-user" aria-hidden="true"></i> <p>dashbord</p></div>
+                </a>
+                <a href="/useradmin">
+                    <div class="dash_btn dot" ><i class="fa fa-th-list" aria-hidden="true"></i> <p>user</p></div>
+                </a>
+                <a href="/doctoradmin">
+                    <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>doctor</p></div>
+                </a>
+                <a href="/hospitaladmin">
+                    <div class="dash_btn dot" ><i class="fa fa-user" aria-hidden="true"></i> <p> hospital </p></div>
+                </a>
+                <a href="/setting">
+                    <div class="dash_btn dot setting_page" ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+                </a>
+            <% }else{ %>
+                <a href="/profile">
+                    <div class="dash_btn dot" ><i class="fa fa-user" aria-hidden="true"></i> <p>profile</p></div>
+                </a>
+                <a href="/appointment">
+                    <div class="dash_btn dot" ><i class="fa fa-th-list" aria-hidden="true"></i> <p>appointments</p></div>
+                </a>
+                <% if(data.user.doctor == "doctor"){ %>
+                    <a href="/schedule">
+                        <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>schedules</p></div>
+                    </a>
+                <% } %>  
+                <a href="/medical_report">
+                    <div class="dash_btn dot" ><i class="fa fa-user" aria-hidden="true"></i> <p>medical reports </p></div>
+                </a>
+                <a href="/setting">
+                    <div class="dash_btn dot setting_page" ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+                </a>
+           <%  } %>
+        </div>
+    </div>
+
+    <div class="dashbord_content1">
+        <form action="update_password" method="POST" >
+            <div class="save_change" >
+                <h2>Account</h2>
+                <button class="save_btn">change password</button>
+            </div>
+            <div class="border_div">
+                <div class="inputs">
+                    <label for="current_password"><h4>current password</h4></label>
+                    <input type="password" name="current_password" id="current_password" value="">
+                </div>
+            </div>
+            <div class="border_div">
+                <div class="inputs">
+                    <label for="new_password"><h4>new password</h4></label>
+                    <input type="password" name="new_password" id="new_password" value="">
+
+                </div>
+                <div class="inputs">
+                    <label for="confirm_password"><h4>confirm password</h4></label>
+                    <input type="password" name="confirm_password" id="confirm_password" value="">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+<script>
+
+    var medical_report = document.getElementsByClassName("setting_page");
+    medical_report[0].style.background = "rgb(226, 220, 220)"; 
+    medical_report[0].classList.add("mystyle");
+  
+
+    function myFunction() {
+        var x = document.getElementById("new_password");
+        var password_eye = document.getElementById("password_eye");
+        
+        if (x.type === "password") {
+            x.type = "text";
+           password_eye.style.color = "rgb(81, 81, 175)"
+         } else {
+             x.type = "password";
+             password_eye.style.color = "rgba(0,0,0,0.2)"
+           }
+   } 
+
+</script>
+
+<script>
+    function popupremove() {
+        var h = document.querySelector(".alert");
+        setTimeout(function(){ h.style.display = "none" }, 700);
+    }
+    popupremove();  
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>schedules</title>
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/clocklet/css/clocklet.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div> 
+<% } %>
+
+<section class="profile">
+
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <a href="/profile">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>profile</p></div>
+            </a>
+            <a href="/appointment">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>appointments</p></div>
+            </a> 
+            <% if(data.user.doctor == "doctor"){ %>
+                <a href="/schedule">
+                    <div class="dash_btn dot medical_report"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>schedules</p></div>
+                </a>
+            <% } %>             
+            <a href="/medical_report">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>medical reports </p></div>
+            </a>
+            <a href="/setting">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="dashbord_content2 medical_record">
+        <div class="head">
+            <h2>All Schedules</h2>
+            <button onclick="add_record()"  >create Schedules </button>
+        </div>
+<% for(var i = 0 ; i < data.user.schedule.length ; i++) { %>
+    <% if(data.user.schedule[i].schedule_checkbox == "false"){  %>
+        <div class="appointment">
+    <% }else{  %>
+        <div class="appointment disable">
+    <% } %>
+            <div class="date_time">
+                <div class="day"><h3><%= data.user.schedule[i].day %></h3>
+                </div>
+                <div class="time"> 
+                    <h4 class="hospital"> <%= data.user.schedule[i].hospital %> </h4>
+                    <h4><%= data.user.schedule[i].starttime %>  <%= data.user.schedule[i].totime %></h4>
+                </div>
+            </div>    
+            <div class="btns">
+                 
+                    <button onclick="return (confirm('Do you want to delete schedule?')? window.location.href='/delete_schedule?id=<%= data.user.schedule[i].schedule_index %>' : '')" >remove schedule  </button>
+                    <button class="viweslots" onclick="currentSlide(`<%= i %>`)" >view slots </button>
+
+                      <% if(data.user.schedule[i].schedule_checkbox == "true"){ %>     
+                        <input type="checkbox"  onchange="window.location.href='/schedule_checkbox?id=<%= data.user.schedule[i].schedule_index %>&status=<%= data.user.schedule[i].schedule_checkbox %>'" checked />
+                        <% }else{ %>  
+                        <input type="checkbox"  onchange="window.location.href='/schedule_checkbox?id=<%= data.user.schedule[i].schedule_index %>&status=<%= data.user.schedule[i].schedule_checkbox %>'"  />
+                       <% } %>
+            </div>
+            <div class="schedule-times" >
+              <% for(var j = 0; j < data.user.schedule[i].slots.length ; j++) { %> 
+                
+                <% if(data.user.schedule[i].slots[j].checkbox  == "false"){  %>
+                <time >
+                <% }else{  %>    
+                <time class="disable">
+                <% } %>
+                    <span> <%= data.user.schedule[i].slots[j].schedule_time %> </span>
+                    
+                    <% if(data.user.schedule[i].slots[j].checkbox  == "true"){ %>     
+                        <input type="checkbox"  onchange="window.location.href='/delete_timer_checkbox?id=<%= data.user.schedule[i].schedule_index %>&timer_id=<%= data.user.schedule[i].slots[j].id %>&status=<%= data.user.schedule[i].slots[j].checkbox %>'" checked />
+                    <% }else{ %>  
+                        <input type="checkbox"  onchange="window.location.href='/delete_timer_checkbox?id=<%= data.user.schedule[i].schedule_index %>&timer_id=<%= data.user.schedule[i].slots[j].id %>&status=<%= data.user.schedule[i].slots[j].checkbox %>'"  />
+                    <% } %>
+
+                </time>
+              <% } %>
+            </div>                                       
+        </div>           
+<% } %>
+        
+    </div>
+
+</section>
+
+<div id="number_change" class="add_record" >
+    <div class="edit_number">
+        <form action="/schedule_form" method="POST" >
+
+            <% if(data.user.schedule.length > 0){ 
+              var si =  parseInt( data.user.schedule[data.user.schedule.length - 1].schedule_index ) + 1 ;
+            %>
+            <input type="text" name="schedule_index" value="<%= si %>" style="display: none;">
+            <% }else { 
+                var si = 0 ;  %>   
+                <input type="text" name="schedule_index" value="<%= si %>" style="display: none;">
+            <% } %>    
+
+            <label for=""><h4>Select available days</h4></label>
+            <select name="day" multiple="" required="">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+            </select>
+
+            <label for=""><h4>hospital</h4></label>
+            <select name="hospital">
+                <% if(!(data.user.hospital == "") ){ 
+                    console.log("data.user.hospital",data.user.hospital)
+
+                    var str =  data.user.hospital ;
+                    var arrays = str.split(",");
+
+                    console.log("arrays = ",arrays)
+
+                    for(var k = 0 ; k < arrays.length ; k++){ 
+                %>
+                    <option value="<%= arrays[k] %>"><%= arrays[k] %> </option>
+                <%  }} %>
+
+            </select>
+
+            <div class="half-inputs">
+                <div class="time">
+                    <label><h4>From (time)</h4></label>
+                    <input id="starttime" type="text" name="starttime" value="" placeholder="Starting time" data-clocklet="placement: top; z-index: 15; format: hh:mm A;" autocomplete="off" required="">
+                </div>
+                <div  class="time">
+                    <label><h4>To (time)</h4></label>
+                    <input id="totime" type="text" name="totime" value="" placeholder="Ending time" data-clocklet="placement: top; z-index: 15; alignment: right; format: hh:mm A;" autocomplete="off" required="">
+                </div>
+                <small ><p id="massage">Start time must be before endtime</p></small>
+            </div>
+
+            <label for=""><h4>interval</h4></label>
+            <input type="number" name="interval" placeholder="Enter intervals in minutes" min="15" max="60" step="15" required="">
+           
+            <div class="send_otp">
+                <button class="cancel_btn"  onclick="not_add_record()"  >cancel</button>
+                <button class="done"  id="subbut"  onclick="not_add_record()" type="submit" >Done</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+<script src="https://cdn.jsdelivr.net/npm/clocklet"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+
+<script>
+    var Ione= document.getElementById("starttime")
+    var Itwo = document.getElementById("totime")
+    var subbut = document.getElementById("subbut")
+    subbut.disabled = true ;
+    subbut.style.cursor = "not-allowed" ;
+    
+
+    document.getElementById("starttime").addEventListener("clocklet.closed", function (event) {
+        var a = Ione.value;
+        console.log("a =",Ione.value);
+
+        document.getElementById("totime").addEventListener("clocklet.closed", function (event) {
+            var b = Itwo.value;
+            console.log("b =",Itwo.value);
+
+                var convertedTime = moment(a, 'hh:mm A').format('HH:mm')
+                console.log("converted time=",convertedTime);
+                var res = convertedTime.replace(":", ".");
+                var aa = parseFloat(res);
+                console.log("float of aa=",aa)
+                   
+                var convertedTime2 = moment(b, 'hh:mm A').format('HH:mm')
+                console.log("converted time2=",convertedTime2);
+                var res2 = convertedTime2.replace(":", ".");
+                var bb = parseFloat(res2);
+                console.log("float of bb=",bb)   
+
+                var massage = document.getElementById("massage")
+
+                if ((aa < 10 || aa > 22) || (bb < 10 || bb > 22) ) {
+                    massage.innerHTML = "time is between 10:Am to 10:pm" ;
+                    console.log("time is between 10:Am to 10:pm")
+                }else if(aa > bb) {
+                    massage.innerHTML = "second time must be less" ;
+                    console.log('second time must be less')
+                }else{
+                    subbut.disabled = false;
+                    subbut.style.cursor = "pointer" ;
+                    console.log('ok')
+                    massage.innerHTML = "" ;
+                }    
+        });
+    });
+</script>
+
+<script>
+
+        var medical_report = document.getElementsByClassName("medical_report");
+        medical_report[0].style.background = "rgb(226, 220, 220)"; 
+        medical_report[0].classList.add("mystyle");
+      
+        function add_record(){
+        var number_change = document.getElementsByClassName("add_record");
+            number_change[0].style.display = "flex";
+        }
+        function not_add_record(){
+        var number_change = document.getElementsByClassName("add_record");
+            number_change[0].style.display = "none";
+        }
+    
+</script>
+
+<script>        
+
+    function schedulecheckbox(){
+        console.log("chal be bhai")
+        document.getElementById("schedulecheckbox").submit();
+   }
+
+   function delete_timer_checkbox(){
+        document.getElementById("delete_timer_checkbox").submit();
+   }
+
+
+
+function neww(){
+    var slide = document.getElementsByClassName("schedule-times");
+    for( var m = 0; m < slide.length; m++) {
+        slide[m].style.height = "0";  
+    } 
+}
+neww();
+
+var slideIndex ;
+showSlidesss(slideIndex);
+
+function currentSlide(n) {
+  showSlidesss(slideIndex = n);
+}
+
+function showSlidesss(n) {
+  var slides = document.getElementsByClassName("schedule-times");
+
+  
+
+    if (slides[slideIndex].style.height == "auto"){
+        slides[slideIndex].style.height = "0";  
+       
+
+    }else {
+        slides[slideIndex].style.height = "auto";  
+        slides[slideIndex].style.transition = "5s";
+
+        
+    }
+   
+}
+
+
+
+</script>
+
+</body>
+</html>

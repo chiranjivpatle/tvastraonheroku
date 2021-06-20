@@ -1,0 +1,176 @@
+@import url(theme.css);
+
+/*nav*/ 
+.image1 {
+    width: 8rem;
+    height: 1.4rem;
+}
+.navbar_menu, .navbar_buttons {
+    display: none;
+}
+
+/*top-one*/
+.top-one{
+    background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/contactUs.png");
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+h2,  p {
+    color: var(--white);
+}
+}
+
+/*all about doc*/
+.all-about-doc {
+    border: 0.1px solid var(--gray);
+    padding: 0.5rem;
+
+button {
+    width: 100%;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+.name-info h2{
+    position: relative;
+    text-align: left;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    color: var(--blue_sky);
+}
+.name-info h2::before {
+    content: " ";
+    width: 2rem;
+    border-bottom: 0.2rem solid var(--blue_sky);
+    position: absolute;
+    left: -2.5rem;
+    top: 0.5rem;
+}
+input {
+    width: auto;
+}
+.accordian-tab > .accordian-toggle {
+    display: none;
+}
+.accordian-tab > label {
+    color: var(--blue_sky);
+    
+    border-bottom: 0.1px dashed var(--gray);
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+    
+    
+}
+.accordian-tab > label > i {
+    margin-right: 1rem;
+    color: var(--blue_sky);
+
+}
+.accordian-tab > label::after {
+    content: "\f13a";
+    font: normal normal normal 14px/1 FontAwesome;
+    position: absolute;
+    top:1.1rem;
+    right: 1rem;
+    transform: rotate(0deg);
+    transition: transform .3s;
+
+}
+.accordian-tab > .accordian-toggle:checked ~ label::after {
+    transform: rotate(180deg);
+}
+.accordian-tab > .accordian-toggle:checked ~ label {
+    border-top: 0.1px dashed var(--gray) ;
+}
+.accordian-tab > .accordian-content {
+    max-height: 0;
+    transition: all .4s;
+    overflow: hidden;
+}
+.accordian-content p {
+    text-align: left;
+    background-color: var(--faint_blue);
+    padding: 0.5rem;
+    margin-bottom: 0;
+}
+.accordian-tab > .accordian-toggle:checked ~ .accordian-content{
+    max-height: 100vh;
+}
+}
+
+
+@media only screen and (min-width:768px) {
+    .all-about-doc {
+        display: grid;
+        grid-template-columns: 65% 35%;
+        grid-template-rows: 1fr;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        grid-column-gap: 1rem;
+        
+    
+
+    .photo-and-butn {
+        grid-column-start: 2;
+        height: 50vh;
+        width: 90%;
+        
+        
+        
+    }
+    .text-info {
+        grid-row-start: 1;
+        
+    }
+    .name-info p {
+        margin-left: 1rem;
+        text-align: left;
+    }
+    .name-info h2 {
+        margin-top: 0;
+        margin-left: 1rem;
+    }
+    .name-info h2::before {
+        content: " ";
+        width: 1rem;
+        border-bottom: 0.2rem solid var(--blue_sky);
+        position: absolute;
+        left: -1.5rem;
+        top: 0.5rem;
+    }
+    .accordian {
+        margin-left: 1rem;
+    }
+}
+}
+
+@media only screen and (min-width:1024px) {
+    .all-about-doc {
+        display: grid;
+        grid-template-columns: 75% 25%;
+        grid-template-rows: 1fr;
+        
+        
+    
+
+
+.photo-and-butn {
+    width: 92%;
+}
+.photoone {
+    height: 16rem;
+    
+}
+}
+}

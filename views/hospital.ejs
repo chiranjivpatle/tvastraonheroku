@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/hospitalcss.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+     <!--NavBar-->
+    <%- include('include/_navbar') %>
+
+    
+    <!--surgen heading-->
+    <section class="surgen_heading">
+        Hospitals in <span> Delhi</span>
+    </section>
+
+    <!--doctor list-->
+    <section class="doctor_list">
+        Home / Hospital List
+        <select name="cities">
+            <option>Sort By</option>
+        </select>
+        
+    </section>
+    
+    <!--doc details-->
+    <section class="doc_details">
+        <div class="box1">
+            <% for(var i= 0 ;i < data.userlist.length ;i++ ){ %>
+            <div class="doc_name">
+                <div class="doc_name_box1">
+                    <h3><%= data.userlist[i].name %></h3>
+                    <ul> 
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= data.userlist[i].address %>  </li>
+                        <li><i class="fa fa-bed" aria-hidden="true"></i> <%= data.userlist[i].bed %> beds </li>
+                    <li><i class="fa fa-stethoscope" aria-hidden="true"></i><%= data.userlist[i].specification %></li>
+                        
+                        
+                    </ul>
+                    <div class="spanbox">
+                        <span>Multi Organ Transplant</span>
+                        <span>Orthopedic Surgery</span>
+                        <span>Infertility Treatment</span>
+                        <span>Dentistry</span>
+                        <span>Cardiology</span>
+                        <span>Cancer</span>
+                        <span>40+ more</span>
+                    </div>
+                    <div class="doc_button">
+                        <button>call Now</button>
+                    </div>
+                </div>
+                <div class="doc_name_box2">
+                <a href="about-hospital"> 
+                    <div class ="hospitalimage">
+                        <% if(data.userlist[i].file){  %>
+                            <img src="./uploads/<%= data.userlist[i].file %>"  alt=" Doctor Pic">
+                        <% }else{  %>
+                            <img src="https://cdn2.iconfinder.com/data/icons/jetflat-buildings/90/008_010_hospital_clinic_building-128.png"  alt=" Doctor Pic">
+                        <%   } %>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <% } %>
+
+        
+
+        </div>
+
+        <div class="box2">
+            <div class="filter">
+                <h4>Filter by</h4>
+            </div>
+
+            <div class="filters-four-types">
+                <div class="filters-box">
+                    <p>Location</p>
+                    <div class="fonts-box">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <div class="minus-font">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Dlf cyber city</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Dwarka</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">lajpat nagar</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">palam vihar</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">punjabi bag</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">pusa road</label>
+                    </div>
+                </div>
+                <div class="show_more">
+                    <h6>+ show more</h6>
+                </div>
+            </div>
+            
+            <div class="filters-four-types">
+                <div class="filters-box">
+                    <p>Treatment</p>
+                    <div class="fonts-box">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <div class="minus-font">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Multi organ transplant </label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">orthopedic surgery</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">infertility treatment</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Dentistry</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Cardiology</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Cancer</label>
+                    </div>
+                </div>
+                <div class="show_more">
+                    <h6>+ show more</h6>
+                </div>
+            </div>
+            
+            <div class="filters-four-types">
+                <div class="filters-box">
+                    <p>Hospitals</p>
+                    <div class="fonts-box">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <div class="minus-font">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Apollo Hospital</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Manipal north Side Hospital</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">North Star</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">AIIMS</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Fortis Hospital</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">Elbit Dignostic</label>
+                    </div>
+                </div>
+                <div class="show_more">
+                    <h6>+ show more</h6>
+                </div>
+            </div>
+            
+            <div class="filters-four-types">
+                <div class="filters-box">
+                    <p>Years of Experience</p>
+                    <div class="fonts-box">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <div class="minus-font">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">5+</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">10+</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">15+</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">20+</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">25+</label>
+                    </div>
+                </div>
+                <div class="forcheckbox1">
+                    <div class="box1_inside_forcheckbox1">
+                        <input type="checkbox">
+                    </div>
+                    <div class="box2_inside_forcheckbox1">
+                        <label for="delhi">30+</label>
+                    </div>
+                </div>
+                <div class="show_more">
+                    <h6>+ show more</h6>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+   <!--need help-->
+
+<%- include('include/_needhelp') %>
+
+
+<!--.........footer.....-->
+
+<footer class="footer">
+    <div class="one-div">
+    <div class="footer-img">
+        <img class="f-img" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png" alt="tvastra logo">
+    </div>
+    
+    <ul class="footer-list">               
+        <li><a href="doctor">Doctor</a></li>
+        <li><a href="hospital">Hospital</a></li>
+        <li><a href="dentistry">Treatment</a></li>
+        <li><a href="#">Other services</a></li>
+        <li><a href="faq">FAQs</a></li>
+     </ul>
+
+     <div class="one-footer-list-box">
+        <h2>Follow Us</h2>
+   
+        <ul class="footer-list">               
+           <li><a href="#">Facebook</a></li>
+           <li><a href="#">Pinterest</a></li>
+           <li><a href="#">TWitter</a></li>
+           <li><a href="#">Google+</a></li>
+           <li><a href="#">Instagram</a></li>
+        </ul>
+       </div>
+    
+
+    </div>
+    <div class="two-div">
+    <div class="footer-logo">
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-google-plus" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+    </div>
+    <div class="footer-h">
+        All Rights Reserved. tvastra 2018
+    </div>
+    </div>
+</footer>
+</body>
+</html>

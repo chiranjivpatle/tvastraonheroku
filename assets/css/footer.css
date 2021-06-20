@@ -1,0 +1,119 @@
+/* .....foooter......... */
+/*footer*/
+footer {
+  padding: 2rem;
+  background-color: var(--blackish_blue);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+footer h2 {
+  color: var(--white);
+  padding-top: 1rem;
+}
+
+footer .f-img {
+  width: 10rem;
+  padding-bottom: 0.5rem;
+}
+
+footer .footer-list li a, footer .footer-logo i, footer .footer-h, footer .footer-h i {
+  color: var(--white);
+}
+
+footer .footer-list li {
+  padding: 0.4rem;
+}
+
+footer .footer-logo i {
+  padding: 0.5rem;
+}
+
+footer .footer-h {
+  padding: 0.5rem;
+  font-family: 'Nexa Light';
+  font-size: 0.9rem;
+}
+
+@media only screen and (min-width: 768px) {
+  /*footer*/
+  footer {
+    background-color: var(--white);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    row-gap: 2rem;
+  }
+  footer .one-footer-list-box {
+    display: none;
+  }
+  footer .f-img {
+    width: 11rem;
+    height: 2rem;
+  }
+  footer .footer-list li a, footer .footer-logo i, footer .footer-h, footer .footer-h i {
+    color: var(--blackish_blue);
+  }
+  footer .footer-list li {
+    padding: 0.5rem;
+  }
+  footer .footer-list li a, footer .footer-list i {
+    font-size: 0.9rem;
+  }
+  footer .footer-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  footer .one-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  footer .two-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  footer {
+    border-bottom: 0.3rem solid var(--blue_sky);
+  }
+  footer .footer-list {
+    font-weight: bold;
+  }
+  footer .footer-logo i {
+    font-size: 1.5rem;
+  }
+  footer .footer-h {
+    font-weight: bold;
+  }
+}
+/*# sourceMappingURL=footer.css.map */

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>doctor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+
+    <link rel="stylesheet" href="css/patientappointment.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+    
+     
+    
+    <!-- include nav-->
+    <%- include('include/_navbar') %>
+        <!-- /include nav -->
+
+
+
+    <section>
+        <div id="doctor-box">
+            <h1>In Clinic Appointment</h1>
+            <ul>
+                <li><i class="far fa-calendar-plus"></i> <%= data.obj.appointmentdate %>  </li>
+                <li><i class="far fa-clock"></i> <%= data.obj.stime %> </li>
+                <li><i class="far fa-clock"></i>To <%= data.obj.etime %>  </li>
+                <li><a href="/doctor">Change date &amp; time</a></li>
+            </ul>
+            <div id="doctor-info">
+                <figure>
+                    <div class="docimage">
+                        <img src="<%= data.obj.profile %>" alt="doctor">
+                    </div>
+                    <figcaption>
+                        <ul>
+                            <li> <%= data.obj.name %></li>
+                            <li> <%= data.obj.hospital %></li>
+                            <li> <%= data.obj.qualification %></li>
+                        </ul>
+                    </figcaption>
+                </figure>
+            </div>
+            <div id="hospital-info">
+                <figure>
+                    <div class="hospimage">
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.jpg" alt="hospital">
+                    </div>
+                    <figcaption>
+                        <ul>
+                            <li><%= data.obj.bookhospital %> <span>Hospital</span></li>
+                        </ul>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+
+       
+            <div class="form"  >
+                <h2 class="form-title">Patient Details</h2>
+                <form action="/patientappointment" method="POST" id="myForm" >
+        
+    
+                    <input type="hidden" name="doctorname" value="<%= data.obj.name %>">
+                    <input type="hidden" name="bookhospital" value="<%= data.obj.bookhospital %>">
+                    <input type="hidden" name="appointmentdate" value="<%= data.obj.appointmentdate %>">
+                    <input type="hidden" name="stime" value="<%= data.obj.stime %>">
+                    <input type="hidden" name="etime" value="<%= data.obj.etime %>">
+                    <input type="hidden" name="hospital" value="<%= data.obj.hospital %>">
+                    <input type="hidden" name="qualification" value="<%= data.obj.qualification %>">
+                    <input type="hidden" name="doctorid" value="<%= data.obj.doctorid %>">
+                    <input type="hidden" name="scheduleid" value="<%= data.obj.scheduleid %>">
+                    <input type="hidden" name="slotid" value="<%= data.obj.slotid %>">
+                    <input type="hidden" name="username" value="<%= data.user.name %>" >
+
+    
+        
+                    <h5>This appointment is for:</h5>
+                    <div class="radbut">
+                        <input type="radio" name="isFor" id="self" value="self"  checked >
+                        <label for="self">Self</label>
+                    </div>
+                    <div class="radbut">
+                        <input type="radio" name="isFor" id="someoneElse" value="someoneElse" >
+                        <label for="someoneElse">Someone else</label>
+                    </div>
+    
+                    <h5>Please provide the following informations:</h5>
+                    <label>Patient's full name:</label>
+                    <input type="text" name="patname" value="<%= data.user.name %>" readonly="">
+                    <label>Mobile number:</label>
+                    <input type="text" name="mobile" value="<%= data.user.mobileNo %>" readonly="">
+                    <label>Patient's mobile number:</label>
+                    <input type="text" name="patientmobile" value="<%= data.user.mobileNo %>" readonly="">
+                    <label>Patient's full name:</label>
+                    <input type="email" name="email" value="<%= data.user.email %>" readonly="">
+                    <button type="submit">Book Appointment</button>
+                    
+                </form>
+                </div>
+     
+
+
+    </section>
+<!--footer-->
+
+
+        <!-- include _footer-->
+        <%- include('include/_footer') %>
+        <!-- /include _footer -->
+
+
+<script>
+    var someoneElse = document.querySelector("#someoneElse")
+    var self = document.querySelector("#self")
+
+
+    var docname = document.querySelector("input[name='patname']")
+    var patientMobile = document.querySelector("input[name='patientmobile']")
+    var email = document.querySelector("input[name='email']")
+
+
+    someoneElse.addEventListener("click",e=>{
+        var checkedornot =  someoneElse.checked
+        console.log("checkedornot",checkedornot)
+        if(checkedornot){
+            docname.removeAttribute("readonly")
+            patientMobile.removeAttribute("readonly")
+            email.removeAttribute("readonly")
+
+            docname.setAttribute("value","")
+            patientMobile.setAttribute("value","")
+            email.setAttribute("value","")
+        }
+    })
+
+    self.addEventListener("click",e=>{
+            docname.setAttribute("readonly","")
+            patientMobile.setAttribute("readonly","")
+            email.setAttribute("readonly","")
+
+            docname.setAttribute("value","<%= data.user.name %>")
+            patientMobile.setAttribute("value","<%= data.user.mobileNo %>")
+            email.setAttribute("value","<%= data.user.email %>")            
+    })
+
+
+
+</script>
+
+ 
+</body>
+</html>

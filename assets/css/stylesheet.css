@@ -1,0 +1,648 @@
+@import url(theme.css);
+.alert {
+  background-color: var(--white);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 1;
+  position: absolute;
+  right: 1rem;
+  top: 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-left: 0.2rem solid green;
+}
+
+.alert i {
+  color: green;
+  z-index: 1;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+.alert .alert_content h5 {
+  color: green;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.alert .alert_content p {
+  font-size: 0.8rem;
+  color: green;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.alert span {
+  color: var(--grey);
+  z-index: 1;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+/*healthcare*/
+.healthcare {
+  background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.jpg");
+  background-size: cover;
+}
+
+.healthcare .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  background-color: var(--white);
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.healthcare .healthcare_icon1 {
+  margin-left: 0.5rem;
+}
+
+.healthcare .healthcare_icon2 {
+  margin-right: 0.5rem;
+}
+
+.healthcare .location input {
+  border: none;
+}
+
+.healthcare .forsearch {
+  width: 100%;
+}
+
+.healthcare .forsearch #myP {
+  position: absolute;
+}
+
+.healthcare .forsearch #myP ul {
+  background-color: var(--white);
+}
+
+.healthcare .forsearch #myP ul li {
+  display: none;
+  border: 0.1rem solid var(--skyblue);
+}
+
+.healthcare .form button {
+  margin-top: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+/*how it work*/
+.How_it_work .container2 .need_grid .blockk {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.How_it_work .container2 .need_grid .blockk li {
+  padding: 1rem;
+}
+
+.How_it_work .container2 .need_grid .blockk li h3 span {
+  color: var(--skyblue);
+  margin-right: 0.5rem;
+}
+
+.How_it_work .container2 .need_grid .last {
+  margin-bottom: 0rem;
+}
+
+.How_it_work .container2 .need_grid .block1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.How_it_work .container2 .need_grid .block1 h4 {
+  margin: 1rem;
+}
+
+/*expert doctor*/
+.doctors {
+  background-color: var(--blackish_blue);
+}
+
+.doctors h2, .doctors p {
+  color: var(--white);
+}
+
+.doctors .container3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.doctors .doctor_box {
+  width: 100%;
+}
+
+.doctors .doctor_image {
+  height: 20rem;
+  width: 100%;
+}
+
+.doctors .doctor_name {
+  width: 100%;
+}
+
+.doctors .aside {
+  background-color: var(--white);
+  padding-bottom: 0.5rem;
+  position: relative;
+  border-bottom: 0.3rem solid var(--skyblue);
+}
+
+.doctors .aside li {
+  color: var(--black);
+  text-align: left;
+  margin-left: 1.8rem;
+  line-height: 1.1rem;
+}
+
+.doctors .aside li h4::before {
+  content: " ";
+  position: absolute;
+  width: 7%;
+  border-bottom: 0.2rem solid var(--skyblue);
+  left: 0rem;
+  top: 1.4rem;
+}
+
+.doctors .aside li h4 {
+  padding-top: 1rem;
+  color: var(--blue_sky);
+}
+
+/* ........treatment........................ */
+.Treatment .doc .docs .doc-c .grid-box {
+  height: 20rem;
+  width: 100%;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.Treatment .doc .docs .doc-c .grid-box .linear-g {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(57%, rgba(17, 10, 26, 0.9)));
+  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(17, 10, 26, 0.9) 57%);
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  bottom: 0%;
+}
+
+.Treatment .doc .docs .doc-c .grid-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.Treatment .doc .docs .doc-c .grid-box .name {
+  position: absolute;
+  bottom: 6%;
+  left: 6%;
+  font-size: 0.75rem;
+  font-family: Nexa Light;
+  color: var(--white);
+  text-align: left;
+}
+
+.Treatment .doc .docs .doc-c .grid-box .name h5 {
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02rem;
+  font-size: 1rem;
+  font-family: Nexa Bold;
+  color: var(--white);
+}
+
+/* ........treatment..end................... */
+/* services */
+.services {
+  background-color: var(--secondary);
+}
+
+.services h5 {
+  color: gray;
+  padding: 0rem;
+  padding-bottom: 1rem;
+}
+
+.services .card-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-row-gap: 0.5rem;
+  grid-column-gap: 0.5rem;
+  text-align: center;
+}
+
+.services .pic {
+  height: 5rem;
+  width: 5rem;
+}
+
+.services .card {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  /*healthcare*/
+  .healthcare {
+    height: 11rem;
+  }
+  .healthcare .location {
+    width: 75%;
+    margin-top: 0.5rem;
+    margin-right: 0.1rem;
+  }
+  .healthcare .form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .healthcare .form button {
+    margin-bottom: 1rem;
+    font-size: 0.64rem;
+  }
+  .healthcare li span {
+    padding: 1rem;
+  }
+  /*how it work*/
+  .How_it_work .container2 .need_grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1rem;
+  }
+  .How_it_work .container2 .need_grid .blockk {
+    cursor: pointer;
+  }
+  .How_it_work .container2 .need_grid .blockk li {
+    padding: 1rem;
+  }
+  .How_it_work .container2 .need_grid .blockk li h3 span {
+    color: var(--skyblue);
+    margin-right: 0.5rem;
+  }
+  .How_it_work .container2 .need_grid .last {
+    margin-bottom: auto;
+  }
+  .How_it_work .container2 .need_grid .block1 {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 3;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 8;
+    width: auto;
+    height: auto;
+  }
+  .How_it_work .container2 .need_grid .block1 h4 {
+    text-align: center;
+  }
+  /*expert doctor*/
+  .doctors .doctor_box {
+    width: 21.5rem;
+  }
+  .doctors .container3 {
+    -webkit-column-gap: 1rem;
+            column-gap: 1rem;
+  }
+  .doctors .aside {
+    height: 7rem;
+  }
+  .doctors .aside li {
+    margin-right: 1.9rem;
+  }
+  /* .............treatment................................................. */
+  .Treatment {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .Treatment .doc .docs .doc-c {
+    width: 47.5%;
+    margin: 0.5rem 0.5rem;
+    float: left;
+  }
+  .Treatment .doc .docs .doc-c .grid-box {
+    margin: 0rem;
+  }
+  /* .............treatment...end.............................................. */
+  /*services*/
+  .services .card-wrapper {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /*healthcare*/
+  .healthcare {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  .healthcare .location {
+    height: 2.95rem;
+  }
+  .healthcare .healthcare_icon1 {
+    color: var(--blackish_blue);
+  }
+  .healthcare .healthcare_icon2 i {
+    color: var(--gray);
+  }
+  .healthcare .container1 h1, .healthcare .container1 p {
+    width: 50%;
+  }
+  .healthcare .form {
+    width: 70%;
+  }
+  .healthcare .form button {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+  }
+  .healthcare .container1 form input {
+    padding: 1rem;
+  }
+  /*how it work*/
+  .How_it_work .container2 .need_grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .How_it_work .container2 .need_grid .blockk {
+    width: 27rem;
+    cursor: pointer;
+  }
+  .How_it_work .container2 .need_grid .blockk li {
+    padding: 1rem;
+  }
+  .How_it_work .container2 .need_grid .blockk li h3 {
+    margin-top: 1rem;
+  }
+  .How_it_work .container2 .need_grid .blockk li h3 span {
+    color: var(--skyblue);
+    margin-right: 0.5rem;
+  }
+  .How_it_work .container2 .need_grid .last {
+    margin-bottom: auto;
+  }
+  .How_it_work .container2 .need_grid .last li h3 {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
+  .How_it_work .container2 .need_grid .block1 {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 3;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 8;
+    width: auto;
+    height: auto;
+    padding-right: 0;
+  }
+  .How_it_work .container2 .need_grid .block1 img {
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .How_it_work .container2 .need_grid .block1 h4 {
+    text-align: center;
+  }
+  .How_it_work .container2 .need_grid .block1 p {
+    text-align: center;
+  }
+  /*world expertd doctor*/
+  .doctors {
+    /* Slideshow container */
+    /* The dots/bullets/indicators */
+  }
+  .doctors .doctor_box {
+    width: 24.3%;
+  }
+  .doctors .dot {
+    text-align: center;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    margin-top: 3rem;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    -webkit-transition: background-color 0.6s ease;
+    transition: background-color 0.6s ease;
+  }
+  .doctors .active, .doctors .dot:hover {
+    background-color: var(--blackish_blue);
+    border: 0.1px solid var(--blue_sky);
+  }
+  .doctors .container3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 0.5rem;
+            column-gap: 0.5rem;
+  }
+  .doctors .fade {
+    -webkit-animation: fade 1s forwards;
+            animation: fade 1s forwards;
+    position: relative;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  @-webkit-keyframes fade {
+    from {
+      opacity: .4;
+    }
+    to {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+    }
+  }
+  @keyframes fade {
+    from {
+      opacity: .4;
+    }
+    to {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+    }
+  }
+  .doctors .aside li {
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+  /*......treatment.......................  */
+  .Treatment {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .Treatment .doc {
+    /* Fading animation */
+  }
+  .Treatment .doc .docs {
+    display: -ms-grid;
+    display: grid;
+    height: 50rem;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (1fr)[10];
+        grid-template-rows: repeat(10, 1fr);
+  }
+  .Treatment .doc .docs .doc-c {
+    margin: 0.3rem;
+    width: auto;
+  }
+  .Treatment .doc .docs .doc-c .grid-box {
+    height: 100%;
+  }
+  .Treatment .doc .docs #ta {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 1 / span 3 / span 1;
+    margin-left: 0;
+  }
+  .Treatment .doc .docs #tb {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 5;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 2 / span 5 / span 1;
+  }
+  .Treatment .doc .docs #tc {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 4;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 1 / 3 / span 4 / span 1;
+    margin-right: 0;
+  }
+  .Treatment .doc .docs #td {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 8;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 4 / 1 / span 8 / span 1;
+    margin-left: 0;
+  }
+  .Treatment .doc .docs #te {
+    -ms-grid-row: 6;
+    -ms-grid-row-span: 5;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 6 / 2 / span 5 /  3;
+  }
+  .Treatment .doc .docs #tf {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 6;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    grid-area: 5 / 3 / span 6 / span 1;
+    margin-right: 0;
+  }
+  .Treatment .doc .fade {
+    -webkit-animation: fade 1s forwards;
+            animation: fade 1s forwards;
+    position: relative;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  @keyframes fade {
+    from {
+      opacity: .4;
+    }
+    to {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+    }
+  }
+  .Treatment .dotss {
+    margin-top: 2rem;
+  }
+  .Treatment .dotss .dott {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin-right: 0.5rem;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    -webkit-transition: background-color 0.6s ease;
+    transition: background-color 0.6s ease;
+  }
+  .Treatment .dotss .dott:hover, .Treatment .dotss .dott .active {
+    border: 0.1rem solid var(--blue_sky);
+    background-color: var(--white);
+  }
+  /*......treatment.end......................  */
+  /*services*/
+  .services .card {
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+  }
+  .services .card-wrapper {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 0.5rem;
+    padding-bottom: 1rem;
+  }
+  .services .card h5 {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}
+/*# sourceMappingURL=stylesheet.css.map */

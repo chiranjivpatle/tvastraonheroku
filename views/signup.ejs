@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.css" />
+
+    
+
+    <title>signup</title>
+</head>
+<body>
+
+<!--NavBar-->
+<%- include('include/_navbar') %>
+
+
+<% if(data.err) { %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h5>Failure</h5>
+            <p> <strong><%= data.err %></strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+
+<div class="main">
+
+    <div class="login-box">
+
+        <div class="login">
+            <h2>sign up</h2>
+        </div>
+
+        <div class="form">
+            
+                <% if(!doclog) { %>
+            <form action="/signup" method="POST" id="myForm" >
+                <div id="user">
+                    <input type="text" class="a"  placeholder="Enter Name" name = "name" required>
+                    <input type="text" class="a"  placeholder="Enter Email" name = "email" required>
+                    <div class= "passwordclass">
+                        <input type="password" value="" id="pswd"  placeholder="Enter Password" name = "password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                        <span> <i class="fa fa-eye-slash" aria-hidden="true" id="eye" onclick="toggle()"></i> </span>
+                    </div>
+                   
+
+                    <select id="gend" name="gender" required>
+                        <option value="">Select your gender</option>
+                        <option value="abc">male</option>
+                        <option value="abc">female</option>
+                        <option value="abc">other</option>
+                    </select>
+            
+                    <input type="date" id ="datefield" class="a" name = "birthdate" required>
+                    <input type="text" class="a"  placeholder="Enter phone number"  name = "mobileNo" pattern="[7-9]{1}[0-9]{9}" title="Phone number with 7-9 and remaing 9 digit with 0-9" required>
+
+                    <div class="city-button" required>
+                        <input type="text" class="a b"  placeholder="Enter city" name = "city">         
+                        <input type="text" class="a"  placeholder="Enter state" name = "state">
+                    </div>
+
+                    
+                    <select id="count" name="country" required>
+                        <option value="">select your country</option>
+                        <option value="bcd">india</option>
+                        <option value="bcd">USA</option>
+                        <option value="bcd">Germany</option>
+                    </select>
+
+                    <div class="isdoctor">    
+                        <input type="checkbox" id="doctor" name="doctor" value="doctor">
+                        <span> <label for="doctor">is Doctor</label> </span> 
+                    </div>
+
+                    <button type="submit" class = "showdocdiv" >SIGN UP <span> <i class="fa fa-arrow-right" aria-hidden="true"></i> </span></button>
+                </div>
+            </form>
+                <% } %>
+
+                <% if(doclog) { %>
+                <form action="/signupdocnew" method="POST" id="myForm" enctype="multipart/form-data">
+                    <div id="doctor_div" style="width: 100%;">
+                        <p> Complete your profile to proceed further </p>
+                        <textarea name="yourself" id="" cols="30" rows="6"></textarea>
+                        <div class="files">
+                            <div class="label" for="doctor_photo">Upload your photo </div>
+                            <input type="file" name="file" id="doctor_photo" >
+                        </div>
+                        <input name='achivement' value=''placeholder="your achivement" required> 
+                        <input name='hospital' value='' placeholder="your hospital" required>
+                        <input type="number" name="experience"  placeholder="your experience in year" required>
+                        <input name='qualification' value='' placeholder="your qualification " required>
+                        <input name='awards' value='' placeholder="any awards" required>
+                        <input name='specification' value='' placeholder="your specification" required>
+                        <input type="number" name="fees" placeholder="your average fees (in rupees)" required>
+                        <button > SUBMIT <span> <i class="fa fa-arrow-right" aria-hidden="true"></i> </span></button>
+                    </div>
+                </form>
+                <% } %>
+            
+        </div>
+    
+        <div class="signup">
+             Not Registerd? <a href="emaillogin"><span> Login </span></a> 
+        </div>
+   
+    </div>
+
+    <div class="reserved">
+        <h6> All right reserved <i class="fa fa-copyright" aria-hidden="true"></i> Tvastra 2020 </h6>
+    </div>
+
+</div>
+
+
+
+    <script>
+        // Use Javascript
+        var today = new Date();
+        console.log("today=",today)
+
+        var dd = today.getDate();
+        console.log("dd=",dd)
+
+        var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+        console.log("mm=",mm)
+
+        var yyyy = today.getFullYear();
+        console.log("yyyy=",yyyy)
+
+        if(dd<10){
+        dd='0'+dd
+        console.log("dd=",dd)
+
+        } 
+        if(mm<10){
+        mm='0'+mm
+        console.log("mm=",mm)
+
+        } 
+
+        today = yyyy+'-'+mm+'-'+dd;
+        console.log("today=",today)
+
+        document.getElementById("datefield").setAttribute("max", today);
+    </script>
+    <script>
+    //     heddin_doctor_div();
+    //     function heddin_doctor_div(){
+    //     var doctor_div = document.getElementById("doctor_div");
+    //     doctor_div.style.display = "none" ;
+    // }
+    
+    var abc = document.getElementById("doctor")
+    console.log("abcccccccccccc",abc)
+   
+        abc.addEventListener("click",e => {
+            if(abc.checked) {
+                console.log("true hai ");
+                document.querySelector(".showdocdiv").setAttribute("formaction" ,"signupdoc")
+            }
+            else {
+                console.log("jab check nahi hai");
+                document.querySelector(".showdocdiv").removeAttribute("formaction")
+            }
+        })
+   
+
+       
+    
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.min.js"></script>
+    <script>
+    var achivement = document.querySelector('input[name=achivement]');
+    new Tagify(achivement)
+
+    var hospital = document.querySelector('input[name=hospital]');
+    new Tagify(hospital)
+
+    var qualification = document.querySelector('input[name=qualification]');
+    new Tagify(qualification)
+
+    var awards = document.querySelector('input[name=awards]');
+    new Tagify(awards)
+
+    var specification = document.querySelector('input[name=specification]');
+    new Tagify(specification)
+
+    </script>
+    <script>
+
+        var state = false;
+         function toggle() {
+             if (state) {
+                 document.getElementsById("pswd").setAttribute("type","password");
+                 state = true;
+             }
+             else {
+                 document.getElementsById("pswd").setAttribute("type","text");
+                 state = false;
+             }
+         }
+         
+     
+         function toggle() {
+       var x = document.getElementById("pswd");
+       var y =document.getElementById("eye");
+       if (x.type === "password") {
+         x.type = "text";
+         y.style.color = "rgb(9, 116, 187)";
+       } else {
+         x.type = "password";
+         y.style.color = "grey";
+       }
+     
+     
+       
+     
+     
+     }
+     
+     </script>
+</body>
+</html>

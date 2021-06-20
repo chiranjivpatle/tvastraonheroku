@@ -1,0 +1,117 @@
+ <!--NavBar-->
+ <nav>
+
+    <div class="navbar_image">
+        <a href="/"><img  class="image1" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="tvastra logo"></a>
+    </div>
+    <% if(!data.admin){ %>
+    <ul id="navbar_menu">
+        <li><a href="../doctor">Doctors</a></li>
+        <li><a href="../hospital">Hospitals</a></li>
+
+        <li  class="dropdown">           
+            <div class="dropbtn">Treatment  
+                <i class="fa fa-caret-down"></i>  
+            </div>
+            <div class="dropdown-content">
+                <a href="../dentistry">Dentistry</a>
+                <!-- <a href="../createpassword">Create Password</a>
+                <a href="../emaillogin">Email login</a>
+                <a href="../filterdemo">filter</a>
+                <a href="../admin2users">admin2</a> -->
+
+
+                
+            </div>       
+        </li>
+
+        
+        <li><a href="../aboutus">About</a></li>
+    </ul>
+    <% } %>
+    <div class="item_and_button">
+        <% if(!data.admin){ %>
+        <div id="navbar_buttons">
+            <button class="tvastraplus"><a href="../tvastraplus">tvastraplus</a></button>
+            <button class="quote-button"><a href="../submit_your_query">Get a Quote</a></button>
+            
+            
+
+        </div>
+        <% } %>
+        <% if(data.user || data.admin) { %>
+            <div class = "whole_profile">
+                <div class="profile_data">
+                    <% if(!data.admin){ %>
+                        <h5> <%= data.user.name %>  </h5>
+                    <% }else{ %>
+                        <h5> <%= data.admin.name %>  </h5>
+                    <% } %>
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+
+                    <div class="dropdown-profile_data">
+                        <div class="main_profile" href="profile">
+                    
+
+                            
+                            <div class="profileandname">
+                                <div class = "imageofprofile">
+                                    <% if(!data.admin){ %>
+                                        <img src="./uploads/<%= data.user.file %>" alt="" id="preview">
+                                    <% }else{ %>
+                                        <img src="./uploads/<%= data.admin.file %>" alt="" id="preview">
+                                    <% } %>
+                                </div>
+                                <div class="nameandmob">
+                                    <% if(!data.admin){ %>
+                                        <div class="nameit"><a href="profile"><h5><%= data.user.name %></h5></a></div>
+                                        <a href="profile"><%= data.user.mobileNo %></a>
+                                    <% }else{ %>
+                                        <div class="nameit"><a href="profile"><h5><%= data.admin.name %></h5></a></div>
+                                        <a href="profile"><%= data.admin.mobileNo %></a>
+                                    <% } %>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">My Appointment</a>
+                        <a href="#">My Lab Test</a>
+                        <a href="#">My Medicine Orders</a>
+                        <a href="#">My payment</a>
+                        <a href="logout">Logout</a>
+                        
+                    </div>  
+            </div>
+            
+        <% } %>
+    </div>
+
+    <div id="nav_icon">
+        <i class="fa fa-bars" id="menu"></i>	
+    </div>
+
+</nav>
+
+<script>
+    var nav_icon = document.getElementById("nav_icon")
+    var navbar_menu = document.getElementById("navbar_menu")
+    var menu = document.getElementById("menu")
+    var navbar_buttons = document.getElementById("navbar_buttons");
+
+    nav_icon.onclick = function () {
+        if (navbar_menu.style.display == "none") {
+            navbar_menu.style.display = "flex";
+        }
+        else {
+            navbar_menu.style.display = "none";
+        }
+
+        if (navbar_buttons.style.display == "none") {
+            navbar_buttons.style.display = "flex";
+        }
+        else {
+            navbar_buttons.style.display = "none";
+        }
+    }
+</script>

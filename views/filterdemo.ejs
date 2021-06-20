@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/emaillogin.css">
+
+    <title>email-login</title>
+</head>
+<body>
+
+<!--NavBar-->
+<%- include('include/_navbar') %>
+
+
+
+<div class="main">
+
+    <div class="login-box">
+
+        
+    <div class="hello">
+        <input type="text" id="aakhiri_umeed" value="<%= data.emp %>">
+    </div>
+        <div class="form">
+            <form action="/filterdemo" method="POST" id="loginform" >
+                <h3>location</h3>
+                
+                <ul>
+                    <%
+                    var emtarr = []; 
+                    for(var i=0; i < data.all_doc_check.length; i++) { 
+                        var typehospital= data.all_doc_check[i].city.split(",")
+                        for(var j=0; j< typehospital.length ;j++) {
+                            if(emtarr.length > 0){
+                                for(var k=0; k < emtarr.length; k++){
+                                 var ok = 0;
+                                    if(typehospital[j] == emtarr[k] ){
+                                        k = emtarr.length;
+                                    }else{
+                                         ok = 1;
+                                    }
+                                }
+                                if(ok){
+                                    emtarr.push(typehospital[j]); 
+                                    %>
+                                    <li> <input type="checkbox" onchange="this.form.submit()" name="city" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"> <%= typehospital[j] %> </li>
+                        <%
+                                }
+                            }else{ 
+                                emtarr.push(typehospital[j])  %>
+                                <li> <input type="checkbox" onchange="this.form.submit()" name="city" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"> <%= typehospital[j] %> </li>
+                         <%   }
+                       } 
+                    } %>
+                </ul>
+
+                <h3>hospital</h3>
+
+                <ul>
+                    <%
+                    var emtarr = []; 
+                    for(var i=0; i < data.all_doc_check.length; i++) { 
+                        var typehospital= data.all_doc_check[i].hospital.split(",")
+                        for(var j=0; j< typehospital.length ;j++) {
+                            if(emtarr.length > 0){
+                                for(var k=0; k < emtarr.length; k++){
+                                 var ok = 0;
+                                    if(typehospital[j] == emtarr[k] ){
+                                        k = emtarr.length;
+                                    }else{
+                                         ok = 1;
+                                    }
+                                }
+                                if(ok){
+                                    emtarr.push(typehospital[j]); 
+                                    %>
+                                    <li> <input type="checkbox" onchange="this.form.submit()"  name="hospital" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"> <%= typehospital[j] %> </li>
+                        <%
+                                }
+                            }else{ 
+                                emtarr.push(typehospital[j])  %>
+                                <li> <input type="checkbox" onchange="this.form.submit()" name="hospital" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"> <%= typehospital[j] %> </li>
+                         <%   }
+                       } 
+                    } %>
+                </ul>
+
+                <h3>experience</h3>
+
+                <ul>
+                    <%
+                    var emtarr = []; 
+                    for(var i=0; i < data.all_doc_check.length; i++) { 
+                        var typehospital= data.all_doc_check[i].experience.split(",")
+                        for(var j=0; j< typehospital.length ;j++) {
+                            if(emtarr.length > 0){
+                                for(var k=0; k < emtarr.length; k++){
+                                 var ok = 0;
+                                    if(typehospital[j] == emtarr[k] ){
+                                        k = emtarr.length;
+                                    }else{
+                                         ok = 1;
+                                    }
+                                }
+                                if(ok){
+                                    emtarr.push(typehospital[j]); 
+                                    %>
+                                    <li> <input type="checkbox" onchange="this.form.submit()"  name="experience" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"> <%= typehospital[j] %> </li>
+                        <%
+                                }
+                            }else{ 
+                                emtarr.push(typehospital[j])  %>
+                                <li> <input type="checkbox" onchange="this.form.submit()" name="experience" id = "<%= typehospital[j] %>" value="<%= typehospital[j] %>"> <%= typehospital[j] %> </li>
+                         <%   }
+                       } 
+                    } %>
+                </ul>
+                
+                <button type="submit"> LOGIN <span> <i class="fa fa-arrow-right" aria-hidden="true"></i> </span></button>
+            </form>
+            <div>
+                <% for(var i=0; i < data.doctors.length; i++) { %>    
+                    
+                    <h4><%= data.doctors[i].name %></h4>
+                   
+                <% } %>
+            </div>
+        </div>
+    
+        <!-- onchange="this.form.submit()" -->
+    </div>
+
+    
+
+</div>
+
+   <script>
+       var aakhiri_umeed = document.getElementById("aakhiri_umeed").value
+       console.log("aakhiri_umeed",aakhiri_umeed);
+       aakhiri_umeed = aakhiri_umeed.split(",")
+       for( var i=0 ;i< aakhiri_umeed.length ; i++)
+       {
+
+           document.getElementById(`${aakhiri_umeed[i]}`).setAttribute("checked", "");
+        }
+
+   </script>
+</body>
+</html>

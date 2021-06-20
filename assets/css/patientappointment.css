@@ -1,0 +1,355 @@
+@import url(theme.css);
+section {
+  background-color: var(--secondary);
+}
+
+section #doctor-box {
+  background-color: var(--white);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+section #doctor-box h1 {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray);
+  color: var(--blue_sky);
+}
+
+section #doctor-box ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+section #doctor-box ul li {
+  font-size: 0.9rem;
+}
+
+section #doctor-box ul li i {
+  margin-right: 1rem;
+  color: var(--blue_sky);
+}
+
+section #doctor-box ul li a {
+  color: var(--blue_sky);
+  font-weight: bold;
+}
+
+section #doctor-box #doctor-info figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+}
+
+section #doctor-box #doctor-info figure .docimage {
+  width: 7rem;
+  height: 7rem;
+  padding-bottom: 0.5rem;
+}
+
+section #doctor-box #hospital-info figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+}
+
+section #doctor-box #hospital-info figure .hospimage {
+  width: 7rem;
+  height: 7rem;
+  padding-top: 0.5rem;
+  border-top: 0.1rem solid var(--gray);
+}
+
+section .form {
+  background-color: var(--white);
+  padding: 1rem;
+}
+
+section .form h2 {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray);
+  color: var(--blue_sky);
+}
+
+section .form form h5 {
+  width: 100%;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  color: var(--blackish_blue);
+}
+
+section .form form .radbut {
+  width: 100%;
+}
+
+section .form form .radbut input {
+  width: auto;
+}
+
+section .form form .radbut label {
+  font-weight: bold;
+}
+
+section .form form label {
+  width: 100%;
+  color: var(--blue_sky);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+section .form form button {
+  width: -webkit-fill-available;
+  margin-top: 1rem;
+}
+
+section .col2 i {
+  margin-right: 1rem;
+  color: var(--blue_sky);
+}
+
+section .col2 .patientDetails form .row1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+section .col2 .patientDetails form .row2 {
+  width: 100%;
+}
+
+section .col2 .patientDetails form .row2 .itemContainer label {
+  color: var(--blue_sky);
+  font-weight: bold;
+}
+
+section .col2 .patientDetails form .row2 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+section .col2 .patientDetails form .row2 .buttons .buttonContainer button {
+  background-color: var(--blue_sky);
+}
+
+.date-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 1 / span 1 / span 2;
+}
+
+.date-container .date-groups {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.date-container .date-groups .dates {
+  width: 17rem;
+  text-align: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.date-container .date-groups .dates:hover {
+  border-bottom: 3px solid #0c71a7;
+}
+
+.date-container .date-groups .dates h4 {
+  margin: 0;
+}
+
+.date-container .date-groups .active h5 {
+  border-bottom: 3px solid #0c71a7;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.date-container .back-button {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  left: 0;
+  background: grey;
+  border-radius: 50%;
+  padding: 0.5rem 0.8rem;
+}
+
+.date-container .back-button h4 {
+  color: white;
+}
+
+.date-container .frountbutton {
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  background: grey;
+  border-radius: 50%;
+  padding: 0.5rem 0.8rem;
+  right: 0;
+}
+
+.date-container .frountbutton h4 {
+  color: white;
+}
+
+.slots {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 3 / 1 / span 1 / span 2;
+}
+
+.slots .bookingtimegroup {
+  display: none;
+}
+
+.slots .bookingtimegroup .booking-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.slots .bookingtimegroup .booking-time .daytime {
+  margin-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  align-items: center;
+  width: 6rem;
+  margin-bottom: 0.5rem;
+}
+
+.slots .bookingtimegroup .booking-time ul {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.slots .bookingtimegroup .booking-time ul li {
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0.7rem 1rem;
+  margin: 0.2rem;
+  z-index: 1;
+}
+
+.slots .bookingtimegroup .booking-hospital-name {
+  text-align: center;
+  color: #3d4d25;
+}
+
+.slots .active {
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 1rem;
+            column-gap: 1rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section #doctor-box {
+    overflow: hidden;
+  }
+  section #doctor-box ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  section #doctor-box #doctor-info figure figcaption ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  section {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  section #doctor-box ul {
+    width: 70%;
+  }
+}
+
+/*
+
+*/
+/*# sourceMappingURL=patientappointment.css.map */

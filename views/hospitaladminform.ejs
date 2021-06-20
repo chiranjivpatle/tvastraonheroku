@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    
+     
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    
+
+
+<!-- include nav-->
+<%- include('include/_navbar') %>
+<!-- /include nav -->
+
+<% if(data.succ){ %>
+    <div class="alert">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <div class="alert_content">
+            <h4>success</h4>
+            <p> <strong> <%= data.succ %> </strong> </p>
+        </div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div>
+<% } %>
+
+<section class="profile">
+    <div class="dashbord">
+        <h2>dashbord</h2>
+        <div class="dashbord_button">
+            <a href="/admin">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>dashbord</p></div>
+            </a>
+            <a href="/useradmin">
+                <div class="dash_btn dot profile_page"  ><i class="fa fa-user" aria-hidden="true"></i> <p>user</p></div>
+            </a>
+            <a href="/doctoradmin">
+                <div class="dash_btn dot"  ><i class="fa fa-th-list" aria-hidden="true"></i> <p>doctor</p></div>
+            </a>
+            <a href="/hospitaladmin">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>hospital </p></div>
+            </a>
+            <a href="/settingadmin">
+                <div class="dash_btn dot"  ><i class="fa fa-user" aria-hidden="true"></i> <p>setting</p></div>
+            </a>
+        </div> 
+    </div>
+
+    <div class="dashbord_content1 mySlides">
+        <form action="hospitaladminform" method="POST"  enctype="multipart/form-data" >
+            <h2>edit hospital</h2>
+            <input type="hidden"  value="<%= data.obj.id  %>" name="id" >
+            <div class="inputgroup">
+                <h3>name</h3>
+                <input type="text" value="<%= data.obj.name  %>" name="name">
+            </div>
+            <div class="inputgroup">
+                <h3>bed</h3>
+                <input type="text" name="bed" value="<%= data.obj.bed  %>" >
+            </div>
+            <div class="inputgroup">
+                <h3>speciality</h3>
+                <input type="text" name="speciality" value="<%= data.obj.speciality  %>" >
+            </div>
+            <div class="inputgroup">
+                <h3>address</h3>
+                <input type="text" name="address" value="<%= data.obj.address  %>" >
+            </div>
+            <div class="inputgroup">
+                <h3>treatment</h3>
+                <input type="text" name="treatment" value="<%= data.obj.treatment  %>" >
+            </div>
+            <div class="inputgroup">
+                <h3>discription</h3>
+                <textarea name="discription" id="" cols="3" rows="5"><%= data.obj.discription  %></textarea>
+            </div>
+            <div class="inputgroup">
+                <h3>profile pic</h3>
+                <input type="file" name="file" required >
+            </div>
+
+            <button type="submit"> submit   </button>
+        </form>
+    </div>
+
+</section>
+
+<script>
+    async function showMenu(menuId) {
+        var menuItem = document.querySelector("#menuItem" + menuId);
+        if (menuItem.style.height === "unset")
+            menuItem.style.height = 0;
+        else
+            menuItem.style.height = "unset";
+    }
+</script>
+
+
+
+<!-- include _footer-->
+<%- include('include/_footer') %>
+
+<!-- /include _footer -->
+
+
+
+</body>
+</html>
